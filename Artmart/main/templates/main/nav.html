@@ -1,0 +1,934 @@
+{%block topnavcontent%}
+
+
+<!-- the main nav in the top which contains the logo, search, login  -->
+        <div class="topbar">
+            <div class="container">
+                <div class="topbar-wrap">
+                    <div class="header-logo">
+                        <a href="{% url 'main' %}">
+                            <img class="img-fluid light"
+                                src="https://artmart-wp.egenstheme.com/wp-content/plugins/artmart-core//inc/theme-options/images/logo/header-light.svg"
+                                alt="Artmart – Art &amp; Auction WordPress Theme">
+
+                            <img class="img-fluid dark"
+                                src="https://artmart-wp.egenstheme.com/wp-content/plugins/artmart-core//inc/theme-options/images/logo/logo-dark.svg"
+                                alt="Artmart – Art &amp; Auction WordPress Theme">
+                        </a>
+                    </div>
+
+
+                    <!-- convert search only for woocommerce -->
+                    <div class="search-area">
+            <form role="search" method="get" action="{% url 'search_results' %}">
+                <div class="form-inner">
+                    <input type="text" placeholder="Search artworks here" name="q" value="{{ request.GET.q }}">
+                    <button type="submit">
+                        <svg width="17" height="17" viewBox="0 0 17 17" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7.20349 0.448242C5.41514 0.45124 3.70089 1.16299 2.43633 2.42755C1.17178 3.6921 0.460029 5.40635 0.457031 7.1947C0.458526 8.98456 1.16943 10.7008 2.43399 11.9675C3.69855 13.2342 5.41364 13.948 7.20349 13.9525C8.79089 13.9525 10.2536 13.3941 11.4101 12.47L15.0578 16.1179C15.2002 16.2503 15.3882 16.3223 15.5825 16.3189C15.7768 16.3155 15.9622 16.2369 16.0998 16.0997C16.2374 15.9625 16.3165 15.7773 16.3204 15.583C16.3243 15.3887 16.2528 15.2005 16.1208 15.0578L12.4731 11.407C13.4325 10.2138 13.9556 8.72863 13.9556 7.19753C13.9556 3.47848 10.9225 0.448242 7.20349 0.448242ZM7.20349 1.9506C10.1118 1.9506 12.4533 4.28919 12.4533 7.1947C12.4533 10.1002 10.1118 12.453 7.20349 12.453C4.29514 12.453 1.95656 10.1087 1.95656 7.20037C1.95656 4.29202 4.29514 1.9506 7.20349 1.9506Z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </form>
+        </div>
+
+
+                    <div class="topbar-right">
+                        <div class="language-area">
+                            <div class="language-btn">
+                                <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <g>
+                                        <path
+                                            d="M17.5234 3.41852C17.5044 3.38925 17.4807 3.36337 17.4531 3.34196C16.5167 2.28999 15.3683 1.4481 14.0834 0.871604C12.7984 0.295111 11.406 -0.00292969 9.99766 -0.00292969C8.58931 -0.00292969 7.1969 0.295111 5.91195 0.871604C4.62699 1.4481 3.47858 2.28999 2.54219 3.34196C2.51602 3.36269 2.49334 3.38748 2.47501 3.41539V3.42321C1.21087 4.86932 0.389958 6.6489 0.110399 8.54919C-0.16916 10.4495 0.104467 12.3901 0.898569 14.139C1.69267 15.8879 2.97364 17.3711 4.58835 18.4113C6.20305 19.4515 8.08317 20.0047 10.0039 20.0047C11.9247 20.0047 13.8048 19.4515 15.4195 18.4113C17.0342 17.3711 18.3152 15.8879 19.1093 14.139C19.9034 12.3901 20.177 10.4495 19.8974 8.54919C19.6179 6.6489 18.797 4.86932 17.5328 3.42321L17.5234 3.41852ZM17.2109 15.9826C16.501 15.5682 15.7475 15.2333 14.9641 14.9841C15.4499 13.4737 15.7064 11.8988 15.725 10.3123H19.3672C19.3005 12.3903 18.5416 14.3866 17.2109 15.9841V15.9826ZM0.632819 10.3123H4.27501C4.29348 11.8994 4.54998 13.4747 5.03594 14.9857C4.25255 15.2349 3.49904 15.5697 2.78907 15.9841C1.4584 14.3866 0.699495 12.3903 0.632819 10.3123ZM2.81251 3.99196C3.51898 4.4026 4.26822 4.73478 5.04688 4.98258C4.55383 6.50292 4.2936 8.08909 4.27501 9.68727H0.632819C0.700916 7.59827 1.4685 5.59264 2.81251 3.99196ZM10.3125 5.72477C11.6851 5.70532 13.0499 5.51425 14.375 5.15602C14.8427 6.62167 15.0892 8.14889 15.1063 9.68727H10.3125V5.72477ZM10.3125 5.09977V0.643518C11.8969 0.820081 13.2813 2.32946 14.1563 4.56696C12.9017 4.90129 11.6107 5.08024 10.3125 5.09977ZM9.68751 5.09977C8.38927 5.08025 7.09835 4.90131 5.84376 4.56696C6.71876 2.32946 8.10313 0.820081 9.68751 0.643518V5.09977ZM9.68751 5.72477V9.68727H4.90001C4.91505 8.14921 5.1594 6.62199 5.62501 5.15602C6.95016 5.51424 8.31492 5.7053 9.68751 5.72477ZM4.90001 10.3123H9.68751V14.2404C8.31479 14.2608 6.95002 14.4529 5.62501 14.8123C5.16282 13.3562 4.91851 11.8398 4.90001 10.3123ZM9.68751 14.8654V19.356C8.09688 19.1779 6.70001 17.656 5.83126 15.4013C7.08976 15.0648 8.38495 14.8848 9.68751 14.8654ZM10.3125 14.8654C11.6151 14.8849 12.9103 15.0649 14.1688 15.4013C13.3 17.656 11.9031 19.1779 10.3125 19.356V14.8654ZM10.3125 14.2404V10.3123H15.1C15.0814 11.8393 14.837 13.3552 14.375 14.8107C13.0499 14.4519 11.6852 14.2603 10.3125 14.2404ZM15.725 9.68727C15.7064 8.08909 15.4462 6.50292 14.9531 4.98258C15.7318 4.73478 16.481 4.4026 17.1875 3.99196C18.5315 5.59264 19.2991 7.59827 19.3672 9.68727H15.725ZM16.7641 3.51852C16.1219 3.87875 15.4444 4.17196 14.7422 4.39352C14.1656 2.91227 13.3656 1.71852 12.4281 0.945081C14.0813 1.39084 15.5809 2.28085 16.7641 3.51852ZM7.57188 0.945081C6.63438 1.71383 5.83594 2.91071 5.25938 4.39352C4.5572 4.17196 3.87968 3.87875 3.23751 3.51852C4.42026 2.28109 5.91924 1.3911 7.57188 0.945081ZM3.21407 16.4591C3.85871 16.0948 4.53945 15.7985 5.24532 15.5748C5.82344 17.0716 6.62657 18.281 7.57032 19.0545C5.9074 18.6059 4.40018 17.708 3.21407 16.4591ZM12.4328 19.0545C13.3703 18.2732 14.1797 17.0716 14.7578 15.5748C15.4637 15.7985 16.1444 16.0948 16.7891 16.4591C15.6017 17.7087 14.0927 18.6067 12.4281 19.0545H12.4328Z">
+                                        </path>
+                                    </g>
+                                </svg>
+                                <span>
+                                    English <svg width="8" height="5" viewBox="0 0 8 5"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8 0L4.04119 5L0 0"></path>
+                                    </svg>
+                                </span>
+                            </div>
+                            <ul class="language-list">
+                                <li><a href="#">English</a></li>
+                                <li><a href="#">Deutsch</a></li>
+                                <li><a href="#">Svenska</a></li>
+                                <li><a href="#">اردو</a></li>
+                                <li><a href="#">عربي</a></li>
+                                <li><a href="#">Nederlands</a></li>
+                            </ul>
+                        </div>
+
+
+                        <a href="https://artmart-wp.egenstheme.com/wishlist/" class="wishlist-btn">
+                            <svg width="18" height="16" viewBox="0 0 18 16" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M8.99937 15.3808C8.75721 15.3814 8.51732 15.334 8.29357 15.2413C8.06983 15.1487 7.86666 15.0126 7.69581 14.841L1.73259 8.87756C0.847175 7.99214 0.359375 6.81494 0.359375 5.5625V5.48924C0.359375 4.2368 0.847175 3.05942 1.73259 2.17418C2.61801 1.28894 3.79557 0.800781 5.04747 0.800781H5.12127C6.37317 0.800781 7.55073 1.28858 8.43615 2.174L8.99937 2.73722L9.5626 2.174C10.448 1.28858 11.6256 0.800781 12.8775 0.800781H12.9513C14.2032 0.800781 15.3807 1.28858 16.2662 2.174C17.1516 3.05942 17.6394 4.23662 17.6394 5.48906V5.56232C17.6394 6.81476 17.1516 7.99214 16.2662 8.87738L10.3029 14.8408C10.1321 15.0125 9.92896 15.1486 9.70521 15.2413C9.48147 15.334 9.24156 15.3814 8.99937 15.3808ZM8.45937 14.0772C8.74881 14.3661 9.25047 14.3654 9.53937 14.077L15.5026 8.11418C15.8386 7.77981 16.1051 7.38213 16.2865 6.94414C16.4678 6.50616 16.5606 6.03656 16.5594 5.5625V5.48924C16.5594 4.52534 16.1839 3.61922 15.5026 2.93774C14.8213 2.25626 13.9148 1.88078 12.9513 1.88078H12.8775C12.4035 1.87945 11.9339 1.97216 11.4959 2.15356C11.058 2.33496 10.6604 2.60144 10.3262 2.93756L9.38115 3.88256C9.33104 3.93273 9.27152 3.97253 9.20601 3.99968C9.14051 4.02684 9.07029 4.04082 8.99937 4.04082C8.92846 4.04082 8.85824 4.02684 8.79274 3.99968C8.72723 3.97253 8.66771 3.93273 8.61759 3.88256L7.6726 2.93756C7.33835 2.60144 6.94075 2.33496 6.50281 2.15356C6.06487 1.97216 5.59529 1.87945 5.12127 1.88078H5.04747C4.08393 1.88078 3.17745 2.2559 2.49616 2.93756C1.81485 3.61922 1.43937 4.52516 1.43937 5.48906V5.56232C1.43811 6.03636 1.53085 6.50594 1.71225 6.9439C1.89364 7.38186 2.16008 7.7795 2.49616 8.11382L8.45937 14.0772Z">
+                                </path>
+                            </svg>
+                        </a>
+
+                        <a class="header-btn btn-hover" href="https://artmart-wp.egenstheme.com/my-account/">
+                            <svg width="14" height="14" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg">
+                                <g>
+                                    <path
+                                        d="M7.7479 6.74386C8.67435 6.74386 9.47651 6.41155 10.1321 5.75593C10.7875 5.10045 11.1199 4.2984 11.1199 3.37183C11.1199 2.44554 10.7876 1.64341 10.132 0.987682C9.4764 0.332281 8.67425 0 7.7479 0C6.8213 0 6.01923 0.332281 5.36374 0.987791C4.70826 1.6433 4.37584 2.44546 4.37584 3.37183C4.37584 4.2984 4.70823 5.10056 5.36377 5.75607C6.01947 6.41147 6.82163 6.74386 7.74787 6.74386H7.7479ZM5.94395 1.56789C6.44691 1.0649 7.03696 0.82042 7.7479 0.82042C8.45872 0.82042 9.04885 1.0649 9.55192 1.56789C10.0549 2.07096 10.2995 2.66109 10.2995 3.37181C10.2995 4.08274 10.0549 4.67279 9.55192 5.17586C9.04885 5.67896 8.45872 5.92344 7.7479 5.92344C7.03715 5.92344 6.44716 5.67885 5.94395 5.17586C5.44085 4.6729 5.19626 4.08277 5.19626 3.37183C5.19626 2.66109 5.44085 2.07096 5.94395 1.56789ZM13.648 10.7653C13.6291 10.4925 13.5909 10.1949 13.5346 9.8807C13.4778 9.56409 13.4046 9.26481 13.317 8.99126C13.2265 8.70853 13.1035 8.42935 12.9513 8.16177C12.7935 7.88406 12.6081 7.64223 12.4 7.44325C12.1825 7.23509 11.9161 7.06772 11.608 6.9456C11.3011 6.82419 10.9609 6.76267 10.597 6.76267C10.454 6.76267 10.3159 6.8213 10.0489 6.99509C9.85918 7.11864 9.66888 7.24133 9.47801 7.36314C9.29462 7.48 9.04617 7.58949 8.7393 7.68861C8.43991 7.78549 8.13593 7.83462 7.83578 7.83462C7.53587 7.83462 7.23186 7.78549 6.93226 7.68861C6.62574 7.58957 6.37718 7.48011 6.19409 7.36325C5.98163 7.22749 5.7894 7.10359 5.62266 6.99495C5.35595 6.82119 5.21773 6.76253 5.07483 6.76253C4.7108 6.76253 4.37073 6.82417 4.06385 6.94574C3.75602 7.06761 3.48952 7.23498 3.27173 7.44336C3.06367 7.64245 2.87826 7.88414 2.72059 8.16177C2.56862 8.42932 2.44557 8.70842 2.35498 8.99137C2.26748 9.26492 2.19434 9.56409 2.13752 9.8807C2.08111 10.1945 2.04299 10.4922 2.02407 10.7656C2.00547 11.033 1.99609 11.3112 1.99609 11.5923C1.99609 12.3231 2.22841 12.9148 2.68652 13.3511C3.13898 13.7817 3.73756 14 4.46567 14H11.2068C11.9347 14 12.5332 13.7817 12.9858 13.3511C13.444 12.9151 13.6763 12.3233 13.6763 11.5922C13.6762 11.3101 13.6667 11.0319 13.648 10.7653ZM12.4201 12.7567C12.1212 13.0412 11.7242 13.1796 11.2066 13.1796H4.46569C3.948 13.1796 3.55108 13.0412 3.25221 12.7568C2.95903 12.4777 2.81654 12.0967 2.81654 11.5923C2.81654 11.33 2.82518 11.071 2.84252 10.8223C2.85936 10.5784 2.89387 10.3104 2.94506 10.0256C2.99556 9.74439 3.05985 9.48047 3.13633 9.24154C3.20972 9.0124 3.30979 8.78556 3.43391 8.56703C3.55236 8.35872 3.68864 8.18003 3.83903 8.03607C3.97971 7.90137 4.15704 7.79115 4.36594 7.70849C4.55916 7.63198 4.77632 7.59012 5.01205 7.5838C5.04076 7.59911 5.09195 7.62826 5.17483 7.68229C5.34348 7.79222 5.53787 7.91761 5.75279 8.05485C5.99505 8.20932 6.30713 8.3488 6.68001 8.46916C7.06121 8.59243 7.45001 8.65502 7.83591 8.65502C8.22184 8.65502 8.61073 8.59243 8.99173 8.46927C9.36492 8.34869 9.67691 8.20932 9.9195 8.05463C10.1394 7.91409 10.3284 7.79232 10.497 7.68229C10.5799 7.62834 10.6311 7.59909 10.6598 7.58383C10.8956 7.59012 11.1128 7.63198 11.3061 7.70846C11.5149 7.79115 11.6923 7.90148 11.8329 8.03604C11.9833 8.17992 12.1196 8.35864 12.238 8.56713C12.3623 8.78556 12.4625 9.01254 12.5357 9.24143C12.6123 9.48069 12.6767 9.7445 12.7271 10.0255C12.7782 10.3108 12.8128 10.5789 12.8297 10.8224V10.8227C12.8471 11.0703 12.8558 11.3293 12.8559 11.5923C12.8558 12.0968 12.7133 12.4777 12.4202 12.7567H12.4201Z">
+                                    </path>
+                                </g>
+                            </svg>
+                            <span>My Account</span>
+                            <strong style="top: 3.8px; left: -13.2334px;"></strong>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- this is the secound levle nav and the drop down list -->
+        <header class="header-area style-1">
+            <div class="container d-flex flex-nowrap align-items-center justify-content-between">
+                <div class="header-logo d-lg-none d-block">
+
+                    <a href="https://artmart-wp.egenstheme.com/">
+                        <img class="img-fluid light"
+                            src="https://artmart-wp.egenstheme.com/wp-content/plugins/artmart-core//inc/theme-options/images/logo/header-light.svg"
+                            alt="Artmart – Art &amp; Auction WordPress Theme">
+
+                        <img class="img-fluid dark"
+                            src="https://artmart-wp.egenstheme.com/wp-content/plugins/artmart-core//inc/theme-options/images/logo/logo-dark.svg"
+                            alt="Artmart – Art &amp; Auction WordPress Theme">
+                    </a>
+
+                </div>
+                <div class="main-menu">
+                    <div class="mobile-logo-area d-lg-none d-flex justify-content-center">
+                        <a href="https://artmart-wp.egenstheme.com/" class="mobile-logo-wrap">
+                            <img class="img-fluid light"
+                                src="https://artmart-wp.egenstheme.com/wp-content/plugins/artmart-core//inc/theme-options/images/logo/header-light.svg"
+                                alt="Artmart – Art &amp; Auction WordPress Theme">
+
+                            <img class="img-fluid dark"
+                                src="https://artmart-wp.egenstheme.com/wp-content/plugins/artmart-core//inc/theme-options/images/logo/logo-dark.svg"
+                                alt="Artmart – Art &amp; Auction WordPress Theme">
+                        </a>
+
+                    </div>
+
+                    <ul id="menu-main-menu" class="menu-list">
+                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a
+                                href="#" class="menu-link">Home</a><i class="bi bi-plus dropdown-icon"></i>
+                            <ul class="sub-menu two">
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home"><a
+                                        href="https://artmart-wp.egenstheme.com/" class="menu-link">Home 01</a><i
+                                        class="bi bi-plus dropdown-icon"></i></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page"><a
+                                        href="https://artmart-wp.egenstheme.com/home-two/" class="menu-link">Home
+                                        02</a><i class="bi bi-plus dropdown-icon"></i></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a
+                                href="#" class="menu-link">Artists Portfolio</a>
+                            <div class="mega-menu2">
+                                <div data-elementor-type="wp-post" data-elementor-id="120"
+                                    class="elementor elementor-120">
+                                    <div class="elementor-element elementor-element-9b1f118 e-flex e-con-boxed e-con e-parent e-lazyloaded"
+                                        data-id="9b1f118" data-element_type="container">
+                                        <div class="e-con-inner">
+                                            <div class="elementor-element elementor-element-29cbb2e e-con-full e-flex e-con e-child"
+                                                data-id="29cbb2e" data-element_type="container">
+                                                <div class="elementor-element elementor-element-f35b27c e-con-full e-flex e-con e-child"
+                                                    data-id="f35b27c" data-element_type="container">
+                                                    <div class="elementor-element elementor-element-2a1dfff e-con-full e-flex e-con e-child"
+                                                        data-id="2a1dfff" data-element_type="container">
+                                                        <div class="elementor-element elementor-element-6089ad7 elementor-widget elementor-widget-image"
+                                                            data-id="6089ad7" data-element_type="widget"
+                                                            data-widget_type="image.default">
+                                                            <div class="elementor-widget-container">
+                                                                <a
+                                                                    href="https://artmart-wp.egenstheme.com/artists/frida-kahlo/">
+                                                                    <img width="150" height="150"
+                                                                        src="https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/artists-13-150x150.jpg"
+                                                                        class="attachment-thumbnail size-thumbnail wp-image-366"
+                                                                        alt=""
+                                                                        srcset="https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/artists-13-150x150.jpg 150w, https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/artists-13-300x300.jpg 300w"
+                                                                        sizes="(max-width: 150px) 100vw, 150px"> </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="elementor-element elementor-element-f3b7cbf e-con-full e-flex e-con e-child"
+                                                        data-id="f3b7cbf" data-element_type="container">
+                                                        <div class="elementor-element elementor-element-c257138 elementor-widget elementor-widget-heading"
+                                                            data-id="c257138" data-element_type="widget"
+                                                            data-widget_type="heading.default">
+                                                            <div class="elementor-widget-container">
+                                                                <h6
+                                                                    class="elementor-heading-title elementor-size-default">
+                                                                    <a
+                                                                        href="https://artmart-wp.egenstheme.com/artists/frida-kahlo/">Frida
+                                                                        Kahlo</a></h6>
+                                                            </div>
+                                                        </div>
+                                                        <div class="elementor-element elementor-element-9cbb18b elementor-widget elementor-widget-heading"
+                                                            data-id="9cbb18b" data-element_type="widget"
+                                                            data-widget_type="heading.default">
+                                                            <div class="elementor-widget-container">
+                                                                <span
+                                                                    class="elementor-heading-title elementor-size-default">Mexico</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="elementor-element elementor-element-7edc720 e-con-full e-flex e-con e-child"
+                                                    data-id="7edc720" data-element_type="container">
+                                                    <div class="elementor-element elementor-element-db13282 e-con-full e-flex e-con e-child"
+                                                        data-id="db13282" data-element_type="container">
+                                                        <div class="elementor-element elementor-element-cd1c24d elementor-widget elementor-widget-image"
+                                                            data-id="cd1c24d" data-element_type="widget"
+                                                            data-widget_type="image.default">
+                                                            <div class="elementor-widget-container">
+                                                                <a
+                                                                    href="https://artmart-wp.egenstheme.com/artists/leonardo-da-vinci/">
+                                                                    <img width="150" height="150"
+                                                                        src="https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/artists-11-150x150.webp"
+                                                                        class="attachment-thumbnail size-thumbnail wp-image-343"
+                                                                        alt=""
+                                                                        srcset="https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/artists-11-150x150.webp 150w, https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/artists-11-300x300.webp 300w"
+                                                                        sizes="(max-width: 150px) 100vw, 150px"> </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="elementor-element elementor-element-186db01 e-con-full e-flex e-con e-child"
+                                                        data-id="186db01" data-element_type="container">
+                                                        <div class="elementor-element elementor-element-62c24f6 elementor-widget elementor-widget-heading"
+                                                            data-id="62c24f6" data-element_type="widget"
+                                                            data-widget_type="heading.default">
+                                                            <div class="elementor-widget-container">
+                                                                <h6
+                                                                    class="elementor-heading-title elementor-size-default">
+                                                                    <a
+                                                                        href="https://artmart-wp.egenstheme.com/artists/leonardo-da-vinci/">Leonardo
+                                                                        da Vinci</a></h6>
+                                                            </div>
+                                                        </div>
+                                                        <div class="elementor-element elementor-element-68a8c22 elementor-widget elementor-widget-heading"
+                                                            data-id="68a8c22" data-element_type="widget"
+                                                            data-widget_type="heading.default">
+                                                            <div class="elementor-widget-container">
+                                                                <span
+                                                                    class="elementor-heading-title elementor-size-default">Italy</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="elementor-element elementor-element-40459e0 e-con-full e-flex e-con e-child"
+                                                data-id="40459e0" data-element_type="container">
+                                                <div class="elementor-element elementor-element-dd79c5e e-con-full e-flex e-con e-child"
+                                                    data-id="dd79c5e" data-element_type="container">
+                                                    <div class="elementor-element elementor-element-ccc5eca e-con-full e-flex e-con e-child"
+                                                        data-id="ccc5eca" data-element_type="container">
+                                                        <div class="elementor-element elementor-element-889f293 elementor-widget elementor-widget-image"
+                                                            data-id="889f293" data-element_type="widget"
+                                                            data-widget_type="image.default">
+                                                            <div class="elementor-widget-container">
+                                                                <a
+                                                                    href="https://artmart-wp.egenstheme.com/artists/yayoi-kusama/">
+                                                                    <img width="150" height="150"
+                                                                        src="https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/artists-6-150x150.webp"
+                                                                        class="attachment-thumbnail size-thumbnail wp-image-346"
+                                                                        alt=""
+                                                                        srcset="https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/artists-6-150x150.webp 150w, https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/artists-6-300x300.webp 300w"
+                                                                        sizes="(max-width: 150px) 100vw, 150px"> </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="elementor-element elementor-element-7a1a547 e-con-full e-flex e-con e-child"
+                                                        data-id="7a1a547" data-element_type="container">
+                                                        <div class="elementor-element elementor-element-5963f15 elementor-widget elementor-widget-heading"
+                                                            data-id="5963f15" data-element_type="widget"
+                                                            data-widget_type="heading.default">
+                                                            <div class="elementor-widget-container">
+                                                                <h6
+                                                                    class="elementor-heading-title elementor-size-default">
+                                                                    <a
+                                                                        href="https://artmart-wp.egenstheme.com/artists/yayoi-kusama/">Yayoi
+                                                                        Kusama</a></h6>
+                                                            </div>
+                                                        </div>
+                                                        <div class="elementor-element elementor-element-1c932c7 elementor-widget elementor-widget-heading"
+                                                            data-id="1c932c7" data-element_type="widget"
+                                                            data-widget_type="heading.default">
+                                                            <div class="elementor-widget-container">
+                                                                <span
+                                                                    class="elementor-heading-title elementor-size-default">Japan</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="elementor-element elementor-element-5c59823 e-con-full e-flex e-con e-child"
+                                                    data-id="5c59823" data-element_type="container">
+                                                    <div class="elementor-element elementor-element-31a810d e-con-full e-flex e-con e-child"
+                                                        data-id="31a810d" data-element_type="container">
+                                                        <div class="elementor-element elementor-element-915af6d elementor-widget elementor-widget-image"
+                                                            data-id="915af6d" data-element_type="widget"
+                                                            data-widget_type="image.default">
+                                                            <div class="elementor-widget-container">
+                                                                <a
+                                                                    href="https://artmart-wp.egenstheme.com/artists/pablo-picasso/">
+                                                                    <img loading="lazy" width="150" height="150"
+                                                                        src="https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/artists-12-150x150.webp"
+                                                                        class="attachment-thumbnail size-thumbnail wp-image-342"
+                                                                        alt=""
+                                                                        srcset="https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/artists-12-150x150.webp 150w, https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/artists-12-300x300.webp 300w"
+                                                                        sizes="(max-width: 150px) 100vw, 150px"> </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="elementor-element elementor-element-a253e80 e-con-full e-flex e-con e-child"
+                                                        data-id="a253e80" data-element_type="container">
+                                                        <div class="elementor-element elementor-element-af3e6d3 elementor-widget elementor-widget-heading"
+                                                            data-id="af3e6d3" data-element_type="widget"
+                                                            data-widget_type="heading.default">
+                                                            <div class="elementor-widget-container">
+                                                                <h6
+                                                                    class="elementor-heading-title elementor-size-default">
+                                                                    <a
+                                                                        href="https://artmart-wp.egenstheme.com/artists/pablo-picasso/">Pablo
+                                                                        Picasso</a></h6>
+                                                            </div>
+                                                        </div>
+                                                        <div class="elementor-element elementor-element-0400d21 elementor-widget elementor-widget-heading"
+                                                            data-id="0400d21" data-element_type="widget"
+                                                            data-widget_type="heading.default">
+                                                            <div class="elementor-widget-container">
+                                                                <span
+                                                                    class="elementor-heading-title elementor-size-default">Spain</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="elementor-element elementor-element-927b424 e-con-full e-flex e-con e-child"
+                                                data-id="927b424" data-element_type="container">
+                                                <div class="elementor-element elementor-element-71ef32a e-con-full e-flex e-con e-child"
+                                                    data-id="71ef32a" data-element_type="container">
+                                                    <div class="elementor-element elementor-element-2149838 e-con-full e-flex e-con e-child"
+                                                        data-id="2149838" data-element_type="container">
+                                                        <div class="elementor-element elementor-element-5bddf21 elementor-widget elementor-widget-image"
+                                                            data-id="5bddf21" data-element_type="widget"
+                                                            data-widget_type="image.default">
+                                                            <div class="elementor-widget-container">
+                                                                <a
+                                                                    href="https://artmart-wp.egenstheme.com/artists/gustav-klimt/">
+                                                                    <img loading="lazy" width="150" height="150"
+                                                                        src="https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/artists-9-150x150.webp"
+                                                                        class="attachment-thumbnail size-thumbnail wp-image-352"
+                                                                        alt=""
+                                                                        srcset="https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/artists-9-150x150.webp 150w, https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/artists-9-300x300.webp 300w"
+                                                                        sizes="(max-width: 150px) 100vw, 150px"> </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="elementor-element elementor-element-26a328b e-con-full e-flex e-con e-child"
+                                                        data-id="26a328b" data-element_type="container">
+                                                        <div class="elementor-element elementor-element-7c7b880 elementor-widget elementor-widget-heading"
+                                                            data-id="7c7b880" data-element_type="widget"
+                                                            data-widget_type="heading.default">
+                                                            <div class="elementor-widget-container">
+                                                                <h6
+                                                                    class="elementor-heading-title elementor-size-default">
+                                                                    <a
+                                                                        href="https://artmart-wp.egenstheme.com/artists/gustav-klimt/">Gustav
+                                                                        Klimt</a></h6>
+                                                            </div>
+                                                        </div>
+                                                        <div class="elementor-element elementor-element-2f39c6e elementor-widget elementor-widget-heading"
+                                                            data-id="2f39c6e" data-element_type="widget"
+                                                            data-widget_type="heading.default">
+                                                            <div class="elementor-widget-container">
+                                                                <span
+                                                                    class="elementor-heading-title elementor-size-default">France</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="elementor-element elementor-element-668c286 e-con-full e-flex e-con e-child"
+                                                    data-id="668c286" data-element_type="container">
+                                                    <div class="elementor-element elementor-element-88af9b8 e-con-full e-flex e-con e-child"
+                                                        data-id="88af9b8" data-element_type="container">
+                                                        <div class="elementor-element elementor-element-03c45fd elementor-widget elementor-widget-image"
+                                                            data-id="03c45fd" data-element_type="widget"
+                                                            data-widget_type="image.default">
+                                                            <div class="elementor-widget-container">
+                                                                <a
+                                                                    href="https://artmart-wp.egenstheme.com/artists/diego-rivera/">
+                                                                    <img loading="lazy" width="150" height="150"
+                                                                        src="https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/artists-7-150x150.webp"
+                                                                        class="attachment-thumbnail size-thumbnail wp-image-353"
+                                                                        alt=""
+                                                                        srcset="https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/artists-7-150x150.webp 150w, https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/artists-7-300x300.webp 300w"
+                                                                        sizes="(max-width: 150px) 100vw, 150px"> </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="elementor-element elementor-element-79bdfbe e-con-full e-flex e-con e-child"
+                                                        data-id="79bdfbe" data-element_type="container">
+                                                        <div class="elementor-element elementor-element-5621005 elementor-widget elementor-widget-heading"
+                                                            data-id="5621005" data-element_type="widget"
+                                                            data-widget_type="heading.default">
+                                                            <div class="elementor-widget-container">
+                                                                <h6
+                                                                    class="elementor-heading-title elementor-size-default">
+                                                                    <a
+                                                                        href="https://artmart-wp.egenstheme.com/artists/diego-rivera/">Diego
+                                                                        Rivera</a></h6>
+                                                            </div>
+                                                        </div>
+                                                        <div class="elementor-element elementor-element-639b769 elementor-widget elementor-widget-heading"
+                                                            data-id="639b769" data-element_type="widget"
+                                                            data-widget_type="heading.default">
+                                                            <div class="elementor-widget-container">
+                                                                <span
+                                                                    class="elementor-heading-title elementor-size-default">France</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="elementor-element elementor-element-9dfc1c5 e-con-full e-flex e-con e-child"
+                                                data-id="9dfc1c5" data-element_type="container">
+                                                <div class="elementor-element elementor-element-b64b928 elementor-widget elementor-widget-button"
+                                                    data-id="b64b928" data-element_type="widget"
+                                                    data-widget_type="button.default">
+                                                    <div class="elementor-widget-container">
+                                                        <div class="elementor-button-wrapper">
+                                                            <a class="elementor-button elementor-button-link elementor-size-sm"
+                                                                href="/artists">
+                                                                <span class="elementor-button-content-wrapper">
+                                                                    <span class="elementor-button-text">See All</span>
+                                                                </span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><i class="bi bi-plus dropdown-icon"></i>
+                        </li>
+                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a
+                                href="#" class="menu-link">Art Catalog</a>
+                            <div class="mega-menu2">
+                                <div data-elementor-type="wp-post" data-elementor-id="122"
+                                    class="elementor elementor-122">
+                                    <div class="elementor-element elementor-element-55f2529 e-flex e-con-boxed e-con e-parent e-lazyloaded"
+                                        data-id="55f2529" data-element_type="container">
+                                        <div class="e-con-inner">
+                                            <div class="elementor-element elementor-element-87d36bd e-con-full e-grid e-con e-child"
+                                                data-id="87d36bd" data-element_type="container">
+                                                <div class="elementor-element elementor-element-01ac3f5 elementor-widget elementor-widget-artmart_menu"
+                                                    data-id="01ac3f5" data-element_type="widget"
+                                                    data-widget_type="artmart_menu.default">
+                                                    <div class="elementor-widget-container">
+                                                        <div class="wp-menu">
+                                                            <div class="menu-title">
+                                                                <h6>Shop catalog</h6>
+                                                            </div>
+                                                            <ul class="menu-list">
+                                                                <li><a
+                                                                        href="https://artmart-wp.egenstheme.com/auction/">Auction
+                                                                        Art</a></li>
+                                                                <li><a
+                                                                        href="https://artmart-wp.egenstheme.com/general-art/">General
+                                                                        Art</a></li>
+                                                                <li><a
+                                                                        href="https://artmart-wp.egenstheme.com/upcoming-auction/">Upcoming
+                                                                        Auction</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="elementor-element elementor-element-83abb9c elementor-widget elementor-widget-artmart_menu"
+                                                    data-id="83abb9c" data-element_type="widget"
+                                                    data-widget_type="artmart_menu.default">
+                                                    <div class="elementor-widget-container">
+                                                        <div class="wp-menu">
+                                                            <div class="menu-title">
+                                                                <h6>Artist Name</h6>
+                                                            </div>
+                                                            <ul class="menu-list">
+                                                                <li><a
+                                                                        href="https://artmart-wp.egenstheme.com/artists/frida-kahlo/">Frida
+                                                                        Kahlo</a></li>
+                                                                <li><a
+                                                                        href="https://artmart-wp.egenstheme.com/artists/pablo-picasso/">Pablo
+                                                                        Picasso</a></li>
+                                                                <li><a
+                                                                        href="https://artmart-wp.egenstheme.com/artists/leonardo-da-vinci/">Leonardo
+                                                                        da Vinci</a></li>
+                                                                <li><a
+                                                                        href="https://artmart-wp.egenstheme.com/artists/gustav-klimt/">Gustav
+                                                                        Klimt</a></li>
+                                                                <li><a
+                                                                        href="https://artmart-wp.egenstheme.com/artists/yayoi-kusama/">Yayoi
+                                                                        Kusama</a></li>
+                                                            </ul>
+                                                            <a href="/artists" target="_blank" rel="nofollow"
+                                                                class="all-btn">
+                                                                <span>See All</span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="elementor-element elementor-element-c950cc1 elementor-widget elementor-widget-artmart_menu"
+                                                    data-id="c950cc1" data-element_type="widget"
+                                                    data-widget_type="artmart_menu.default">
+                                                    <div class="elementor-widget-container">
+                                                        <div class="wp-menu">
+                                                            <div class="menu-title">
+                                                                <h6>Category</h6>
+                                                            </div>
+                                                            <ul class="menu-list">
+                                                                <li><a
+                                                                        href="https://artmart-wp.egenstheme.com/product-category/painting/">Painting</a>
+                                                                </li>
+                                                                <li><a
+                                                                        href="https://artmart-wp.egenstheme.com/product-category/sculpture/">Sculpture</a>
+                                                                </li>
+                                                                <li><a
+                                                                        href="https://artmart-wp.egenstheme.com/product-category/poetry/">Poetry</a>
+                                                                </li>
+                                                                <li><a
+                                                                        href="https://artmart-wp.egenstheme.com/product-category/natura/">Natura</a>
+                                                                </li>
+                                                                <li><a
+                                                                        href="https://artmart-wp.egenstheme.com/product-category/street-art/">Street
+                                                                        Art</a></li>
+                                                            </ul>
+                                                            <a href="https://artmart-wp.egenstheme.com/auction/"
+                                                                target="_blank" rel="nofollow" class="all-btn">
+                                                                <span>See All</span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="elementor-element elementor-element-74bc400 elementor-widget elementor-widget-artmart_menu"
+                                                    data-id="74bc400" data-element_type="widget"
+                                                    data-widget_type="artmart_menu.default">
+                                                    <div class="elementor-widget-container">
+                                                        <div class="wp-menu">
+                                                            <div class="menu-title">
+                                                                <h6>Department</h6>
+                                                            </div>
+                                                            <ul class="menu-list">
+                                                                <li><a
+                                                                        href="https://artmart-wp.egenstheme.com/department/post-war/">Post
+                                                                        War</a></li>
+                                                                <li><a
+                                                                        href="https://artmart-wp.egenstheme.com/department/contemporary-art/">Contemporary
+                                                                        Art</a></li>
+                                                                <li><a
+                                                                        href="https://artmart-wp.egenstheme.com/department/print-and-multiples/">Print
+                                                                        and Multiples</a></li>
+                                                            </ul>
+                                                            <a href="https://artmart-wp.egenstheme.com/auction/"
+                                                                target="_blank" rel="nofollow" class="all-btn">
+                                                                <span>See All</span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="elementor-element elementor-element-96b8b93 e-con-full e-grid e-con e-child"
+                                                data-id="96b8b93" data-element_type="container">
+                                                <div class="elementor-element elementor-element-c66e9c7 elementor-widget elementor-widget-artmart_auction_card"
+                                                    data-id="c66e9c7" data-element_type="widget"
+                                                    data-widget_type="artmart_auction_card.default">
+                                                    <div class="elementor-widget-container">
+                                                        <div class="menu-card">
+                                                            <div class="auction-card">
+                                                                <div class="auction-card-img-wrap">
+                                                                    <a href="https://artmart-wp.egenstheme.com/product/a-masterpiece-that-invites-you-to-dream/"
+                                                                        class="card-img">
+                                                                        <img loading="lazy" width="800" height="800"
+                                                                            src="https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-2.webp"
+                                                                            class="attachment-large size-large wp-post-image"
+                                                                            alt="" decoding="async"
+                                                                            srcset="https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-2.webp 800w, https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-2-150x150.webp 150w, https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-2-300x300.webp 300w, https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-2-768x768.webp 768w, https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-2-600x600.webp 600w"
+                                                                            sizes="(max-width: 800px) 100vw, 800px">
+                                                                    </a>
+                                                                    <div class="batch">
+                                                                        <span class="live">
+                                                                            Live </span>
+                                                                    </div>
+                                                                    <div class="countdown-timer">
+                                                                        <div class="auction-time">
+                                                                            <div class="main-auction auction-time-countdown hasCountdown"
+                                                                                data-time="1769731200"
+                                                                                data-auctionid="397" data-format="dHMS">
+                                                                                <span
+                                                                                    class="countdown_row countdown_show4"><span
+                                                                                        class="countdown_section"><span
+                                                                                            class="countdown_amount">290</span><br>Days</span><span
+                                                                                        class="countdown_section"><span
+                                                                                            class="countdown_amount">9</span><br>Hours</span><span
+                                                                                        class="countdown_section"><span
+                                                                                            class="countdown_amount">53</span><br>Minutes</span><span
+                                                                                        class="countdown_section"><span
+                                                                                            class="countdown_amount">25</span><br>Seconds</span></span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="auction-card-content">
+                                                                    <h6><a
+                                                                            href="https://artmart-wp.egenstheme.com/product/a-masterpiece-that-invites-you-to-dream/">A
+                                                                            masterpiece that invites you to dream</a>
+                                                                    </h6>
+                                                                    <ul>
+                                                                        <li>
+                                                                            <span>Artist : </span>
+                                                                            Frida Kahlo
+                                                                        </li>
+                                                                        <li><span class="auction-price current-bid"
+                                                                                data-auction-id="397" data-bid="500"
+                                                                                data-status="running"><span
+                                                                                    class="current auction">Current
+                                                                                    bid:</span> <span
+                                                                                    class="woocommerce-Price-amount amount"><span
+                                                                                        class="woocommerce-Price-currencySymbol">$</span>500.00</span></span>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="elementor-element elementor-element-9a2ca0d elementor-widget elementor-widget-artmart_auction_card"
+                                                    data-id="9a2ca0d" data-element_type="widget"
+                                                    data-widget_type="artmart_auction_card.default">
+                                                    <div class="elementor-widget-container">
+                                                        <div class="menu-card">
+                                                            <div class="auction-card">
+                                                                <div class="auction-card-img-wrap">
+                                                                    <a href="https://artmart-wp.egenstheme.com/product/wild-spirit-animal-portrait-woodblock-print/"
+                                                                        class="card-img">
+                                                                        <img loading="lazy" width="800" height="800"
+                                                                            src="https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-24.webp"
+                                                                            class="attachment-large size-large wp-post-image"
+                                                                            alt="" decoding="async"
+                                                                            srcset="https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-24.webp 800w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-24-150x150.webp 150w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-24-300x300.webp 300w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-24-768x768.webp 768w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-24-600x600.webp 600w"
+                                                                            sizes="(max-width: 800px) 100vw, 800px">
+                                                                    </a>
+                                                                    <div class="batch">
+                                                                        <span class="upcoming">
+                                                                            Upcoming </span>
+                                                                    </div>
+                                                                    <div class="countdown-timer">
+                                                                        <div class="auction-time future">
+                                                                            <div class="auction-time-countdown future hasCountdown"
+                                                                                data-time="1773964800"
+                                                                                data-format="dHMS"><span
+                                                                                    class="countdown_row countdown_show4"><span
+                                                                                        class="countdown_section"><span
+                                                                                            class="countdown_amount">339</span><br>Days</span><span
+                                                                                        class="countdown_section"><span
+                                                                                            class="countdown_amount">9</span><br>Hours</span><span
+                                                                                        class="countdown_section"><span
+                                                                                            class="countdown_amount">53</span><br>Minutes</span><span
+                                                                                        class="countdown_section"><span
+                                                                                            class="countdown_amount">25</span><br>Seconds</span></span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="auction-card-content">
+                                                                    <h6><a
+                                                                            href="https://artmart-wp.egenstheme.com/product/wild-spirit-animal-portrait-woodblock-print/">Wild
+                                                                            Spirit: Animal Portrait Woodblock Print</a>
+                                                                    </h6>
+                                                                    <ul>
+                                                                        <li>
+                                                                            <span>Artist : </span>
+                                                                            Andy Warhol
+                                                                        </li>
+                                                                        <li><span class="auction-price starting-bid"
+                                                                                data-auction-id="489" data-bid=""
+                                                                                data-status="future"><span
+                                                                                    class="starting auction">Starting
+                                                                                    bid:</span> <span
+                                                                                    class="woocommerce-Price-amount amount"><span
+                                                                                        class="woocommerce-Price-currencySymbol">$</span>150.00</span></span>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><i class="bi bi-plus dropdown-icon"></i>
+                        </li>
+                        <li class="menu-item menu-item-type-post_type menu-item-object-page"><a
+                                href="https://artmart-wp.egenstheme.com/contact/" class="menu-link">Contact</a><i
+                                class="bi bi-plus dropdown-icon"></i></li>
+                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a
+                                href="#" class="menu-link">Resources</a>
+                            <div class="mega-menu2">
+                                <div data-elementor-type="wp-post" data-elementor-id="124"
+                                    class="elementor elementor-124">
+                                    <div class="elementor-element elementor-element-b53ba49 e-flex e-con-boxed e-con e-parent"
+                                        data-id="b53ba49" data-element_type="container">
+                                        <div class="e-con-inner">
+                                            <div class="elementor-element elementor-element-dd5f679 elementor-position-left elementor-view-default elementor-mobile-position-top elementor-vertical-align-top elementor-widget elementor-widget-icon-box"
+                                                data-id="dd5f679" data-element_type="widget"
+                                                data-widget_type="icon-box.default">
+                                                <div class="elementor-widget-container">
+                                                    <div class="elementor-icon-box-wrapper">
+
+                                                        <div class="elementor-icon-box-icon">
+                                                            <a href="https://artmart-wp.egenstheme.com/blog-grid/"
+                                                                class="elementor-icon" tabindex="-1"
+                                                                aria-label="Article">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="20"
+                                                                    height="20" viewBox="0 0 20 20">
+                                                                    <g>
+                                                                        <path
+                                                                            d="M15.0688 9.22639e-05H4.9657C4.88204 -0.000508378 4.79838 0.00182378 4.71488 0.00708445C2.98227 0.119428 1.625 1.61005 1.625 3.40099V14.401C1.625 15.49 2.36414 16.4097 3.36723 16.6843V19.375C3.36726 19.4923 3.40032 19.6073 3.46262 19.7067C3.52492 19.8062 3.61395 19.8861 3.71952 19.9373C3.8251 19.9885 3.94295 20.0089 4.05961 19.9963C4.17626 19.9837 4.28701 19.9385 4.37918 19.8659L8.30875 16.7681H13.423C14.7282 16.7681 15.7901 15.7062 15.7901 14.401V5.21826H17.7528C17.9186 5.21825 18.0775 5.1524 18.1947 5.0352C18.3119 4.918 18.3778 4.75904 18.3778 4.59329V3.30912C18.3778 1.48451 16.8935 9.22639e-05 15.0688 9.22639e-05ZM13.423 15.5181H8.09211C7.95172 15.5181 7.81547 15.5653 7.70516 15.6522L4.61723 18.0865V16.1431C4.61723 15.7979 4.33738 15.5181 3.99223 15.5181C3.37621 15.5181 2.87496 15.017 2.87496 14.401V3.40099C2.87496 2.26712 3.71863 1.32427 4.79574 1.2547C4.84038 1.25164 4.8851 1.25012 4.92984 1.25013H4.94371C5.46633 1.25244 5.95797 1.44697 6.34141 1.80646C6.76145 2.20013 6.99277 2.73388 6.99277 3.30915V4.59333C6.99277 4.93849 7.27262 5.21833 7.61777 5.21833H14.54V14.401H14.5401C14.5401 15.017 14.039 15.5181 13.423 15.5181ZM17.1279 3.96829H8.24285V3.30912C8.24285 2.56005 7.98496 1.83177 7.52371 1.25009H15.0688C16.2043 1.25009 17.1279 2.17369 17.1279 3.30912L17.1279 3.96829Z">
+                                                                        </path>
+                                                                        <path
+                                                                            d="M12.5625 7.10938H5.21875C4.95977 7.10938 4.75 7.31934 4.75 7.57812C4.75 7.83691 4.9598 8.04688 5.21875 8.04688H12.5625C12.8214 8.04688 13.0312 7.83691 13.0312 7.57812C13.0312 7.31934 12.8214 7.10938 12.5625 7.10938ZM12.5624 9.7266H5.21875C4.9598 9.7266 4.75 9.93656 4.75 10.1954C4.75 10.4541 4.9598 10.6641 5.21875 10.6641H12.5625C12.8214 10.6641 13.0312 10.4541 13.0312 10.1954C13.0312 9.93656 12.8214 9.7266 12.5624 9.7266ZM12.5624 12.3438H5.21875C4.9598 12.3438 4.75 12.5537 4.75 12.8125C4.75 13.0713 4.9598 13.2812 5.21875 13.2812H12.5625C12.8214 13.2812 13.0312 13.0713 13.0312 12.8125C13.0312 12.5537 12.8214 12.3438 12.5624 12.3438Z">
+                                                                        </path>
+                                                                    </g>
+                                                                </svg> </a>
+                                                        </div>
+
+                                                        <div class="elementor-icon-box-content">
+
+                                                            <h6 class="elementor-icon-box-title">
+                                                                <a href="https://artmart-wp.egenstheme.com/blog-grid/">
+                                                                    Article </a>
+                                                            </h6>
+
+                                                            <p class="elementor-icon-box-description">
+                                                                Inspiring creativity, sharing art world </p>
+
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="elementor-element elementor-element-c401fc9 elementor-position-left elementor-view-default elementor-mobile-position-top elementor-vertical-align-top elementor-widget elementor-widget-icon-box"
+                                                data-id="c401fc9" data-element_type="widget"
+                                                data-widget_type="icon-box.default">
+                                                <div class="elementor-widget-container">
+                                                    <div class="elementor-icon-box-wrapper">
+
+                                                        <div class="elementor-icon-box-icon">
+                                                            <a href="https://artmart-wp.egenstheme.com/about-us/"
+                                                                class="elementor-icon" tabindex="-1"
+                                                                aria-label="About Us">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="20"
+                                                                    height="20" viewBox="0 0 20 20">
+                                                                    <g>
+                                                                        <path
+                                                                            d="M11.3357 14.0913C11.1312 14.1104 10.9259 14.0642 10.7493 13.9595C10.6856 13.8941 10.6374 13.8152 10.6083 13.7286C10.5792 13.6421 10.5699 13.5501 10.5811 13.4595C10.5859 13.3067 10.6041 13.1546 10.6357 13.0049C10.6662 12.8333 10.7056 12.6634 10.7538 12.4958L11.2902 10.6504C11.3455 10.4682 11.3821 10.2809 11.3993 10.0913C11.3993 9.88675 11.4266 9.74581 11.4266 9.66401C11.4322 9.48405 11.3971 9.30514 11.3239 9.14064C11.2507 8.97614 11.1413 8.8303 11.0038 8.71401C10.6613 8.45104 10.2347 8.32178 9.80383 8.35038C9.49503 8.35502 9.18865 8.40558 8.89473 8.50038C8.57352 8.60038 8.23563 8.72007 7.88109 8.85948L7.72656 9.45948C7.83109 9.42311 7.9584 9.38221 8.10383 9.33675C8.24257 9.29564 8.3864 9.27422 8.53109 9.27311C8.73407 9.25111 8.93834 9.30097 9.10836 9.41401C9.1655 9.4822 9.20825 9.56125 9.23403 9.6464C9.25981 9.73156 9.26809 9.82104 9.25836 9.90948C9.25785 10.0623 9.24109 10.2147 9.20836 10.364C9.17652 10.5231 9.13563 10.6913 9.08563 10.8685L8.54473 12.7231C8.50113 12.8955 8.46625 13.0699 8.4402 13.2458C8.41895 13.3964 8.40831 13.5483 8.40836 13.7003C8.40726 13.8815 8.44766 14.0604 8.52645 14.2235C8.60524 14.3866 8.72032 14.5295 8.86289 14.6412C9.21072 14.9083 9.64334 15.0407 10.0811 15.014C10.3893 15.0203 10.6964 14.9758 10.9902 14.8821C11.2477 14.7942 11.5917 14.6685 12.022 14.5049L12.1675 13.9321C12.0509 13.9805 11.9309 14.02 11.8084 14.0503C11.6534 14.0857 11.4944 14.0995 11.3357 14.0913ZM11.9038 5.34132C11.6564 5.11412 11.3305 4.9919 10.9947 5.00042C10.6591 4.99285 10.3335 5.11495 10.0856 5.34132C9.63125 5.73311 9.58051 6.41909 9.97234 6.8735C10.0073 6.91401 10.0451 6.95187 10.0856 6.98678C10.6033 7.44979 11.3862 7.44979 11.9038 6.98678C12.3582 6.59112 12.4058 5.90206 12.0101 5.44768C11.9772 5.40981 11.9417 5.37427 11.9038 5.34132Z">
+                                                                        </path>
+                                                                        <path
+                                                                            d="M10 0C4.47715 0 0 4.47715 0 10C0 15.5229 4.47715 20 10 20C15.5229 20 20 15.5229 20 10C20 4.47715 15.5229 0 10 0ZM10 19.0909C4.97922 19.0909 0.909102 15.0208 0.909102 10C0.909102 4.97922 4.97922 0.909102 10 0.909102C15.0208 0.909102 19.0909 4.97922 19.0909 10C19.0909 15.0208 15.0208 19.0909 10 19.0909Z">
+                                                                        </path>
+                                                                    </g>
+                                                                </svg> </a>
+                                                        </div>
+
+                                                        <div class="elementor-icon-box-content">
+
+                                                            <h6 class="elementor-icon-box-title">
+                                                                <a href="https://artmart-wp.egenstheme.com/about-us/">
+                                                                    About Us </a>
+                                                            </h6>
+
+                                                            <p class="elementor-icon-box-description">
+                                                                Dynamic, diverse, innovative </p>
+
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="elementor-element elementor-element-d2b961b elementor-position-left elementor-view-default elementor-mobile-position-top elementor-vertical-align-top elementor-widget elementor-widget-icon-box"
+                                                data-id="d2b961b" data-element_type="widget"
+                                                data-widget_type="icon-box.default">
+                                                <div class="elementor-widget-container">
+                                                    <div class="elementor-icon-box-wrapper">
+
+                                                        <div class="elementor-icon-box-icon">
+                                                            <a href="https://artmart-wp.egenstheme.com/how-to-bid/"
+                                                                class="elementor-icon" tabindex="-1"
+                                                                aria-label="How to Bid">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="20"
+                                                                    height="20" viewBox="0 0 20 20">
+                                                                    <g>
+                                                                        <path
+                                                                            d="M4.60063 6.81055C4.44828 6.6582 4.20062 6.6582 4.04832 6.81055C3.89559 6.96328 3.89559 7.21055 4.04832 7.36289C4.20066 7.51562 4.44832 7.51562 4.60063 7.36289C4.75332 7.21055 4.75332 6.96328 4.60063 6.81055ZM9.89059 17.4892C10.0628 17.2559 10.1559 16.9748 10.1559 16.6793C10.1559 15.9255 9.54262 15.3122 8.78875 15.3122H2.14836C1.78301 15.3122 1.43969 15.4544 1.1816 15.7125C0.923398 15.9707 0.781211 16.314 0.781211 16.6793C0.780948 16.9707 0.874268 17.2544 1.04742 17.4887C0.42543 17.8157 0 18.4681 0 19.2183V19.6089C0 19.8246 0.174922 19.9995 0.390625 19.9995H10.5465C10.7622 19.9995 10.9371 19.8246 10.9371 19.6089V19.2183C10.9371 18.4684 10.5121 17.8164 9.89059 17.4892ZM1.73398 16.2649C1.78828 16.2103 1.85286 16.1671 1.92399 16.1376C1.99512 16.1082 2.07138 16.0931 2.14836 16.0934H8.78875C9.11184 16.0934 9.37465 16.3562 9.37465 16.6793C9.37465 16.8359 9.31371 16.983 9.20309 17.0937C9.14879 17.1482 9.08421 17.1915 9.01308 17.2209C8.94195 17.2504 8.86569 17.2654 8.78871 17.2652H2.14836C1.82527 17.2652 1.56246 17.0023 1.56246 16.6793C1.56246 16.5227 1.62336 16.3755 1.73398 16.2649ZM0.781211 19.2183C0.781211 18.5721 1.30691 18.0464 1.95305 18.0464H8.98406C9.6302 18.0464 10.1559 18.5721 10.1559 19.2183H0.781211Z">
+                                                                        </path>
+                                                                        <path
+                                                                            d="M19.6356 16.4111C19.503 16.2055 19.3447 16.0237 19.1651 15.8707L17.3399 14.2788C17.3255 14.257 17.3088 14.2367 17.2904 14.2182C17.2595 14.1875 17.2237 14.1622 17.1845 14.1433L16.0807 13.1806L10.9717 8.72391C11.1809 8.50527 11.296 8.21938 11.296 7.91535C11.296 7.60215 11.1741 7.30781 10.9525 7.08625C10.8584 6.99224 10.7489 6.91511 10.6286 6.85824L11.1013 6.38559C11.233 6.42071 11.3687 6.43855 11.505 6.43867C11.905 6.43863 12.3051 6.28637 12.6096 5.98184C12.9049 5.68664 13.0675 5.29426 13.0675 4.87695C13.0675 4.45965 12.9049 4.06727 12.6097 3.77207L9.29531 0.457773C9.00012 0.162578 8.6077 0 8.19027 0C7.77305 0 7.38074 0.162578 7.08559 0.457773C6.67762 0.865742 6.54332 1.445 6.68184 1.96617L1.96602 6.68195C1.83408 6.64682 1.69813 6.62903 1.5616 6.62902C1.1441 6.62902 0.751875 6.79148 0.456914 7.08641C-0.152305 7.69563 -0.152305 8.68691 0.456914 9.29617L3.77125 12.6105C4.0759 12.9152 4.47602 13.0675 4.87613 13.0675C5.27629 13.0675 5.67641 12.9152 5.98105 12.6105C6.38902 12.2025 6.52332 11.6233 6.3848 11.1021L6.85648 10.6304C6.91399 10.7503 6.99148 10.8596 7.08562 10.9535C7.30695 11.1748 7.60121 11.2968 7.91434 11.2968C8.21805 11.2968 8.50383 11.1818 8.72277 10.9729L14.1644 17.225C14.1794 17.2484 14.1969 17.2707 14.2174 17.2912C14.2244 17.2982 14.2318 17.3046 14.2392 17.3109L15.8607 19.1739C15.9015 19.222 15.9442 19.2685 15.9888 19.313C16.4342 19.7582 17.0224 19.9998 17.64 19.9998C17.7489 19.9998 17.8587 19.9923 17.9688 19.9771C18.7043 19.8753 19.34 19.4353 19.7127 18.7698C20.121 18.0404 20.0906 17.1143 19.6356 16.4111ZM7.63805 1.0102C7.71039 0.937418 7.79645 0.87971 7.89125 0.840411C7.98605 0.801113 8.08769 0.781005 8.19031 0.78125C8.29299 0.780973 8.3947 0.801066 8.48956 0.840365C8.58441 0.879663 8.67053 0.937388 8.74293 1.0102L12.0573 4.32453C12.1301 4.39691 12.1878 4.483 12.2271 4.57783C12.2664 4.67266 12.2865 4.77435 12.2862 4.87699C12.2865 4.97964 12.2664 5.08133 12.2271 5.17616C12.1878 5.27099 12.1301 5.35708 12.0573 5.42945C11.7528 5.73402 11.2572 5.73402 10.9527 5.42945L7.63824 2.11496L7.63805 2.11477C7.33348 1.81023 7.33348 1.31473 7.63805 1.0102ZM5.42863 12.0581C5.12402 12.3627 4.62828 12.3628 4.32367 12.0581L1.00934 8.74379C0.704688 8.43914 0.704688 7.94352 1.00934 7.63883C1.15668 7.49145 1.35285 7.41027 1.5616 7.41027C1.77031 7.41027 1.96637 7.49141 2.11367 7.63867L5.42859 10.9536C5.7332 11.2581 5.7332 11.7536 5.42863 12.0581ZM7.07324 9.30891L5.98102 10.4012L2.66633 7.08648L7.08559 2.66715L10.4002 5.98184L9.30602 7.07609C9.30246 7.07945 9.29898 7.08274 9.29523 7.08645L7.08672 9.295C7.08215 9.29949 7.07773 9.30418 7.07324 9.30891ZM8.46801 10.1238L8.4657 10.1261L8.19063 10.4012C8.15441 10.4376 8.11135 10.4664 8.06392 10.486C8.01648 10.5057 7.96563 10.5157 7.9143 10.5155C7.86297 10.5157 7.81211 10.5057 7.76469 10.486C7.71726 10.4664 7.6742 10.4375 7.63801 10.4011C7.60158 10.3649 7.57269 10.3218 7.55303 10.2743C7.53337 10.2269 7.52333 10.176 7.52348 10.1246C7.52348 10.0223 7.5625 9.92613 7.63332 9.85356L9.85211 7.63477C10.0042 7.48688 10.25 7.48871 10.4003 7.63883C10.4367 7.67506 10.4656 7.71816 10.4853 7.76562C10.5049 7.81309 10.515 7.86398 10.5148 7.91535C10.515 7.96667 10.5049 8.01752 10.4853 8.06492C10.4656 8.11233 10.4367 8.15535 10.4003 8.19149L10.1268 8.46496C10.1249 8.4668 10.1231 8.46867 10.1212 8.47055L8.46801 10.1238ZM9.27691 10.4197L10.4186 9.27805L15.2522 13.4943L13.4884 15.2581L9.27691 10.4197ZM14.0025 15.8488L15.8423 14.009L16.4324 14.5237L14.5166 16.4396L14.0025 15.8488ZM19.0311 18.3881C18.779 18.8382 18.3528 19.1353 17.8617 19.2033C17.3718 19.2711 16.8904 19.1097 16.5411 18.7606C16.5113 18.7308 16.4828 18.6998 16.4555 18.6676L16.4518 18.6632L15.0307 17.0303L17.0225 15.0384L18.6534 16.4609L18.6571 16.4642C18.7792 16.568 18.8875 16.6926 18.9794 16.835C19.2748 17.2915 19.2955 17.9157 19.0311 18.3881Z">
+                                                                        </path>
+                                                                        <path
+                                                                            d="M7.36323 4.048C7.21065 3.89546 6.96339 3.89546 6.81081 4.048L5.15347 5.70534C5.00093 5.85788 5.00093 6.10522 5.15347 6.25772C5.1897 6.29405 5.23275 6.32286 5.28015 6.3425C5.32756 6.36213 5.37837 6.37221 5.42968 6.37214C5.48098 6.3722 5.5318 6.36212 5.5792 6.34249C5.6266 6.32285 5.66965 6.29405 5.70589 6.25772L7.36323 4.60038C7.51577 4.44788 7.51577 4.20058 7.36323 4.048Z">
+                                                                        </path>
+                                                                    </g>
+                                                                </svg> </a>
+                                                        </div>
+
+                                                        <div class="elementor-icon-box-content">
+
+                                                            <h6 class="elementor-icon-box-title">
+                                                                <a href="https://artmart-wp.egenstheme.com/how-to-bid/">
+                                                                    How to Bid </a>
+                                                            </h6>
+
+                                                            <p class="elementor-icon-box-description">
+                                                                Offer price at art auction </p>
+
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="elementor-element elementor-element-9ed5dc3 elementor-position-left elementor-view-default elementor-mobile-position-top elementor-vertical-align-top elementor-widget elementor-widget-icon-box"
+                                                data-id="9ed5dc3" data-element_type="widget"
+                                                data-widget_type="icon-box.default">
+                                                <div class="elementor-widget-container">
+                                                    <div class="elementor-icon-box-wrapper">
+
+                                                        <div class="elementor-icon-box-icon">
+                                                            <a href="https://artmart-wp.egenstheme.com/how-to-sell/"
+                                                                class="elementor-icon" tabindex="-1"
+                                                                aria-label="How to Sell">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="20"
+                                                                    height="20" viewBox="0 0 20 20">
+                                                                    <g>
+                                                                        <path
+                                                                            d="M9.22828 13.5651C9.3015 13.4917 9.34262 13.3924 9.34262 13.2887C9.34262 13.1851 9.3015 13.0857 9.22828 13.0124C9.0757 12.8601 8.82852 12.8601 8.67574 13.0124C8.52348 13.1651 8.52348 13.4123 8.67574 13.5651C8.82848 13.7173 9.0757 13.7173 9.22828 13.5651ZM7.37894 4.29566C7.37894 6.66426 9.30594 8.59144 11.6746 8.59144C14.0432 8.59144 15.9702 6.66426 15.9702 4.29566C15.9702 1.92707 14.0432 0 11.6746 0C9.30594 0 7.37894 1.92703 7.37894 4.29566ZM15.1893 4.29566C15.1893 6.23367 13.6126 7.81035 11.6746 7.81035C9.73656 7.81035 8.15984 6.23367 8.15984 4.29566C8.15984 2.35777 9.73656 0.781094 11.6746 0.781094C13.6126 0.781094 15.1893 2.35777 15.1893 4.29566Z">
+                                                                        </path>
+                                                                        <path
+                                                                            d="M4.53714 19.885C4.68851 20.0375 4.93496 20.0393 5.08832 19.8882L6.9816 18.0229C7.30328 17.7013 7.40109 17.225 7.25964 16.8111L7.66687 16.4183C7.88476 16.207 8.17653 16.0892 8.48003 16.0898H13.6715C14.5925 16.0898 15.463 15.7361 16.123 15.0939C16.1502 15.0675 15.9169 15.3423 19.6647 10.8629C20.2206 10.2052 20.1375 9.21769 19.4792 8.66121C18.825 8.10992 17.8451 8.1891 17.2877 8.83543L14.9833 11.2039C14.6923 10.8458 14.2486 10.6226 13.7692 10.6226H9.41449C8.7948 10.3633 8.1373 10.2321 7.4589 10.2321C5.57843 10.2321 3.9364 11.1006 3.05523 12.7291C2.68398 12.6587 2.29242 12.771 2.01078 13.0527L0.153003 14.9159C0.00132349 15.068 0.00105005 15.3142 0.152378 15.4668L4.53714 19.885ZM7.45875 11.013C8.05691 11.013 8.63523 11.1334 9.17796 11.3709C9.22732 11.3925 9.28063 11.4037 9.33453 11.4037H13.7692C14.1926 11.4037 14.5503 11.749 14.5503 12.1846C14.5503 12.6154 14.2 12.9657 13.7692 12.9657H10.583C10.3674 12.9657 10.1925 13.1406 10.1925 13.3562C10.1925 13.572 10.3674 13.7466 10.583 13.7466H13.7692C14.6305 13.7466 15.3312 13.046 15.3312 12.1846C15.3312 12.1159 15.3263 12.0479 15.3175 11.9804C17.5466 9.68902 17.861 9.36707 17.8744 9.35105C18.1527 9.02254 18.6468 8.98086 18.9755 9.25797C19.3044 9.53613 19.3461 10.0299 19.067 10.3603L15.5644 14.5476C15.0529 15.0386 14.3814 15.3089 13.6716 15.3089H8.48003C7.97128 15.3089 7.48972 15.5034 7.12445 15.8563L6.79257 16.1766L3.7332 13.1174C4.4482 11.776 5.78992 11.013 7.45875 11.013ZM2.56343 13.6046C2.69222 13.4758 2.89 13.4526 3.04699 13.5496C3.11457 13.5909 2.9205 13.4142 6.42941 16.9182C6.5855 17.0743 6.5771 17.323 6.43152 17.4686L4.81746 19.0587L0.980347 15.1923L2.56343 13.6046ZM11.2078 1.95312V2.41074C10.7533 2.57187 10.4268 3.00598 10.4268 3.5152C10.4268 4.16109 10.9523 4.68676 11.5983 4.68676C11.8136 4.68676 11.9888 4.86191 11.9888 5.07723C11.9888 5.29254 11.8136 5.4677 11.5983 5.4677C11.4315 5.4677 11.2513 5.36285 11.0913 5.17227C10.9524 5.00719 10.7061 4.98594 10.541 5.12469C10.3759 5.26352 10.3546 5.50984 10.4934 5.67492C10.7022 5.92316 10.9477 6.09621 11.2078 6.18352V6.63926C11.2078 6.85504 11.3827 7.02973 11.5983 7.02973C11.8139 7.02973 11.9888 6.85504 11.9888 6.63926V6.18164C12.4434 6.02035 12.7699 5.58625 12.7699 5.07723C12.7699 4.43113 12.2444 3.90566 11.5983 3.90566C11.383 3.90566 11.2078 3.73047 11.2078 3.5152C11.2078 3.29988 11.383 3.12457 11.5983 3.12457C11.7367 3.12457 11.8827 3.1952 12.0207 3.32871C12.1757 3.47871 12.4229 3.47457 12.5729 3.31973C12.7229 3.16465 12.7188 2.9175 12.5639 2.7675C12.3657 2.5757 12.1673 2.46719 11.9888 2.40801V1.95312C11.9888 1.73738 11.8139 1.5625 11.5983 1.5625C11.3827 1.5625 11.2078 1.73738 11.2078 1.95312Z">
+                                                                        </path>
+                                                                    </g>
+                                                                </svg> </a>
+                                                        </div>
+
+                                                        <div class="elementor-icon-box-content">
+
+                                                            <h6 class="elementor-icon-box-title">
+                                                                <a
+                                                                    href="https://artmart-wp.egenstheme.com/how-to-sell/">
+                                                                    How to Sell </a>
+                                                            </h6>
+
+                                                            <p class="elementor-icon-box-description">
+                                                                Market, price, showcase </p>
+
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="elementor-element elementor-element-7e1bd9a elementor-position-left elementor-view-default elementor-mobile-position-top elementor-vertical-align-top elementor-widget elementor-widget-icon-box"
+                                                data-id="7e1bd9a" data-element_type="widget"
+                                                data-widget_type="icon-box.default">
+                                                <div class="elementor-widget-container">
+                                                    <div class="elementor-icon-box-wrapper">
+
+                                                        <div class="elementor-icon-box-icon">
+                                                            <a href="https://artmart-wp.egenstheme.com/faq/"
+                                                                class="elementor-icon" tabindex="-1" aria-label="FAQ">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="18"
+                                                                    height="17" viewBox="0 0 18 17">
+                                                                    <path
+                                                                        d="M9 10.5C8.625 10.5 8.375 10.25 8.375 9.875C8.4375 9.0625 8.875 8.375 9.5 7.875C9.875 7.5 10.25 7.125 10.25 6.75C10.25 6.0625 9.6875 5.5 9 5.5C8.3125 5.5 7.75 6.0625 7.75 6.75C7.75 7.125 7.5 7.375 7.125 7.375C6.75 7.375 6.5 7.125 6.5 6.75C6.5 5.375 7.625 4.25 9 4.25C10.375 4.25 11.5 5.375 11.5 6.75C11.4375 7.5625 11 8.25 10.375 8.75C10 9.125 9.625 9.5 9.625 9.875C9.625 10.25 9.375 10.5 9 10.5Z">
+                                                                    </path>
+                                                                    <path
+                                                                        d="M9 12.375C9.34518 12.375 9.625 12.0952 9.625 11.75C9.625 11.4048 9.34518 11.125 9 11.125C8.65482 11.125 8.375 11.4048 8.375 11.75C8.375 12.0952 8.65482 12.375 9 12.375Z">
+                                                                    </path>
+                                                                    <path
+                                                                        d="M1.74852 16.0001C1.56102 15.8751 1.49852 15.6251 1.49852 15.3751L2.06102 12.1876C-0.251476 8.37505 0.998524 3.37505 4.81102 1.12505C8.62352 -1.12495 13.6235 0.0625536 15.936 3.87505C18.2485 7.68755 16.9985 12.6876 13.186 15.0001C10.686 16.5001 7.49852 16.5626 4.99852 15.0626L2.43602 16.1251C2.12352 16.1876 1.93602 16.1251 1.74852 16.0001ZM4.99852 13.7501C5.12352 13.7501 5.24852 13.8126 5.31102 13.8751C8.56102 15.9376 12.811 14.9376 14.811 11.7501C16.811 8.56255 15.8735 4.25005 12.686 2.25005C9.49852 0.250054 5.24852 1.06255 3.18602 4.31255C1.74852 6.56255 1.74852 9.50005 3.18602 11.7501C3.24852 11.8751 3.31102 12.0626 3.24852 12.1876L2.87352 14.5001L4.68602 13.7501H4.99852Z">
+                                                                    </path>
+                                                                </svg> </a>
+                                                        </div>
+
+                                                        <div class="elementor-icon-box-content">
+
+                                                            <h6 class="elementor-icon-box-title">
+                                                                <a href="https://artmart-wp.egenstheme.com/faq/">
+                                                                    FAQ </a>
+                                                            </h6>
+
+                                                            <p class="elementor-icon-box-description">
+                                                                Explore mediums, practice, and learn </p>
+
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><i class="bi bi-plus dropdown-icon"></i>
+                        </li>
+                    </ul>
+
+                    <div class="search-area d-lg-none d-block">
+                        <form role="search" method="get" action="https://artmart-wp.egenstheme.com/">
+                            <div class="form-inner">
+                                <input type="text" placeholder="Search your product" name="s" value="">
+                                <input type="hidden" name="post_type" value="product">
+                                <button type="submit">
+                                    <svg width="17" height="17" viewBox="0 0 17 17" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M7.20349 0.448242C5.41514 0.45124 3.70089 1.16299 2.43633 2.42755C1.17178 3.6921 0.460029 5.40635 0.457031 7.1947C0.458526 8.98456 1.16943 10.7008 2.43399 11.9675C3.69855 13.2342 5.41364 13.948 7.20349 13.9525C8.79089 13.9525 10.2536 13.3941 11.4101 12.47L15.0578 16.1179C15.2002 16.2503 15.3882 16.3223 15.5825 16.3189C15.7768 16.3155 15.9622 16.2369 16.0998 16.0997C16.2374 15.9625 16.3165 15.7773 16.3204 15.583C16.3243 15.3887 16.2528 15.2005 16.1208 15.0578L12.4731 11.407C13.4325 10.2138 13.9556 8.72863 13.9556 7.19753C13.9556 3.47848 10.9225 0.448242 7.20349 0.448242ZM7.20349 1.9506C10.1118 1.9506 12.4533 4.28919 12.4533 7.1947C12.4533 10.1002 10.1118 12.453 7.20349 12.453C4.29514 12.453 1.95656 10.1087 1.95656 7.20037C1.95656 4.29202 4.29514 1.9506 7.20349 1.9506Z">
+                                        </path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="btn-area d-lg-none d-flex justify-content-center">
+                        <a class="header-btn btn-hover" href="https://artmart-wp.egenstheme.com/my-account/">
+                            <svg width="14" height="14" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg">
+                                <g>
+                                    <path
+                                        d="M7.7479 6.74386C8.67435 6.74386 9.47651 6.41155 10.1321 5.75593C10.7875 5.10045 11.1199 4.2984 11.1199 3.37183C11.1199 2.44554 10.7876 1.64341 10.132 0.987682C9.4764 0.332281 8.67425 0 7.7479 0C6.8213 0 6.01923 0.332281 5.36374 0.987791C4.70826 1.6433 4.37584 2.44546 4.37584 3.37183C4.37584 4.2984 4.70823 5.10056 5.36377 5.75607C6.01947 6.41147 6.82163 6.74386 7.74787 6.74386H7.7479ZM5.94395 1.56789C6.44691 1.0649 7.03696 0.82042 7.7479 0.82042C8.45872 0.82042 9.04885 1.0649 9.55192 1.56789C10.0549 2.07096 10.2995 2.66109 10.2995 3.37181C10.2995 4.08274 10.0549 4.67279 9.55192 5.17586C9.04885 5.67896 8.45872 5.92344 7.7479 5.92344C7.03715 5.92344 6.44716 5.67885 5.94395 5.17586C5.44085 4.6729 5.19626 4.08277 5.19626 3.37183C5.19626 2.66109 5.44085 2.07096 5.94395 1.56789ZM13.648 10.7653C13.6291 10.4925 13.5909 10.1949 13.5346 9.8807C13.4778 9.56409 13.4046 9.26481 13.317 8.99126C13.2265 8.70853 13.1035 8.42935 12.9513 8.16177C12.7935 7.88406 12.6081 7.64223 12.4 7.44325C12.1825 7.23509 11.9161 7.06772 11.608 6.9456C11.3011 6.82419 10.9609 6.76267 10.597 6.76267C10.454 6.76267 10.3159 6.8213 10.0489 6.99509C9.85918 7.11864 9.66888 7.24133 9.47801 7.36314C9.29462 7.48 9.04617 7.58949 8.7393 7.68861C8.43991 7.78549 8.13593 7.83462 7.83578 7.83462C7.53587 7.83462 7.23186 7.78549 6.93226 7.68861C6.62574 7.58957 6.37718 7.48011 6.19409 7.36325C5.98163 7.22749 5.7894 7.10359 5.62266 6.99495C5.35595 6.82119 5.21773 6.76253 5.07483 6.76253C4.7108 6.76253 4.37073 6.82417 4.06385 6.94574C3.75602 7.06761 3.48952 7.23498 3.27173 7.44336C3.06367 7.64245 2.87826 7.88414 2.72059 8.16177C2.56862 8.42932 2.44557 8.70842 2.35498 8.99137C2.26748 9.26492 2.19434 9.56409 2.13752 9.8807C2.08111 10.1945 2.04299 10.4922 2.02407 10.7656C2.00547 11.033 1.99609 11.3112 1.99609 11.5923C1.99609 12.3231 2.22841 12.9148 2.68652 13.3511C3.13898 13.7817 3.73756 14 4.46567 14H11.2068C11.9347 14 12.5332 13.7817 12.9858 13.3511C13.444 12.9151 13.6763 12.3233 13.6763 11.5922C13.6762 11.3101 13.6667 11.0319 13.648 10.7653ZM12.4201 12.7567C12.1212 13.0412 11.7242 13.1796 11.2066 13.1796H4.46569C3.948 13.1796 3.55108 13.0412 3.25221 12.7568C2.95903 12.4777 2.81654 12.0967 2.81654 11.5923C2.81654 11.33 2.82518 11.071 2.84252 10.8223C2.85936 10.5784 2.89387 10.3104 2.94506 10.0256C2.99556 9.74439 3.05985 9.48047 3.13633 9.24154C3.20972 9.0124 3.30979 8.78556 3.43391 8.56703C3.55236 8.35872 3.68864 8.18003 3.83903 8.03607C3.97971 7.90137 4.15704 7.79115 4.36594 7.70849C4.55916 7.63198 4.77632 7.59012 5.01205 7.5838C5.04076 7.59911 5.09195 7.62826 5.17483 7.68229C5.34348 7.79222 5.53787 7.91761 5.75279 8.05485C5.99505 8.20932 6.30713 8.3488 6.68001 8.46916C7.06121 8.59243 7.45001 8.65502 7.83591 8.65502C8.22184 8.65502 8.61073 8.59243 8.99173 8.46927C9.36492 8.34869 9.67691 8.20932 9.9195 8.05463C10.1394 7.91409 10.3284 7.79232 10.497 7.68229C10.5799 7.62834 10.6311 7.59909 10.6598 7.58383C10.8956 7.59012 11.1128 7.63198 11.3061 7.70846C11.5149 7.79115 11.6923 7.90148 11.8329 8.03604C11.9833 8.17992 12.1196 8.35864 12.238 8.56713C12.3623 8.78556 12.4625 9.01254 12.5357 9.24143C12.6123 9.48069 12.6767 9.7445 12.7271 10.0255C12.7782 10.3108 12.8128 10.5789 12.8297 10.8224V10.8227C12.8471 11.0703 12.8558 11.3293 12.8559 11.5923C12.8558 12.0968 12.7133 12.4777 12.4202 12.7567H12.4201Z">
+                                    </path>
+                                </g>
+                            </svg>
+                            <span>My Account</span>
+                            <strong></strong>
+                        </a>
+                    </div>
+
+                </div>
+                <div class="nav-right">
+                    <div class="dark-light-switch d-lg-none d-block">
+                        <i class="bi bi-brightness-low-fill"></i>
+                    </div>
+                    <div class="sidebar-button mobile-menu-btn">
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </header> 
+
+
+{%endblock %}        
+
+

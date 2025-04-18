@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Results</title>
+</head>
+<body>
+    <h1>Search Results for "{{ query }}"</h1>
+
+    {% if artwork_results %}
+        <h2>Artworks</h2>
+        <ul>
+        {% for artwork in artwork_results %}
+            <li>{{ artwork.title }} by {{ artwork.artish.name }}</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No artworks found.</p>
+    {% endif %}
+
+    {% if artish_results %}
+        <h2>Artists</h2>
+        <ul>
+        {% for artist in artish_results %}
+            <li>{{ artist.name }} ({{ artist.stage_name }})</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No artists found.</p>
+    {% endif %}
+</body>
+</html>
