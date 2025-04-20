@@ -4,13 +4,15 @@ from django.views.decorators.csrf import csrf_exempt
 import json
 from .models import Artish, Artwork, ArtworkImage
 
-
-
 # Create your views here.
 
-
 def main(request):
-    return render(request,'main/main.html',)
+    first_10_artworks = Artwork.objects.all()[:10]
+    context = {
+        'artworks': first_10_artworks,
+    }
+    print(f"Context being passed to the template: {context}")
+    return render(request, 'main/main.html',context)
 
 def search(request):
     query = request.GET.get('q')
@@ -26,3 +28,14 @@ def search(request):
         'artwork_results': artwork_results,
         'artish_results': artish_results    
     })
+
+
+
+
+# def artwork(request):
+#     first_10_artworks = Artwork.objects.all()[:10]
+#     context = {
+#         'artworks': first_10_artworks,
+#     }
+#     print(f"Context being passed to the template: {context}")
+#     return render(request, 'main/main.html', context)

@@ -1069,43 +1069,47 @@
                     <div class="col-xl-3  order-xl-1 order-2">
                         <div class="sidebar-area">
                             <div class="artists-widgets widget_search mb-50">
-                                <form id="artistsSearch">
-                                    <div class="wp-block-search__inside-wrapper ">
-                                        <input type="search" id="artistsSearchKeyword" placeholder="Search Artist">
-                                        <button type="submit">
-                                            <svg width="16" height="16" viewBox="0 0 16 16"
+                             <form id="artistsSearch" method="get">
+                                <div class="wp-block-search__inside-wrapper ">
+                                    <input type="search" name="q" id="artistsSearchKeyword" placeholder="Search Artist" value="{{ request.GET.q }}">
+                                    <button type="submit">
+                                        <!-- SVG icon unchanged -->
+                                         <svg width="16" height="16" viewBox="0 0 16 16"
                                                 xmlns="http://www.w3.org/2000/svg">
                                                 <path
                                                     d="M11.7425 10.3418C12.7107 9.0205 13.1444 7.38236 12.9567 5.75508C12.769 4.1278 11.9739 2.63139 10.7303 1.56522C9.48666 0.49905 7.88635 -0.0582469 6.2495 0.0048239C4.61265 0.0678947 3.05997 0.746681 1.90209 1.90538C0.744221 3.06409 0.0665459 4.61725 0.00464636 6.25415C-0.0572531 7.89104 0.501188 9.49095 1.56825 10.7338C2.63531 11.9766 4.13229 12.7707 5.7597 12.9572C7.38711 13.1438 9.02494 12.7089 10.3455 11.7397H10.3445C10.3745 11.7797 10.4065 11.8177 10.4425 11.8547L14.2924 15.7046C14.4799 15.8922 14.7342 15.9977 14.9995 15.9977C15.2647 15.9978 15.5192 15.8926 15.7068 15.7051C15.8944 15.5176 15.9999 15.2632 16 14.9979C16.0001 14.7327 15.8948 14.4782 15.7073 14.2906L11.8575 10.4408C11.8217 10.4046 11.7833 10.3711 11.7425 10.3408V10.3418ZM12.0004 6.4979C12.0004 7.22015 11.8582 7.93532 11.5818 8.60258C11.3054 9.26985 10.9003 9.87614 10.3896 10.3868C9.87889 10.8975 9.2726 11.3027 8.60533 11.5791C7.93807 11.8554 7.2229 11.9977 6.50065 11.9977C5.77841 11.9977 5.06324 11.8554 4.39597 11.5791C3.72871 11.3027 3.12242 10.8975 2.61171 10.3868C2.10101 9.87614 1.6959 9.26985 1.41951 8.60258C1.14312 7.93532 1.00086 7.22015 1.00086 6.4979C1.00086 5.03927 1.5803 3.64037 2.61171 2.60896C3.64312 1.57755 5.04202 0.99811 6.50065 0.99811C7.95929 0.99811 9.35818 1.57755 10.3896 2.60896C11.421 3.64037 12.0004 5.03927 12.0004 6.4979Z">
                                                 </path>
                                             </svg>
-                                        </button>
+                                    </button>
+                                </div>
+                            </form>
+                            </div>
+                           <form method="get" id="sortForm">
+                                <div class="artists-widgets mb-50">
+                                    <div class="widget-title">
+                                        <h5>Default Sorting</h5>
                                     </div>
-                                </form>
-                            </div>
-                            <div class="artists-widgets mb-50">
-                                <div class="widget-title">
-                                    <h5>Default Sorting</h5>
+                                    <div class="checkbox-container name-sort">
+                                        <ul>
+                                            <li>
+                                                <label class="containerss">
+                                                    <input type="radio" name="sort" value="asc" {% if request.GET.sort == 'asc' %}checked{% endif %} onchange="this.form.submit()">
+                                                    <span class="checkmark"></span>
+                                                    <span>Sort By Artists (A-Z)</span>
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label class="containerss">
+                                                    <input type="radio" name="sort" value="desc" {% if request.GET.sort == 'desc' %}checked{% endif %} onchange="this.form.submit()">
+                                                    <span class="checkmark"></span>
+                                                    <span>Sort By Artists (Z-A)</span>
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
-                                <div class="checkbox-container name-sort">
-                                    <ul>
-                                        <li>
-                                            <label class="containerss">
-                                                <input type="checkbox" value="asc">
-                                                <span class="checkmark"></span>
-                                                <span>Sort By Artists (A-Z)</span>
-                                            </label>
-                                        </li>
-                                        <li>
-                                            <label class="containerss">
-                                                <input type="checkbox" value="desc">
-                                                <span class="checkmark"></span>
-                                                <span>Sort By Artists (Z-A)</span>
-                                            </label>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
+                            </form>
+
                             <div class="artists-widgets mb-50">
                                 <div class="widget-title">
                                     <h5>Category</h5>
@@ -1175,7 +1179,7 @@
                     </div>
                     <div class="col-xl-9 order-xl-2 order-1">
                         <div class="right-content">
-                            <div class="row mb-35">
+                            <!-- <div class="row mb-35">
                                 <div class="nav-area">
                                     <div class="col-lg-12 d-flex justify-content-center">
                                         <ul class="nav nav-pills nav-tabs2" id="pills-tab" role="tablist">
@@ -1200,28 +1204,36 @@
                                         </ul>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="row ">
                                 <div class="col-lg-12">
                                     <div class="tab-content" id="pills-tabContent">
                                         <div class="tab-pane fade show active" id="pills-artworks" role="tabpanel"
                                             aria-labelledby="pills-artworks-tab">
                                             <div class="row gy-4 products" id="artistsFilterData">
+
+                                                {% for artwork in artworks %}
                                                 <div class="col-lg-4 col-md-6">
                                                     <div class="auction-card sidebar-card">
                                                         <div class="auction-card-img-wrap">
-                                                            <a href="https://artmart-wp.egenstheme.com/product/ocean-waves-textured-acrylic-art-panel/"
+                                                            <a href="{{ artwork.get_absolute_url }}"
                                                                 class="card-img">
                                                                 <img loading="lazy" width="300" height="300"
-                                                                    src="https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-13-300x300.webp"
+                                                                    src="{{ artwork.image.url }}"
                                                                     class="attachment-medium size-medium wp-post-image"
                                                                     alt="" decoding="async"
-                                                                    srcset="https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-13-300x300.webp 300w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-13-150x150.webp 150w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-13-768x768.webp 768w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-13-600x600.webp 600w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-13.webp 800w"
+                                                                    srcset="{{ artwork.image.url }}"
                                                                     sizes="(max-width: 300px) 100vw, 300px"> </a>
                                                             <div class="batch">
-                                                            </div>
+                                                {% if artwork.is_available %}
+                                                    <span class="live">Available</span>
+                                                {% else %}
+                                                    <span class="sold">Sold</span>
+                                                {% endif %}
+                                            </div>
 
-                                                            <div class="yith-add-to-wishlist-button-block yith-add-to-wishlist-button-block--initialized"
+
+                                                            <!-- <div class="yith-add-to-wishlist-button-block yith-add-to-wishlist-button-block--initialized"
                                                                 data-product-id="479"
                                                                 data-attributes="{&quot;kind&quot;:&quot;button&quot;}">
                                                                 <a
@@ -1237,29 +1249,30 @@
                                                                         </path>
                                                                     </svg><span
                                                                         class="yith-wcwl-add-to-wishlist-button__label">Add
-                                                                        to wishlist</span></a></div>
+                                                                        to wishlist</span></a></div> -->
                                                         </div>
                                                         <div class="auction-card-content">
                                                             <h6><a
-                                                                    href="https://artmart-wp.egenstheme.com/product/ocean-waves-textured-acrylic-art-panel/">Ocean
-                                                                    Waves: Textured Acrylic Art Panel</a></h6>
+                                                                    href="https://artmart-wp.egenstheme.com/product/ocean-waves-textured-acrylic-art-panel/">{{ artwork.title }}</a></h6>
                                                             <ul>
                                                                 <li>
                                                                     <span>Artist : </span>
                                                                     <a
-                                                                        href="https://artmart-wp.egenstheme.com/artists/frida-kahlo/">Frida
-                                                                        Kahlo</a>
+                                                                        href="https://artmart-wp.egenstheme.com/artists/frida-kahlo/">{{ artwork.artish.name }}</a>
                                                                 </li>
                                                                 <li><span>Price : </span><span
                                                                         class="woocommerce-Price-amount amount"><bdi><span
-                                                                                class="woocommerce-Price-currencySymbol">$</span>299.00</bdi></span>
+                                                                                class="woocommerce-Price-currencySymbol">₹</span>{{ artwork.price }}</bdi></span>
                                                                 </li>
                                                             </ul>
                                                         </div>
                                                     </div>
                                                 </div>
+                                                {% empty %}
+                                <p>No artworks available.</p>
+                            {% endfor %}
 
-                                                <div class="col-lg-4 col-md-6">
+                                                <!-- <div class="col-lg-4 col-md-6">
                                                     <div class="auction-card sidebar-card">
                                                         <div class="auction-card-img-wrap">
                                                             <a href="https://artmart-wp.egenstheme.com/product/where-stillness-speaks-colors-converse/"
@@ -1721,7 +1734,7 @@
                                                             </ul>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </div> -->
 
                                                 <div class="wow animate fadeInUp" data-wow-delay="200ms"
                                                     data-wow-duration="1500ms"
@@ -1756,164 +1769,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="tab-pane fade" id="pills-biography" role="tabpanel"
-                                            aria-labelledby="pills-biography-tab">
-                                            <div class="row">
-                                                <div class="col-lg-8">
-                                                    <div class="biography-section">
-                                                        <p class="biography-top-text">
-                                                            Frida Kahlo (1907-1954) was a Mexican painter known for her
-                                                            distinctive, vibrant self-portraits and her deeply personal
-                                                            and symbolic art. Here are some key points about her life
-                                                            and work: </p>
-                                                        <div class="biography-card">
-                                                            <h4>Early Life and Background</h4>
-                                                            <p></p>
-                                                            <p><strong>Birth:</strong> Born on July 6, 1907, in
-                                                                Coyoacán, Mexico City.</p>
-                                                            <p><strong>Health Issues:</strong> Experienced polio as a
-                                                                child and a severe bus accident at age 18, which led to
-                                                                numerous surgeries and chronic pain.</p>
-                                                            <p></p>
-                                                        </div>
-                                                        <div class="biography-card">
-                                                            <h4>Artistic Career</h4>
-                                                            <p></p>
-                                                            <p><strong>Style:&nbsp;</strong>Known for her surrealist and
-                                                                symbolic style, her work often includes elements of
-                                                                Mexican folk art and indigenous culture.</p>
-                                                            <p><strong>Notable Works:</strong>&nbsp;Some of her most
-                                                                famous works include "The Two Fridas" (1939),
-                                                                "Self-Portrait with Thorn Necklace and Hummingbird"
-                                                                (1940), and "The Broken Column" (1944)</p>
-                                                            <p></p>
-                                                        </div>
-                                                        <div class="biography-card">
-                                                            <h4>Personal Life</h4>
-                                                            <p></p>
-                                                            <p><strong>Marriage:</strong>&nbsp;Married fellow artist
-                                                                Diego Rivera in 1931. Their tumultuous relationship and
-                                                                its impact on her art were significant aspects of her
-                                                                life.</p>
-                                                            <p><strong>Political Activism:</strong>&nbsp;Actively
-                                                                involved in leftist politics and supported the Mexican
-                                                                Communist Party.</p>
-                                                            <p></p>
-                                                        </div>
-                                                        <div class="biography-card">
-                                                            <h4>Legacy</h4>
-                                                            <p></p>
-                                                            <p><strong>Influence:</strong>&nbsp;Kahlo’s work has had a
-                                                                lasting impact on art, particularly in terms of how
-                                                                women’s experiences and identities are represented.</p>
-                                                            <p><strong>Museum:&nbsp;</strong>The Frida Kahlo Museum,
-                                                                also known as La Casa Azul (The Blue House), is located
-                                                                in her former home in Coyoacán and is dedicated to her
-                                                                life and work</p>
-                                                            <p></p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-4">
-                                                    <div class="biography-right-section">
-                                                        <div class="biography-right-content">
-                                                            <h6>Nationality</h6>
-                                                            <p>Mexico artist</p>
-                                                        </div>
-                                                        <div class="biography-right-content">
-                                                            <h6>Categories</h6>
-                                                            <p>
-                                                                Mexican Culture and Folklore, Nature and Animals,
-                                                                Politics and Social Issues, Self Portraits, Surrealism
-                                                            </p>
-                                                        </div>
-                                                        <div class="biography-right-content">
-                                                            <h6>Themes</h6>
-                                                            <p>Identity, postcolonialism, gender, class, and race in
-                                                                Mexican society.</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="tab-pane fade" id="pills-awards" role="tabpanel"
-                                            aria-labelledby="pills-awards-tab">
-                                            <div class="awards-section">
-                                                <p>Frida Kahlo did not receive many formal awards during her lifetime,
-                                                    as her work was not widely recognized until after her death.
-                                                    However, she did receive some notable recognition or award:</p>
-                                                <ul class="awards-list">
-                                                    <li>
-                                                        <div class="content">
-                                                            <span>1946</span>
-                                                            <h4>Early Life and Background</h4>
-                                                            <p>Site Of The Day</p>
-                                                        </div>
-                                                        <div class="button-area">
-                                                            <a href="#" target="_blank" class="icon">
-                                                                <svg width="16" height="16" viewBox="0 0 16 16"
-                                                                    xmlns="http://www.w3.org/2000/svg">
-                                                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                                                        d="M13.582 1.41649L0 14.9978L1.00217 16L14.5835 2.41795L14.5835 11.8086H16L16 0L4.1914 0V1.41649L13.582 1.41649Z">
-                                                                    </path>
-                                                                </svg>
-                                                            </a>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="content">
-                                                            <span>1970</span>
-                                                            <h4>Turner Prize (UK)</h4>
-                                                            <p>Site Of The Month</p>
-                                                        </div>
-                                                        <div class="button-area">
-                                                            <a href="#" target="_blank" class="icon">
-                                                                <svg width="16" height="16" viewBox="0 0 16 16"
-                                                                    xmlns="http://www.w3.org/2000/svg">
-                                                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                                                        d="M13.582 1.41649L0 14.9978L1.00217 16L14.5835 2.41795L14.5835 11.8086H16L16 0L4.1914 0V1.41649L13.582 1.41649Z">
-                                                                    </path>
-                                                                </svg>
-                                                            </a>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="content">
-                                                            <span>1946</span>
-                                                            <h4>Praemium Imperiale (Japan)</h4>
-                                                            <p>Site Of The Month</p>
-                                                        </div>
-                                                        <div class="button-area">
-                                                            <a href="#" target="_blank" class="icon">
-                                                                <svg width="16" height="16" viewBox="0 0 16 16"
-                                                                    xmlns="http://www.w3.org/2000/svg">
-                                                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                                                        d="M13.582 1.41649L0 14.9978L1.00217 16L14.5835 2.41795L14.5835 11.8086H16L16 0L4.1914 0V1.41649L13.582 1.41649Z">
-                                                                    </path>
-                                                                </svg>
-                                                            </a>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="content">
-                                                            <span>1946</span>
-                                                            <h4>Turner Prize (UK)</h4>
-                                                            <p>Site Of The Day</p>
-                                                        </div>
-                                                        <div class="button-area">
-                                                            <a href="#" target="_blank" class="icon">
-                                                                <svg width="16" height="16" viewBox="0 0 16 16"
-                                                                    xmlns="http://www.w3.org/2000/svg">
-                                                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                                                        d="M13.582 1.41649L0 14.9978L1.00217 16L14.5835 2.41795L14.5835 11.8086H16L16 0L4.1914 0V1.41649L13.582 1.41649Z">
-                                                                    </path>
-                                                                </svg>
-                                                            </a>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
+                                       
                                     </div>
                                 </div>
                             </div>

@@ -49,7 +49,7 @@ class CategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Artwork)
 class ArtworkAdmin(admin.ModelAdmin):
-    list_display = ['title', 'artish', 'category', 'price', 'stock', 'is_available', 'edit_link']
+    list_display = ['title', 'artish','image', 'category', 'price', 'stock', 'is_available', 'edit_link']
     # list_editable = ['price', 'stock', 'is_available']
     search_fields = ['title', 'artish__name']
     list_filter = ['category', 'style', 'medium', 'is_available']

@@ -1,0 +1,47 @@
+{% block artworklist %}
+<div class="col-xl-9 order-xl-2 order-1 ">
+    <div class="right-content">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-artworks" role="tabpanel" aria-labelledby="pills-artworks-tab">
+                        <div class="row gy-4 products">
+                            {% for artwork in artworks %}
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="auction-card sidebar-card">
+                                        <div class="auction-card-img-wrap">
+                                            <a href="#">
+                                                <img src="{{ artwork.image.url }}" alt="{{ artwork.title }}" width="300" height="300">
+                                            </a>
+                                            <div class="batch">
+                                                {% if artwork.is_available %}
+                                                    <span class="live">Available</span>
+                                                {% else %}
+                                                    <span class="sold">Sold</span>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                        <div class="auction-card-content">
+                                            <h6>{{ artwork.title }}</h6>
+                                            <ul>
+                                                <li><span>Artist: </span><a href="#">{{ artwork.artish.name }}</a></li>
+                                                <li><span>Style: </span>{{ artwork.get_style_display }}</li>
+                                                <li><span>Medium: </span>{{ artwork.get_medium_display }}</li>
+                                                <li><span>Price: </span>${{ artwork.price }}</li>
+                                                <li><span>Year Created: </span>{{ artwork.year_created }}</li>
+                                            </ul>
+                                            <p><strong>Description:</strong> {{ artwork.description }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% empty %}
+                                <p>No artworks available.</p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
