@@ -19,12 +19,12 @@ def main(request):
     if selected_categories:
         artworks = artworks.filter(category__id__in=selected_categories)
 
-    if sort_order == 'asc':
-        artworks = Artwork.objects.all().order_by('artish__name')
-    elif sort_order == 'desc':
-        artworks = Artwork.objects.all().order_by('-artish__name')
-    else:
-        artworks = Artwork.objects.all().order_by('-id')  # default sorting (latest first)
+    # if sort_order == 'asc':
+    #     artworks = Artwork.objects.all().order_by('artish__name')
+    # elif sort_order == 'desc':
+    #     artworks = Artwork.objects.all().order_by('-artish__name')
+    # else:
+    #     artworks = Artwork.objects.all().order_by('-id')  # default sorting (latest first)
 
 
     categories_list = Category.objects.all()
@@ -37,7 +37,6 @@ def main(request):
         'request': request,
         'Categorylist':categories_list,
         'page_obj': page_obj,
-        'request': request,  # needed for template to access GET params
     }
     return render(request, 'main/main.html', context)
 

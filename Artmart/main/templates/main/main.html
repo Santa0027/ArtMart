@@ -1008,14 +1008,14 @@
             </svg>
         </div>
         {% include 'main/nav.html' %}
-            {% block topnavcontent %} 
+        
 
             <!-- the nav section  -->
-            {% endblock %} 
+        
 
 
         <!-- this is the hero section of the page  -->
-        <div class="breadcrumb-section">
+        <!-- <div class="breadcrumb-section">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 d-flex mb-70">
@@ -1061,7 +1061,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!-- artwork list section  -->
         <div class="auction-card-sidebar-section pt-120 mb-120">
             <div class="container">
@@ -1110,27 +1110,31 @@
                                 </div>
                             </form> -->
 
-                            <div class="artists-widgets mb-50">
-                                <div class="widget-title">
-                                    <h5>Category</h5>
+                            <form method="get" id="filterForm">
+                                <div class="artists-widgets mb-50">
+                                    <div class="widget-title">
+                                        <h5>Category</h5>
+                                    </div>
+                                    <div class="checkbox-container category">
+                                        <ul>
+                                            {% for category in Categorylist %}
+                                            <li>
+                                                <label class="containerss">
+                                                    <input type="checkbox" name="category" value="{{ category.id }}" onchange="this.form.submit()"
+                                                        {% if selected_categories and category.id|stringformat:"s" in selected_categories %} checked
+                                                        {% endif %}>
+                                                    <span class="checkmark"></span>
+                                                    <span>{{ category.name }}</span>
+                                                </label>
+                                            </li>
+                                            {% empty %}
+                                            <p>No categories available.</p>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
                                 </div>
-                                <div class="checkbox-container category">
-                                  <ul>
-                                {% for category in Categorylist %}
-                                <li>
-                                    <label class="containerss">
-                                        <input type="checkbox" class="category-checkbox" data-category-id="{{ category.id }}">
-                                        <span class="checkmark"></span>
-                                        <span>{{ category.name }}</span>
-                                    </label>
-                                </li>
-                                {% empty %}
-                                <p>No categories available.</p>
-                                {% endfor %}
-                                </ul>
+                            </form>
 
-                                </div>
-                            </div>
                         </div>
                     </div>
                     <div class="col-xl-9 order-xl-2 order-1">
