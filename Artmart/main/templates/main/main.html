@@ -1069,22 +1069,22 @@
                     <div class="col-xl-3  order-xl-1 order-2">
                         <div class="sidebar-area">
                             <div class="artists-widgets widget_search mb-50">
-                             <form id="artistsSearch" method="get">
-                                <div class="wp-block-search__inside-wrapper ">
-                                    <input type="search" name="q" id="artistsSearchKeyword" placeholder="Search Artist" value="{{ request.GET.q }}">
-                                    <button type="submit">
-                                        <!-- SVG icon unchanged -->
-                                         <svg width="16" height="16" viewBox="0 0 16 16"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M11.7425 10.3418C12.7107 9.0205 13.1444 7.38236 12.9567 5.75508C12.769 4.1278 11.9739 2.63139 10.7303 1.56522C9.48666 0.49905 7.88635 -0.0582469 6.2495 0.0048239C4.61265 0.0678947 3.05997 0.746681 1.90209 1.90538C0.744221 3.06409 0.0665459 4.61725 0.00464636 6.25415C-0.0572531 7.89104 0.501188 9.49095 1.56825 10.7338C2.63531 11.9766 4.13229 12.7707 5.7597 12.9572C7.38711 13.1438 9.02494 12.7089 10.3455 11.7397H10.3445C10.3745 11.7797 10.4065 11.8177 10.4425 11.8547L14.2924 15.7046C14.4799 15.8922 14.7342 15.9977 14.9995 15.9977C15.2647 15.9978 15.5192 15.8926 15.7068 15.7051C15.8944 15.5176 15.9999 15.2632 16 14.9979C16.0001 14.7327 15.8948 14.4782 15.7073 14.2906L11.8575 10.4408C11.8217 10.4046 11.7833 10.3711 11.7425 10.3408V10.3418ZM12.0004 6.4979C12.0004 7.22015 11.8582 7.93532 11.5818 8.60258C11.3054 9.26985 10.9003 9.87614 10.3896 10.3868C9.87889 10.8975 9.2726 11.3027 8.60533 11.5791C7.93807 11.8554 7.2229 11.9977 6.50065 11.9977C5.77841 11.9977 5.06324 11.8554 4.39597 11.5791C3.72871 11.3027 3.12242 10.8975 2.61171 10.3868C2.10101 9.87614 1.6959 9.26985 1.41951 8.60258C1.14312 7.93532 1.00086 7.22015 1.00086 6.4979C1.00086 5.03927 1.5803 3.64037 2.61171 2.60896C3.64312 1.57755 5.04202 0.99811 6.50065 0.99811C7.95929 0.99811 9.35818 1.57755 10.3896 2.60896C11.421 3.64037 12.0004 5.03927 12.0004 6.4979Z">
-                                                </path>
-                                            </svg>
-                                    </button>
-                                </div>
-                            </form>
+                                <!-- <form id="artistsSearch" method="get">
+                                    <div class="wp-block-search__inside-wrapper ">
+                                        <input type="search" name="q" id="artistsSearchKeyword" placeholder="Search Artist" value="{{ request.GET.q }}">
+                                        <button type="submit">
+                                            
+                                            <svg width="16" height="16" viewBox="0 0 16 16"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M11.7425 10.3418C12.7107 9.0205 13.1444 7.38236 12.9567 5.75508C12.769 4.1278 11.9739 2.63139 10.7303 1.56522C9.48666 0.49905 7.88635 -0.0582469 6.2495 0.0048239C4.61265 0.0678947 3.05997 0.746681 1.90209 1.90538C0.744221 3.06409 0.0665459 4.61725 0.00464636 6.25415C-0.0572531 7.89104 0.501188 9.49095 1.56825 10.7338C2.63531 11.9766 4.13229 12.7707 5.7597 12.9572C7.38711 13.1438 9.02494 12.7089 10.3455 11.7397H10.3445C10.3745 11.7797 10.4065 11.8177 10.4425 11.8547L14.2924 15.7046C14.4799 15.8922 14.7342 15.9977 14.9995 15.9977C15.2647 15.9978 15.5192 15.8926 15.7068 15.7051C15.8944 15.5176 15.9999 15.2632 16 14.9979C16.0001 14.7327 15.8948 14.4782 15.7073 14.2906L11.8575 10.4408C11.8217 10.4046 11.7833 10.3711 11.7425 10.3408V10.3418ZM12.0004 6.4979C12.0004 7.22015 11.8582 7.93532 11.5818 8.60258C11.3054 9.26985 10.9003 9.87614 10.3896 10.3868C9.87889 10.8975 9.2726 11.3027 8.60533 11.5791C7.93807 11.8554 7.2229 11.9977 6.50065 11.9977C5.77841 11.9977 5.06324 11.8554 4.39597 11.5791C3.72871 11.3027 3.12242 10.8975 2.61171 10.3868C2.10101 9.87614 1.6959 9.26985 1.41951 8.60258C1.14312 7.93532 1.00086 7.22015 1.00086 6.4979C1.00086 5.03927 1.5803 3.64037 2.61171 2.60896C3.64312 1.57755 5.04202 0.99811 6.50065 0.99811C7.95929 0.99811 9.35818 1.57755 10.3896 2.60896C11.421 3.64037 12.0004 5.03927 12.0004 6.4979Z">
+                                                    </path>
+                                                </svg>
+                                        </button>
+                                    </div>
+                                </form> -->
                             </div>
-                           <form method="get" id="sortForm">
+                           <!-- <form method="get" id="sortForm">
                                 <div class="artists-widgets mb-50">
                                     <div class="widget-title">
                                         <h5>Default Sorting</h5>
@@ -1108,71 +1108,27 @@
                                         </ul>
                                     </div>
                                 </div>
-                            </form>
+                            </form> -->
 
                             <div class="artists-widgets mb-50">
                                 <div class="widget-title">
                                     <h5>Category</h5>
                                 </div>
                                 <div class="checkbox-container category">
-                                    <ul>
-                                        <li>
-                                            <label class="containerss">
-                                                <input type="checkbox" value="abstract-art">
-                                                <span class="checkmark"></span>
-                                                <span>Abstract Art</span>
-                                            </label>
-                                        </li>
-                                        <li>
-                                            <label class="containerss">
-                                                <input type="checkbox" value="artwork">
-                                                <span class="checkmark"></span>
-                                                <span>Artwork</span>
-                                            </label>
-                                        </li>
-                                        <li>
-                                            <label class="containerss">
-                                                <input type="checkbox" value="modern-art">
-                                                <span class="checkmark"></span>
-                                                <span>Modern Art</span>
-                                            </label>
-                                        </li>
-                                        <li>
-                                            <label class="containerss">
-                                                <input type="checkbox" value="natura">
-                                                <span class="checkmark"></span>
-                                                <span>Natura</span>
-                                            </label>
-                                        </li>
-                                        <li>
-                                            <label class="containerss">
-                                                <input type="checkbox" value="painting">
-                                                <span class="checkmark"></span>
-                                                <span>Painting</span>
-                                            </label>
-                                        </li>
-                                        <li>
-                                            <label class="containerss">
-                                                <input type="checkbox" value="poetry">
-                                                <span class="checkmark"></span>
-                                                <span>Poetry</span>
-                                            </label>
-                                        </li>
-                                        <li>
-                                            <label class="containerss">
-                                                <input type="checkbox" value="sculpture">
-                                                <span class="checkmark"></span>
-                                                <span>Sculpture</span>
-                                            </label>
-                                        </li>
-                                        <li>
-                                            <label class="containerss">
-                                                <input type="checkbox" value="street-art">
-                                                <span class="checkmark"></span>
-                                                <span>Street Art</span>
-                                            </label>
-                                        </li>
-                                    </ul>
+                                  <ul>
+                                {% for category in Categorylist %}
+                                <li>
+                                    <label class="containerss">
+                                        <input type="checkbox" class="category-checkbox" data-category-id="{{ category.id }}">
+                                        <span class="checkmark"></span>
+                                        <span>{{ category.name }}</span>
+                                    </label>
+                                </li>
+                                {% empty %}
+                                <p>No categories available.</p>
+                                {% endfor %}
+                                </ul>
+
                                 </div>
                             </div>
                         </div>
@@ -1205,567 +1161,83 @@
                                     </div>
                                 </div>
                             </div> -->
-                            <div class="row ">
-                                <div class="col-lg-12">
-                                    <div class="tab-content" id="pills-tabContent">
-                                        <div class="tab-pane fade show active" id="pills-artworks" role="tabpanel"
-                                            aria-labelledby="pills-artworks-tab">
-                                            <div class="row gy-4 products" id="artistsFilterData">
+                          <div class="row ">
+    <div class="col-lg-12">
+        <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="pills-artworks" role="tabpanel"
+                aria-labelledby="pills-artworks-tab">
+                <div class="row gy-4 products artwork" id="artistsFilterData" data-category-id="{{ artwork.category.id }}">
+                    {% for artwork in page_obj %}
+                        <div class="col-lg-4 col-md-6">
+                            <div class="auction-card sidebar-card">
+                                <div class="auction-card-img-wrap">
+                                    <a href="{{ artwork.get_absolute_url }}" class="card-img">
+                                        <img loading="lazy" width="300" height="300"
+                                            src="{{ artwork.image.url }}"
+                                            class="attachment-medium size-medium wp-post-image"
+                                            alt="" decoding="async"
+                                            srcset="{{ artwork.image.url }}"
+                                            sizes="(max-width: 300px) 100vw, 300px"> 
+                                    </a>
+                                    <div class="batch">
+                                        {% if artwork.is_available %}
+                                            <span class="live">Available</span>
+                                        {% else %}
+                                            <span class="sold">Sold</span>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="auction-card-content">
+                                    <h6><a href="">{{ artwork.title }}</a></h6>
+                                    <ul>
+                                        <li>
+                                            <span>Artist : </span>
+                                            <a href="">{{ artwork.artish.name }}</a>
+                                        </li>
+                                        <li><span>Price : </span>
+                                            <span class="woocommerce-Price-amount amount">
+                                                <bdi><span class="woocommerce-Price-currencySymbol">₹</span>{{ artwork.price }}</bdi>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    {% empty %}
+                        <p>No artworks available.</p>
+                    {% endfor %}
+                </div>
 
-                                                {% for artwork in artworks %}
-                                                <div class="col-lg-4 col-md-6">
-                                                    <div class="auction-card sidebar-card">
-                                                        <div class="auction-card-img-wrap">
-                                                            <a href="{{ artwork.get_absolute_url }}"
-                                                                class="card-img">
-                                                                <img loading="lazy" width="300" height="300"
-                                                                    src="{{ artwork.image.url }}"
-                                                                    class="attachment-medium size-medium wp-post-image"
-                                                                    alt="" decoding="async"
-                                                                    srcset="{{ artwork.image.url }}"
-                                                                    sizes="(max-width: 300px) 100vw, 300px"> </a>
-                                                            <div class="batch">
-                                                {% if artwork.is_available %}
-                                                    <span class="live">Available</span>
-                                                {% else %}
-                                                    <span class="sold">Sold</span>
-                                                {% endif %}
-                                            </div>
+                <div class="wow animate fadeInUp" data-wow-delay="200ms" data-wow-duration="1500ms">
+                    <div class="col-lg-12">
+                        <div class="page-navigation-area d-flex flex-wrap align-items-center justify-content-between">
+                            <div class="pagination">
+                                {% if page_obj.has_previous %}
+                                    <a href="?page=1">First</a>
+                                    <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+                                {% endif %}
+
+                                <span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+
+                                {% if page_obj.has_next %}
+                                    <a href="?page={{ page_obj.next_page_number }}">Next</a>
+                                    <a href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
 
 
-                                                            <!-- <div class="yith-add-to-wishlist-button-block yith-add-to-wishlist-button-block--initialized"
-                                                                data-product-id="479"
-                                                                data-attributes="{&quot;kind&quot;:&quot;button&quot;}">
-                                                                <a
-                                                                    class="yith-wcwl-add-to-wishlist-button yith-wcwl-add-to-wishlist-button--anchor"><svg
-                                                                        class="yith-wcwl-icon yith-wcwl-icon-svg yith-wcwl-add-to-wishlist-button-icon"
-                                                                        id="yith-wcwl-icon-heart-outline" fill="none"
-                                                                        stroke-width="1.5" stroke="currentColor"
-                                                                        viewBox="0 0 24 24"
-                                                                        xmlns="http://www.w3.org/2000/svg">
-                                                                        <path stroke-linecap="round"
-                                                                            stroke-linejoin="round"
-                                                                            d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z">
-                                                                        </path>
-                                                                    </svg><span
-                                                                        class="yith-wcwl-add-to-wishlist-button__label">Add
-                                                                        to wishlist</span></a></div> -->
-                                                        </div>
-                                                        <div class="auction-card-content">
-                                                            <h6><a
-                                                                    href="https://artmart-wp.egenstheme.com/product/ocean-waves-textured-acrylic-art-panel/">{{ artwork.title }}</a></h6>
-                                                            <ul>
-                                                                <li>
-                                                                    <span>Artist : </span>
-                                                                    <a
-                                                                        href="https://artmart-wp.egenstheme.com/artists/frida-kahlo/">{{ artwork.artish.name }}</a>
-                                                                </li>
-                                                                <li><span>Price : </span><span
-                                                                        class="woocommerce-Price-amount amount"><bdi><span
-                                                                                class="woocommerce-Price-currencySymbol">₹</span>{{ artwork.price }}</bdi></span>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                {% empty %}
-                                <p>No artworks available.</p>
-                            {% endfor %}
-
-                                                <!-- <div class="col-lg-4 col-md-6">
-                                                    <div class="auction-card sidebar-card">
-                                                        <div class="auction-card-img-wrap">
-                                                            <a href="https://artmart-wp.egenstheme.com/product/where-stillness-speaks-colors-converse/"
-                                                                class="card-img">
-                                                                <img loading="lazy" width="300" height="300"
-                                                                    src="https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-14-300x300.webp"
-                                                                    class="attachment-medium size-medium wp-post-image"
-                                                                    alt="" decoding="async"
-                                                                    srcset="https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-14-300x300.webp 300w, https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-14-150x150.webp 150w, https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-14-768x768.webp 768w, https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-14-600x600.webp 600w, https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-14.webp 800w"
-                                                                    sizes="(max-width: 300px) 100vw, 300px"> </a>
-                                                            <div class="batch">
-                                                                <span class="live">
-                                                                    Live </span>
-                                                            </div>
-
-                                                            <div class="yith-add-to-wishlist-button-block yith-add-to-wishlist-button-block--initialized"
-                                                                data-product-id="410"
-                                                                data-attributes="{&quot;kind&quot;:&quot;button&quot;}">
-                                                                <a
-                                                                    class="yith-wcwl-add-to-wishlist-button yith-wcwl-add-to-wishlist-button--anchor"><svg
-                                                                        class="yith-wcwl-icon yith-wcwl-icon-svg yith-wcwl-add-to-wishlist-button-icon"
-                                                                        id="yith-wcwl-icon-heart-outline" fill="none"
-                                                                        stroke-width="1.5" stroke="currentColor"
-                                                                        viewBox="0 0 24 24"
-                                                                        xmlns="http://www.w3.org/2000/svg">
-                                                                        <path stroke-linecap="round"
-                                                                            stroke-linejoin="round"
-                                                                            d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z">
-                                                                        </path>
-                                                                    </svg><span
-                                                                        class="yith-wcwl-add-to-wishlist-button__label">Add
-                                                                        to wishlist</span></a></div>
-                                                        </div>
-                                                        <div class="auction-card-content">
-                                                            <h6><a
-                                                                    href="https://artmart-wp.egenstheme.com/product/where-stillness-speaks-colors-converse/">Where
-                                                                    Stillness Speaks, Colors Converse</a></h6>
-                                                            <ul>
-                                                                <li>
-                                                                    <span>Artist : </span>
-                                                                    <a
-                                                                        href="https://artmart-wp.egenstheme.com/artists/frida-kahlo/">Frida
-                                                                        Kahlo</a>
-                                                                </li>
-                                                                <li><span class="auction-price starting-bid"
-                                                                        data-auction-id="410" data-bid=""
-                                                                        data-status="running"><span
-                                                                            class="current auction">Starting bid:</span>
-                                                                        <span
-                                                                            class="woocommerce-Price-amount amount"><span
-                                                                                class="woocommerce-Price-currencySymbol">$</span>420.00</span></span>
-                                                                </li>
-                                                            </ul>
                                                         </div>
                                                     </div>
                                                 </div>
 
-                                                <div class="col-lg-4 col-md-6">
-                                                    <div class="auction-card sidebar-card">
-                                                        <div class="auction-card-img-wrap">
-                                                            <a href="https://artmart-wp.egenstheme.com/product/natures-spirit-transcends-the-mortal-frame/"
-                                                                class="card-img">
-                                                                <img loading="lazy" width="300" height="300"
-                                                                    src="https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-13-300x300.webp"
-                                                                    class="attachment-medium size-medium wp-post-image"
-                                                                    alt="" decoding="async"
-                                                                    srcset="https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-13-300x300.webp 300w, https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-13-150x150.webp 150w, https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-13-768x768.webp 768w, https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-13-600x600.webp 600w, https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-13.webp 800w"
-                                                                    sizes="(max-width: 300px) 100vw, 300px"> </a>
-                                                            <div class="batch">
-                                                                <span class="live">
-                                                                    Live </span>
-                                                            </div>
-
-                                                            <div class="yith-add-to-wishlist-button-block yith-add-to-wishlist-button-block--initialized"
-                                                                data-product-id="409"
-                                                                data-attributes="{&quot;kind&quot;:&quot;button&quot;}">
-                                                                <a
-                                                                    class="yith-wcwl-add-to-wishlist-button yith-wcwl-add-to-wishlist-button--anchor"><svg
-                                                                        class="yith-wcwl-icon yith-wcwl-icon-svg yith-wcwl-add-to-wishlist-button-icon"
-                                                                        id="yith-wcwl-icon-heart-outline" fill="none"
-                                                                        stroke-width="1.5" stroke="currentColor"
-                                                                        viewBox="0 0 24 24"
-                                                                        xmlns="http://www.w3.org/2000/svg">
-                                                                        <path stroke-linecap="round"
-                                                                            stroke-linejoin="round"
-                                                                            d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z">
-                                                                        </path>
-                                                                    </svg><span
-                                                                        class="yith-wcwl-add-to-wishlist-button__label">Add
-                                                                        to wishlist</span></a></div>
-                                                        </div>
-                                                        <div class="auction-card-content">
-                                                            <h6><a
-                                                                    href="https://artmart-wp.egenstheme.com/product/natures-spirit-transcends-the-mortal-frame/">Nature’s
-                                                                    Spirit Transcends the Mortal Frame</a></h6>
-                                                            <ul>
-                                                                <li>
-                                                                    <span>Artist : </span>
-                                                                    <a
-                                                                        href="https://artmart-wp.egenstheme.com/artists/frida-kahlo/">Frida
-                                                                        Kahlo</a>
-                                                                </li>
-                                                                <li><span class="auction-price starting-bid"
-                                                                        data-auction-id="409" data-bid=""
-                                                                        data-status="running"><span
-                                                                            class="current auction">Starting bid:</span>
-                                                                        <span
-                                                                            class="woocommerce-Price-amount amount"><span
-                                                                                class="woocommerce-Price-currencySymbol">$</span>410.00</span></span>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-lg-4 col-md-6">
-                                                    <div class="auction-card sidebar-card">
-                                                        <div class="auction-card-img-wrap">
-                                                            <a href="https://artmart-wp.egenstheme.com/product/layers-of-meaning-hidden-in-simplicity/"
-                                                                class="card-img">
-                                                                <img loading="lazy" width="300" height="300"
-                                                                    src="https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-12-300x300.webp"
-                                                                    class="attachment-medium size-medium wp-post-image"
-                                                                    alt="" decoding="async"
-                                                                    srcset="https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-12-300x300.webp 300w, https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-12-150x150.webp 150w, https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-12-768x768.webp 768w, https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-12-600x600.webp 600w, https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-12.webp 800w"
-                                                                    sizes="(max-width: 300px) 100vw, 300px"> </a>
-                                                            <div class="batch">
-                                                                <span class="live">
-                                                                    Live </span>
-                                                            </div>
-
-                                                            <div class="yith-add-to-wishlist-button-block yith-add-to-wishlist-button-block--initialized"
-                                                                data-product-id="408"
-                                                                data-attributes="{&quot;kind&quot;:&quot;button&quot;}">
-                                                                <a
-                                                                    class="yith-wcwl-add-to-wishlist-button yith-wcwl-add-to-wishlist-button--anchor"><svg
-                                                                        class="yith-wcwl-icon yith-wcwl-icon-svg yith-wcwl-add-to-wishlist-button-icon"
-                                                                        id="yith-wcwl-icon-heart-outline" fill="none"
-                                                                        stroke-width="1.5" stroke="currentColor"
-                                                                        viewBox="0 0 24 24"
-                                                                        xmlns="http://www.w3.org/2000/svg">
-                                                                        <path stroke-linecap="round"
-                                                                            stroke-linejoin="round"
-                                                                            d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z">
-                                                                        </path>
-                                                                    </svg><span
-                                                                        class="yith-wcwl-add-to-wishlist-button__label">Add
-                                                                        to wishlist</span></a></div>
-                                                        </div>
-                                                        <div class="auction-card-content">
-                                                            <h6><a
-                                                                    href="https://artmart-wp.egenstheme.com/product/layers-of-meaning-hidden-in-simplicity/">Layers
-                                                                    of Meaning Hidden in Simplicity</a></h6>
-                                                            <ul>
-                                                                <li>
-                                                                    <span>Artist : </span>
-                                                                    <a
-                                                                        href="https://artmart-wp.egenstheme.com/artists/frida-kahlo/">Frida
-                                                                        Kahlo</a>
-                                                                </li>
-                                                                <li><span class="auction-price starting-bid"
-                                                                        data-auction-id="408" data-bid=""
-                                                                        data-status="running"><span
-                                                                            class="current auction">Starting bid:</span>
-                                                                        <span
-                                                                            class="woocommerce-Price-amount amount"><span
-                                                                                class="woocommerce-Price-currencySymbol">$</span>390.00</span></span>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-lg-4 col-md-6">
-                                                    <div class="auction-card sidebar-card">
-                                                        <div class="auction-card-img-wrap">
-                                                            <a href="https://artmart-wp.egenstheme.com/product/infinity-explored-in-every-tiny-detail/"
-                                                                class="card-img">
-                                                                <img loading="lazy" width="300" height="300"
-                                                                    src="https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-11-300x300.webp"
-                                                                    class="attachment-medium size-medium wp-post-image"
-                                                                    alt="" decoding="async"
-                                                                    srcset="https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-11-300x300.webp 300w, https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-11-150x150.webp 150w, https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-11-768x768.webp 768w, https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-11-600x600.webp 600w, https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-11.webp 800w"
-                                                                    sizes="(max-width: 300px) 100vw, 300px"> </a>
-                                                            <div class="batch">
-                                                                <span class="live">
-                                                                    Live </span>
-                                                            </div>
-
-                                                            <div class="yith-add-to-wishlist-button-block yith-add-to-wishlist-button-block--initialized"
-                                                                data-product-id="407"
-                                                                data-attributes="{&quot;kind&quot;:&quot;button&quot;}">
-                                                                <a
-                                                                    class="yith-wcwl-add-to-wishlist-button yith-wcwl-add-to-wishlist-button--anchor"><svg
-                                                                        class="yith-wcwl-icon yith-wcwl-icon-svg yith-wcwl-add-to-wishlist-button-icon"
-                                                                        id="yith-wcwl-icon-heart-outline" fill="none"
-                                                                        stroke-width="1.5" stroke="currentColor"
-                                                                        viewBox="0 0 24 24"
-                                                                        xmlns="http://www.w3.org/2000/svg">
-                                                                        <path stroke-linecap="round"
-                                                                            stroke-linejoin="round"
-                                                                            d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z">
-                                                                        </path>
-                                                                    </svg><span
-                                                                        class="yith-wcwl-add-to-wishlist-button__label">Add
-                                                                        to wishlist</span></a></div>
-                                                        </div>
-                                                        <div class="auction-card-content">
-                                                            <h6><a
-                                                                    href="https://artmart-wp.egenstheme.com/product/infinity-explored-in-every-tiny-detail/">Infinity
-                                                                    Explored in Every Tiny Detail</a></h6>
-                                                            <ul>
-                                                                <li>
-                                                                    <span>Artist : </span>
-                                                                    <a
-                                                                        href="https://artmart-wp.egenstheme.com/artists/frida-kahlo/">Frida
-                                                                        Kahlo</a>
-                                                                </li>
-                                                                <li><span class="auction-price current-bid"
-                                                                        data-auction-id="407" data-bid="370"
-                                                                        data-status="running"><span
-                                                                            class="current auction">Current bid:</span>
-                                                                        <span
-                                                                            class="woocommerce-Price-amount amount"><span
-                                                                                class="woocommerce-Price-currencySymbol">$</span>370.00</span></span>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-lg-4 col-md-6">
-                                                    <div class="auction-card sidebar-card">
-                                                        <div class="auction-card-img-wrap">
-                                                            <a href="https://artmart-wp.egenstheme.com/product/textures-unveil-the-secrets-of-eternity/"
-                                                                class="card-img">
-                                                                <img loading="lazy" width="300" height="300"
-                                                                    src="https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-10-300x300.webp"
-                                                                    class="attachment-medium size-medium wp-post-image"
-                                                                    alt="" decoding="async"
-                                                                    srcset="https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-10-300x300.webp 300w, https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-10-150x150.webp 150w, https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-10-768x768.webp 768w, https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-10-600x600.webp 600w, https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-10.webp 800w"
-                                                                    sizes="(max-width: 300px) 100vw, 300px"> </a>
-                                                            <div class="batch">
-                                                                <span class="live">
-                                                                    Live </span>
-                                                            </div>
-
-                                                            <div class="yith-add-to-wishlist-button-block yith-add-to-wishlist-button-block--initialized"
-                                                                data-product-id="406"
-                                                                data-attributes="{&quot;kind&quot;:&quot;button&quot;}">
-                                                                <a
-                                                                    class="yith-wcwl-add-to-wishlist-button yith-wcwl-add-to-wishlist-button--anchor"><svg
-                                                                        class="yith-wcwl-icon yith-wcwl-icon-svg yith-wcwl-add-to-wishlist-button-icon"
-                                                                        id="yith-wcwl-icon-heart-outline" fill="none"
-                                                                        stroke-width="1.5" stroke="currentColor"
-                                                                        viewBox="0 0 24 24"
-                                                                        xmlns="http://www.w3.org/2000/svg">
-                                                                        <path stroke-linecap="round"
-                                                                            stroke-linejoin="round"
-                                                                            d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z">
-                                                                        </path>
-                                                                    </svg><span
-                                                                        class="yith-wcwl-add-to-wishlist-button__label">Add
-                                                                        to wishlist</span></a></div>
-                                                        </div>
-                                                        <div class="auction-card-content">
-                                                            <h6><a
-                                                                    href="https://artmart-wp.egenstheme.com/product/textures-unveil-the-secrets-of-eternity/">Textures
-                                                                    Unveil the Secrets of Eternity</a></h6>
-                                                            <ul>
-                                                                <li>
-                                                                    <span>Artist : </span>
-                                                                    <a
-                                                                        href="https://artmart-wp.egenstheme.com/artists/frida-kahlo/">Frida
-                                                                        Kahlo</a>
-                                                                </li>
-                                                                <li><span class="auction-price starting-bid"
-                                                                        data-auction-id="406" data-bid=""
-                                                                        data-status="running"><span
-                                                                            class="current auction">Starting bid:</span>
-                                                                        <span
-                                                                            class="woocommerce-Price-amount amount"><span
-                                                                                class="woocommerce-Price-currencySymbol">$</span>350.00</span></span>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-lg-4 col-md-6">
-                                                    <div class="auction-card sidebar-card">
-                                                        <div class="auction-card-img-wrap">
-                                                            <a href="https://artmart-wp.egenstheme.com/product/where-imagination-meets-the-canvas/"
-                                                                class="card-img">
-                                                                <img loading="lazy" width="300" height="300"
-                                                                    src="https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-9-300x300.webp"
-                                                                    class="attachment-medium size-medium wp-post-image"
-                                                                    alt="" decoding="async"
-                                                                    srcset="https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-9-300x300.webp 300w, https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-9-150x150.webp 150w, https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-9-768x768.webp 768w, https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-9-600x600.webp 600w, https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-9.webp 800w"
-                                                                    sizes="(max-width: 300px) 100vw, 300px"> </a>
-                                                            <div class="batch">
-                                                                <span class="live">
-                                                                    Live </span>
-                                                            </div>
-
-                                                            <div class="yith-add-to-wishlist-button-block yith-add-to-wishlist-button-block--initialized"
-                                                                data-product-id="405"
-                                                                data-attributes="{&quot;kind&quot;:&quot;button&quot;}">
-                                                                <a
-                                                                    class="yith-wcwl-add-to-wishlist-button yith-wcwl-add-to-wishlist-button--anchor"><svg
-                                                                        class="yith-wcwl-icon yith-wcwl-icon-svg yith-wcwl-add-to-wishlist-button-icon"
-                                                                        id="yith-wcwl-icon-heart-outline" fill="none"
-                                                                        stroke-width="1.5" stroke="currentColor"
-                                                                        viewBox="0 0 24 24"
-                                                                        xmlns="http://www.w3.org/2000/svg">
-                                                                        <path stroke-linecap="round"
-                                                                            stroke-linejoin="round"
-                                                                            d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z">
-                                                                        </path>
-                                                                    </svg><span
-                                                                        class="yith-wcwl-add-to-wishlist-button__label">Add
-                                                                        to wishlist</span></a></div>
-                                                        </div>
-                                                        <div class="auction-card-content">
-                                                            <h6><a
-                                                                    href="https://artmart-wp.egenstheme.com/product/where-imagination-meets-the-canvas/">Where
-                                                                    imagination meets the canvas</a></h6>
-                                                            <ul>
-                                                                <li>
-                                                                    <span>Artist : </span>
-                                                                    <a
-                                                                        href="https://artmart-wp.egenstheme.com/artists/frida-kahlo/">Frida
-                                                                        Kahlo</a>
-                                                                </li>
-                                                                <li><span class="auction-price starting-bid"
-                                                                        data-auction-id="405" data-bid=""
-                                                                        data-status="running"><span
-                                                                            class="current auction">Starting bid:</span>
-                                                                        <span
-                                                                            class="woocommerce-Price-amount amount"><span
-                                                                                class="woocommerce-Price-currencySymbol">$</span>320.00</span></span>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-lg-4 col-md-6">
-                                                    <div class="auction-card sidebar-card">
-                                                        <div class="auction-card-img-wrap">
-                                                            <a href="https://artmart-wp.egenstheme.com/product/an-invitation-to-explore-the-unseen/"
-                                                                class="card-img">
-                                                                <img loading="lazy" width="300" height="300"
-                                                                    src="https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-8-300x300.webp"
-                                                                    class="attachment-medium size-medium wp-post-image"
-                                                                    alt="" decoding="async"
-                                                                    srcset="https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-8-300x300.webp 300w, https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-8-150x150.webp 150w, https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-8-768x768.webp 768w, https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-8-600x600.webp 600w, https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-8.webp 800w"
-                                                                    sizes="(max-width: 300px) 100vw, 300px"> </a>
-                                                            <div class="batch">
-                                                                <span class="live">
-                                                                    Live </span>
-                                                            </div>
-
-                                                            <div class="yith-add-to-wishlist-button-block yith-add-to-wishlist-button-block--initialized"
-                                                                data-product-id="403"
-                                                                data-attributes="{&quot;kind&quot;:&quot;button&quot;}">
-                                                                <a
-                                                                    class="yith-wcwl-add-to-wishlist-button yith-wcwl-add-to-wishlist-button--anchor"><svg
-                                                                        class="yith-wcwl-icon yith-wcwl-icon-svg yith-wcwl-add-to-wishlist-button-icon"
-                                                                        id="yith-wcwl-icon-heart-outline" fill="none"
-                                                                        stroke-width="1.5" stroke="currentColor"
-                                                                        viewBox="0 0 24 24"
-                                                                        xmlns="http://www.w3.org/2000/svg">
-                                                                        <path stroke-linecap="round"
-                                                                            stroke-linejoin="round"
-                                                                            d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z">
-                                                                        </path>
-                                                                    </svg><span
-                                                                        class="yith-wcwl-add-to-wishlist-button__label">Add
-                                                                        to wishlist</span></a></div>
-                                                        </div>
-                                                        <div class="auction-card-content">
-                                                            <h6><a
-                                                                    href="https://artmart-wp.egenstheme.com/product/an-invitation-to-explore-the-unseen/">An
-                                                                    invitation to explore the unseen</a></h6>
-                                                            <ul>
-                                                                <li>
-                                                                    <span>Artist : </span>
-                                                                    <a
-                                                                        href="https://artmart-wp.egenstheme.com/artists/frida-kahlo/">Frida
-                                                                        Kahlo</a>
-                                                                </li>
-                                                                <li><span class="auction-price current-bid"
-                                                                        data-auction-id="403" data-bid="311"
-                                                                        data-status="running"><span
-                                                                            class="current auction">Current bid:</span>
-                                                                        <span
-                                                                            class="woocommerce-Price-amount amount"><span
-                                                                                class="woocommerce-Price-currencySymbol">$</span>311.00</span></span>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-lg-4 col-md-6">
-                                                    <div class="auction-card sidebar-card">
-                                                        <div class="auction-card-img-wrap">
-                                                            <a href="https://artmart-wp.egenstheme.com/product/dancing-colors-on-a-summer-breeze/"
-                                                                class="card-img">
-                                                                <img loading="lazy" width="300" height="300"
-                                                                    src="https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-7-300x300.webp"
-                                                                    class="attachment-medium size-medium wp-post-image"
-                                                                    alt="" decoding="async"
-                                                                    srcset="https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-7-300x300.webp 300w, https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-7-150x150.webp 150w, https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-7-768x768.webp 768w, https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-7-600x600.webp 600w, https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-7.webp 800w"
-                                                                    sizes="(max-width: 300px) 100vw, 300px"> </a>
-                                                            <div class="batch">
-                                                                <span class="live">
-                                                                    Live </span>
-                                                            </div>
-
-                                                            <div class="yith-add-to-wishlist-button-block yith-add-to-wishlist-button-block--initialized"
-                                                                data-product-id="402"
-                                                                data-attributes="{&quot;kind&quot;:&quot;button&quot;}">
-                                                                <a
-                                                                    class="yith-wcwl-add-to-wishlist-button yith-wcwl-add-to-wishlist-button--anchor"><svg
-                                                                        class="yith-wcwl-icon yith-wcwl-icon-svg yith-wcwl-add-to-wishlist-button-icon"
-                                                                        id="yith-wcwl-icon-heart-outline" fill="none"
-                                                                        stroke-width="1.5" stroke="currentColor"
-                                                                        viewBox="0 0 24 24"
-                                                                        xmlns="http://www.w3.org/2000/svg">
-                                                                        <path stroke-linecap="round"
-                                                                            stroke-linejoin="round"
-                                                                            d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z">
-                                                                        </path>
-                                                                    </svg><span
-                                                                        class="yith-wcwl-add-to-wishlist-button__label">Add
-                                                                        to wishlist</span></a></div>
-                                                        </div>
-                                                        <div class="auction-card-content">
-                                                            <h6><a
-                                                                    href="https://artmart-wp.egenstheme.com/product/dancing-colors-on-a-summer-breeze/">Dancing
-                                                                    Colors on a Summer Breeze</a></h6>
-                                                            <ul>
-                                                                <li>
-                                                                    <span>Artist : </span>
-                                                                    <a
-                                                                        href="https://artmart-wp.egenstheme.com/artists/frida-kahlo/">Frida
-                                                                        Kahlo</a>
-                                                                </li>
-                                                                <li><span class="auction-price starting-bid"
-                                                                        data-auction-id="402" data-bid=""
-                                                                        data-status="running"><span
-                                                                            class="current auction">Starting bid:</span>
-                                                                        <span
-                                                                            class="woocommerce-Price-amount amount"><span
-                                                                                class="woocommerce-Price-currencySymbol">$</span>300.00</span></span>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div> -->
-
-                                                <div class="wow animate fadeInUp" data-wow-delay="200ms"
-                                                    data-wow-duration="1500ms"
-                                                    style="visibility: hidden; animation-duration: 1500ms; animation-delay: 200ms; animation-name: none;">
-                                                    <div class="col-lg-12">
-                                                        <div
-                                                            class="page-navigation-area d-flex flex-wrap align-items-center justify-content-between">
-                                                            <div id="artistsPaginate">
-                                                                <ul class="pagination">
-                                                                    <li class="page-item"><a aria-label="Page 1"
-                                                                            aria-current="page" class=" current">01</a>
-                                                                    </li>
-                                                                    <li class="page-item"><a aria-label="Page 2"
-                                                                            class="" href="#2">02</a></li>
-                                                                    <li class="page-item"><a class="next " href="#2"><i
-                                                                                class="bi bi-arrow-right"></i></a></li>
-                                                                </ul>
-                                                            </div>
-                                                            <div class="prev-next-btn">
-                                                                <a
-                                                                    href="https://artmart-wp.egenstheme.com/artists/frida-kahlo/page/2/">
-                                                                    Next <svg width="7" height="14" viewBox="0 0 7 14"
-                                                                        xmlns="http://www.w3.org/2000/svg">
-                                                                        <path
-                                                                            d="M7 7.00008L0 0L4.45455 7.00008L0 14L7 7.00008Z">
-                                                                        </path>
-                                                                    </svg>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -1955,6 +1427,10 @@
         </footer>
 
     </div><!-- close #app div from header.php -->
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
 
     <script>(function () {
             function maybePrefixUrlField() {
