@@ -12,7 +12,7 @@ class ArtworkImageInline(admin.TabularInline):
 
 @admin.register(Artish)
 class ArtishAdmin(admin.ModelAdmin):
-    list_display = ['name', 'email', 'phone', 'gender', 'created_at', 'edit_link']
+    list_display = ['name', 'email','profile_image', 'phone', 'gender', 'created_at', 'edit_link']
     search_fields = ['name', 'email', 'stage_name']
     list_filter = ['gender', 'created_at']
 

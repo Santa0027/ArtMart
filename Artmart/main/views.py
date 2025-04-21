@@ -9,7 +9,23 @@ from django.core.paginator import Paginator
 # # Create your views here.
 
 
+
 def main(request):
+    artists= Artish.objects.all()
+    artworks = Artwork.objects.all()
+    
+    context={
+        'artists': artists,
+        'artworks':artworks
+    }
+    
+    return render(request, 'main/main.html',context)
+
+
+
+
+
+def shop(request):
     
     
     selected_categories = request.GET.getlist('category')
@@ -38,7 +54,33 @@ def main(request):
         'Categorylist':categories_list,
         'page_obj': page_obj,
     }
-    return render(request, 'main/main.html', context)
+    return render(request, 'main/shop.html', context)
+
+
+
+def artwork_detail(request, id):
+    artwork = get_object_or_404(Artwork, id=id)
+    return render(request, 'main/artwork_detail.html', {'artwork': artwork})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

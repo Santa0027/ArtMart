@@ -1,47 +1,1908 @@
-{% block artworklist %}
-<div class="col-xl-9 order-xl-2 order-1 ">
-    <div class="right-content">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="tab-content" id="pills-tabContent">
-                    <div class="tab-pane fade show active" id="pills-artworks" role="tabpanel" aria-labelledby="pills-artworks-tab">
-                        <div class="row gy-4 products">
-                            {% for artwork in artworks %}
-                                <div class="col-lg-4 col-md-6">
-                                    <div class="auction-card sidebar-card">
-                                        <div class="auction-card-img-wrap">
-                                            <a href="#">
-                                                <img src="{{ artwork.image.url }}" alt="{{ artwork.title }}" width="300" height="300">
-                                            </a>
-                                            <div class="batch">
-                                                {% if artwork.is_available %}
-                                                    <span class="live">Available</span>
-                                                {% else %}
-                                                    <span class="sold">Sold</span>
-                                                {% endif %}
+<!DOCTYPE html>
+<html lang="en-US" class=" yes-js js_active js">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <link rel="profile" href="https://gmpg.org/xfn/11">
+    <link rel="pingback" href="https://artmart-wp.egenstheme.com/xmlrpc.php">
+    <script>document.documentElement.className = document.documentElement.className + ' yes-js js_active js'</script>
+    <title>Frida Kahlo – Artmart – Art &amp; Auction WordPress Theme</title>
+    <meta name="robots" content="max-image-preview:large">
+    <style>
+        img:is([sizes="auto" i], [sizes^="auto," i]) {
+            contain-intrinsic-size: 3000px 1500px
+        }
+    </style>
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//use.fontawesome.com">
+    <link rel="alternate" type="application/rss+xml" title="Artmart - Art &amp; Auction WordPress Theme » Feed"
+        href="https://artmart-wp.egenstheme.com/feed/">
+    <link rel="alternate" type="application/rss+xml" title="Artmart - Art &amp; Auction WordPress Theme » Comments Feed"
+        href="https://artmart-wp.egenstheme.com/comments/feed/">
+    <script type="text/javascript">
+        /* <![CDATA[ */
+        window._wpemojiSettings = { "baseUrl": "https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/72x72\/", "ext": ".png", "svgUrl": "https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/svg\/", "svgExt": ".svg", "source": { "concatemoji": "https:\/\/artmart-wp.egenstheme.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.7.2" } };
+        /*! This file is auto-generated */
+        !function (i, n) { var o, s, e; function c(e) { try { var t = { supportTests: e, timestamp: (new Date).valueOf() }; sessionStorage.setItem(o, JSON.stringify(t)) } catch (e) { } } function p(e, t, n) { e.clearRect(0, 0, e.canvas.width, e.canvas.height), e.fillText(t, 0, 0); var t = new Uint32Array(e.getImageData(0, 0, e.canvas.width, e.canvas.height).data), r = (e.clearRect(0, 0, e.canvas.width, e.canvas.height), e.fillText(n, 0, 0), new Uint32Array(e.getImageData(0, 0, e.canvas.width, e.canvas.height).data)); return t.every(function (e, t) { return e === r[t] }) } function u(e, t, n) { switch (t) { case "flag": return n(e, "\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f", "\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f") ? !1 : !n(e, "\ud83c\uddfa\ud83c\uddf3", "\ud83c\uddfa\u200b\ud83c\uddf3") && !n(e, "\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f", "\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f"); case "emoji": return !n(e, "\ud83d\udc26\u200d\u2b1b", "\ud83d\udc26\u200b\u2b1b") }return !1 } function f(e, t, n) { var r = "undefined" != typeof WorkerGlobalScope && self instanceof WorkerGlobalScope ? new OffscreenCanvas(300, 150) : i.createElement("canvas"), a = r.getContext("2d", { willReadFrequently: !0 }), o = (a.textBaseline = "top", a.font = "600 32px Arial", {}); return e.forEach(function (e) { o[e] = t(a, e, n) }), o } function t(e) { var t = i.createElement("script"); t.src = e, t.defer = !0, i.head.appendChild(t) } "undefined" != typeof Promise && (o = "wpEmojiSettingsSupports", s = ["flag", "emoji"], n.supports = { everything: !0, everythingExceptFlag: !0 }, e = new Promise(function (e) { i.addEventListener("DOMContentLoaded", e, { once: !0 }) }), new Promise(function (t) { var n = function () { try { var e = JSON.parse(sessionStorage.getItem(o)); if ("object" == typeof e && "number" == typeof e.timestamp && (new Date).valueOf() < e.timestamp + 604800 && "object" == typeof e.supportTests) return e.supportTests } catch (e) { } return null }(); if (!n) { if ("undefined" != typeof Worker && "undefined" != typeof OffscreenCanvas && "undefined" != typeof URL && URL.createObjectURL && "undefined" != typeof Blob) try { var e = "postMessage(" + f.toString() + "(" + [JSON.stringify(s), u.toString(), p.toString()].join(",") + "));", r = new Blob([e], { type: "text/javascript" }), a = new Worker(URL.createObjectURL(r), { name: "wpTestEmojiSupports" }); return void (a.onmessage = function (e) { c(n = e.data), a.terminate(), t(n) }) } catch (e) { } c(n = f(s, u, p)) } t(n) }).then(function (e) { for (var t in e) n.supports[t] = e[t], n.supports.everything = n.supports.everything && n.supports[t], "flag" !== t && (n.supports.everythingExceptFlag = n.supports.everythingExceptFlag && n.supports[t]); n.supports.everythingExceptFlag = n.supports.everythingExceptFlag && !n.supports.flag, n.DOMReady = !1, n.readyCallback = function () { n.DOMReady = !0 } }).then(function () { return e }).then(function () { var e; n.supports.everything || (n.readyCallback(), (e = n.source || {}).concatemoji ? t(e.concatemoji) : e.wpemoji && e.twemoji && (t(e.twemoji), t(e.wpemoji))) })) }((window, document), window._wpemojiSettings);
+        /* ]]> */
+    </script>
+    <link rel="stylesheet" id="hfe-widgets-style-css"
+        href="https://artmart-wp.egenstheme.com/wp-content/plugins/header-footer-elementor/inc/widgets-css/frontend.css?ver=2.2.4"
+        type="text/css" media="all">
+    <style id="wp-emoji-styles-inline-css" type="text/css">
+        img.wp-smiley,
+        img.emoji {
+            display: inline !important;
+            border: none !important;
+            box-shadow: none !important;
+            height: 1em !important;
+            width: 1em !important;
+            margin: 0 0.07em !important;
+            vertical-align: -0.1em !important;
+            background: none !important;
+            padding: 0 !important;
+        }
+    </style>
+    <link rel="stylesheet" id="wp-block-library-css"
+        href="https://artmart-wp.egenstheme.com/wp-includes/css/dist/block-library/style.min.css?ver=6.7.2"
+        type="text/css" media="all">
+    <style id="wp-block-library-theme-inline-css" type="text/css">
+        .wp-block-audio :where(figcaption) {
+            color: #555;
+            font-size: 13px;
+            text-align: center
+        }
+
+        .is-dark-theme .wp-block-audio :where(figcaption) {
+            color: #ffffffa6
+        }
+
+        .wp-block-audio {
+            margin: 0 0 1em
+        }
+
+        .wp-block-code {
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: Menlo, Consolas, monaco, monospace;
+            padding: .8em 1em
+        }
+
+        .wp-block-embed :where(figcaption) {
+            color: #555;
+            font-size: 13px;
+            text-align: center
+        }
+
+        .is-dark-theme .wp-block-embed :where(figcaption) {
+            color: #ffffffa6
+        }
+
+        .wp-block-embed {
+            margin: 0 0 1em
+        }
+
+        .blocks-gallery-caption {
+            color: #555;
+            font-size: 13px;
+            text-align: center
+        }
+
+        .is-dark-theme .blocks-gallery-caption {
+            color: #ffffffa6
+        }
+
+        :root :where(.wp-block-image figcaption) {
+            color: #555;
+            font-size: 13px;
+            text-align: center
+        }
+
+        .is-dark-theme :root :where(.wp-block-image figcaption) {
+            color: #ffffffa6
+        }
+
+        .wp-block-image {
+            margin: 0 0 1em
+        }
+
+        .wp-block-pullquote {
+            border-bottom: 4px solid;
+            border-top: 4px solid;
+            color: currentColor;
+            margin-bottom: 1.75em
+        }
+
+        .wp-block-pullquote cite,
+        .wp-block-pullquote footer,
+        .wp-block-pullquote__citation {
+            color: currentColor;
+            font-size: .8125em;
+            font-style: normal;
+            text-transform: uppercase
+        }
+
+        .wp-block-quote {
+            border-left: .25em solid;
+            margin: 0 0 1.75em;
+            padding-left: 1em
+        }
+
+        .wp-block-quote cite,
+        .wp-block-quote footer {
+            color: currentColor;
+            font-size: .8125em;
+            font-style: normal;
+            position: relative
+        }
+
+        .wp-block-quote:where(.has-text-align-right) {
+            border-left: none;
+            border-right: .25em solid;
+            padding-left: 0;
+            padding-right: 1em
+        }
+
+        .wp-block-quote:where(.has-text-align-center) {
+            border: none;
+            padding-left: 0
+        }
+
+        .wp-block-quote.is-large,
+        .wp-block-quote.is-style-large,
+        .wp-block-quote:where(.is-style-plain) {
+            border: none
+        }
+
+        .wp-block-search .wp-block-search__label {
+            font-weight: 700
+        }
+
+        .wp-block-search__button {
+            border: 1px solid #ccc;
+            padding: .375em .625em
+        }
+
+        :where(.wp-block-group.has-background) {
+            padding: 1.25em 2.375em
+        }
+
+        .wp-block-separator.has-css-opacity {
+            opacity: .4
+        }
+
+        .wp-block-separator {
+            border: none;
+            border-bottom: 2px solid;
+            margin-left: auto;
+            margin-right: auto
+        }
+
+        .wp-block-separator.has-alpha-channel-opacity {
+            opacity: 1
+        }
+
+        .wp-block-separator:not(.is-style-wide):not(.is-style-dots) {
+            width: 100px
+        }
+
+        .wp-block-separator.has-background:not(.is-style-dots) {
+            border-bottom: none;
+            height: 1px
+        }
+
+        .wp-block-separator.has-background:not(.is-style-wide):not(.is-style-dots) {
+            height: 2px
+        }
+
+        .wp-block-table {
+            margin: 0 0 1em
+        }
+
+        .wp-block-table td,
+        .wp-block-table th {
+            word-break: normal
+        }
+
+        .wp-block-table :where(figcaption) {
+            color: #555;
+            font-size: 13px;
+            text-align: center
+        }
+
+        .is-dark-theme .wp-block-table :where(figcaption) {
+            color: #ffffffa6
+        }
+
+        .wp-block-video :where(figcaption) {
+            color: #555;
+            font-size: 13px;
+            text-align: center
+        }
+
+        .is-dark-theme .wp-block-video :where(figcaption) {
+            color: #ffffffa6
+        }
+
+        .wp-block-video {
+            margin: 0 0 1em
+        }
+
+        :root :where(.wp-block-template-part.has-background) {
+            margin-bottom: 0;
+            margin-top: 0;
+            padding: 1.25em 2.375em
+        }
+    </style>
+    <link rel="stylesheet" id="yith-wcwl-add-to-wishlist-css"
+        href="https://artmart-wp.egenstheme.com/wp-content/plugins/yith-woocommerce-wishlist/assets/css/frontend/add-to-wishlist.css?ver=4.4.0"
+        type="text/css" media="all">
+    <style id="yith-wcwl-add-to-wishlist-inline-css" type="text/css">
+        :root {
+            --add-to-wishlist-icon-color: #000000;
+            --added-to-wishlist-icon-color: #000000;
+            --color-add-to-wishlist-background: #333333;
+            --color-add-to-wishlist-text: #FFFFFF;
+            --color-add-to-wishlist-border: #333333;
+            --color-add-to-wishlist-background-hover: #333333;
+            --color-add-to-wishlist-text-hover: #FFFFFF;
+            --color-add-to-wishlist-border-hover: #333333;
+            --rounded-corners-radius: 16px;
+            --color-add-to-cart-background: #333333;
+            --color-add-to-cart-text: #FFFFFF;
+            --color-add-to-cart-border: #333333;
+            --color-add-to-cart-background-hover: #4F4F4F;
+            --color-add-to-cart-text-hover: #FFFFFF;
+            --color-add-to-cart-border-hover: #4F4F4F;
+            --add-to-cart-rounded-corners-radius: 16px;
+            --color-button-style-1-background: #333333;
+            --color-button-style-1-text: #FFFFFF;
+            --color-button-style-1-border: #333333;
+            --color-button-style-1-background-hover: #4F4F4F;
+            --color-button-style-1-text-hover: #FFFFFF;
+            --color-button-style-1-border-hover: #4F4F4F;
+            --color-button-style-2-background: #333333;
+            --color-button-style-2-text: #FFFFFF;
+            --color-button-style-2-border: #333333;
+            --color-button-style-2-background-hover: #4F4F4F;
+            --color-button-style-2-text-hover: #FFFFFF;
+            --color-button-style-2-border-hover: #4F4F4F;
+            --color-wishlist-table-background: #ffffff;
+            --color-wishlist-table-text: #6d6c6c;
+            --color-wishlist-table-border: #cccccc;
+            --color-headers-background: #F4F4F4;
+            --color-share-button-color: #FFFFFF;
+            --color-share-button-color-hover: #FFFFFF;
+            --color-fb-button-background: #39599E;
+            --color-fb-button-background-hover: #595A5A;
+            --color-tw-button-background: #45AFE2;
+            --color-tw-button-background-hover: #595A5A;
+            --color-pr-button-background: #AB2E31;
+            --color-pr-button-background-hover: #595A5A;
+            --color-em-button-background: #FBB102;
+            --color-em-button-background-hover: #595A5A;
+            --color-wa-button-background: #00A901;
+            --color-wa-button-background-hover: #595A5A;
+            --feedback-duration: 3s
+        }
+    </style>
+    <link rel="stylesheet" id="jquery-selectBox-css"
+        href="https://artmart-wp.egenstheme.com/wp-content/plugins/yith-woocommerce-wishlist/assets/css/jquery.selectBox.css?ver=1.2.0"
+        type="text/css" media="all">
+    <link rel="stylesheet" id="woocommerce_prettyPhoto_css-css"
+        href="//artmart-wp.egenstheme.com/wp-content/plugins/woocommerce/assets/css/prettyPhoto.css?ver=3.1.6"
+        type="text/css" media="all">
+    <link rel="stylesheet" id="yith-wcwl-main-css"
+        href="https://artmart-wp.egenstheme.com/wp-content/plugins/yith-woocommerce-wishlist/assets/css/style.css?ver=4.4.0"
+        type="text/css" media="all">
+    <style id="yith-wcwl-main-inline-css" type="text/css">
+        :root {
+            --add-to-wishlist-icon-color: #000000;
+            --added-to-wishlist-icon-color: #000000;
+            --color-add-to-wishlist-background: #333333;
+            --color-add-to-wishlist-text: #FFFFFF;
+            --color-add-to-wishlist-border: #333333;
+            --color-add-to-wishlist-background-hover: #333333;
+            --color-add-to-wishlist-text-hover: #FFFFFF;
+            --color-add-to-wishlist-border-hover: #333333;
+            --rounded-corners-radius: 16px;
+            --color-add-to-cart-background: #333333;
+            --color-add-to-cart-text: #FFFFFF;
+            --color-add-to-cart-border: #333333;
+            --color-add-to-cart-background-hover: #4F4F4F;
+            --color-add-to-cart-text-hover: #FFFFFF;
+            --color-add-to-cart-border-hover: #4F4F4F;
+            --add-to-cart-rounded-corners-radius: 16px;
+            --color-button-style-1-background: #333333;
+            --color-button-style-1-text: #FFFFFF;
+            --color-button-style-1-border: #333333;
+            --color-button-style-1-background-hover: #4F4F4F;
+            --color-button-style-1-text-hover: #FFFFFF;
+            --color-button-style-1-border-hover: #4F4F4F;
+            --color-button-style-2-background: #333333;
+            --color-button-style-2-text: #FFFFFF;
+            --color-button-style-2-border: #333333;
+            --color-button-style-2-background-hover: #4F4F4F;
+            --color-button-style-2-text-hover: #FFFFFF;
+            --color-button-style-2-border-hover: #4F4F4F;
+            --color-wishlist-table-background: #ffffff;
+            --color-wishlist-table-text: #6d6c6c;
+            --color-wishlist-table-border: #cccccc;
+            --color-headers-background: #F4F4F4;
+            --color-share-button-color: #FFFFFF;
+            --color-share-button-color-hover: #FFFFFF;
+            --color-fb-button-background: #39599E;
+            --color-fb-button-background-hover: #595A5A;
+            --color-tw-button-background: #45AFE2;
+            --color-tw-button-background-hover: #595A5A;
+            --color-pr-button-background: #AB2E31;
+            --color-pr-button-background-hover: #595A5A;
+            --color-em-button-background: #FBB102;
+            --color-em-button-background-hover: #595A5A;
+            --color-wa-button-background: #00A901;
+            --color-wa-button-background-hover: #595A5A;
+            --feedback-duration: 3s
+        }
+    </style>
+    <style id="classic-theme-styles-inline-css" type="text/css">
+        /*! This file is auto-generated */
+        .wp-block-button__link {
+            color: #fff;
+            background-color: #32373c;
+            border-radius: 9999px;
+            box-shadow: none;
+            text-decoration: none;
+            padding: calc(.667em + 2px) calc(1.333em + 2px);
+            font-size: 1.125em
+        }
+
+        .wp-block-file__button {
+            background: #32373c;
+            color: #fff;
+            text-decoration: none
+        }
+    </style>
+    <style id="global-styles-inline-css" type="text/css">
+        :root {
+            --wp--preset--aspect-ratio--square: 1;
+            --wp--preset--aspect-ratio--4-3: 4/3;
+            --wp--preset--aspect-ratio--3-4: 3/4;
+            --wp--preset--aspect-ratio--3-2: 3/2;
+            --wp--preset--aspect-ratio--2-3: 2/3;
+            --wp--preset--aspect-ratio--16-9: 16/9;
+            --wp--preset--aspect-ratio--9-16: 9/16;
+            --wp--preset--color--black: #000000;
+            --wp--preset--color--cyan-bluish-gray: #abb8c3;
+            --wp--preset--color--white: #ffffff;
+            --wp--preset--color--pale-pink: #f78da7;
+            --wp--preset--color--vivid-red: #cf2e2e;
+            --wp--preset--color--luminous-vivid-orange: #ff6900;
+            --wp--preset--color--luminous-vivid-amber: #fcb900;
+            --wp--preset--color--light-green-cyan: #7bdcb5;
+            --wp--preset--color--vivid-green-cyan: #00d084;
+            --wp--preset--color--pale-cyan-blue: #8ed1fc;
+            --wp--preset--color--vivid-cyan-blue: #0693e3;
+            --wp--preset--color--vivid-purple: #9b51e0;
+            --wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg, rgba(6, 147, 227, 1) 0%, rgb(155, 81, 224) 100%);
+            --wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg, rgb(122, 220, 180) 0%, rgb(0, 208, 130) 100%);
+            --wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg, rgba(252, 185, 0, 1) 0%, rgba(255, 105, 0, 1) 100%);
+            --wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg, rgba(255, 105, 0, 1) 0%, rgb(207, 46, 46) 100%);
+            --wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg, rgb(238, 238, 238) 0%, rgb(169, 184, 195) 100%);
+            --wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg, rgb(74, 234, 220) 0%, rgb(151, 120, 209) 20%, rgb(207, 42, 186) 40%, rgb(238, 44, 130) 60%, rgb(251, 105, 98) 80%, rgb(254, 248, 76) 100%);
+            --wp--preset--gradient--blush-light-purple: linear-gradient(135deg, rgb(255, 206, 236) 0%, rgb(152, 150, 240) 100%);
+            --wp--preset--gradient--blush-bordeaux: linear-gradient(135deg, rgb(254, 205, 165) 0%, rgb(254, 45, 45) 50%, rgb(107, 0, 62) 100%);
+            --wp--preset--gradient--luminous-dusk: linear-gradient(135deg, rgb(255, 203, 112) 0%, rgb(199, 81, 192) 50%, rgb(65, 88, 208) 100%);
+            --wp--preset--gradient--pale-ocean: linear-gradient(135deg, rgb(255, 245, 203) 0%, rgb(182, 227, 212) 50%, rgb(51, 167, 181) 100%);
+            --wp--preset--gradient--electric-grass: linear-gradient(135deg, rgb(202, 248, 128) 0%, rgb(113, 206, 126) 100%);
+            --wp--preset--gradient--midnight: linear-gradient(135deg, rgb(2, 3, 129) 0%, rgb(40, 116, 252) 100%);
+            --wp--preset--font-size--small: 13px;
+            --wp--preset--font-size--medium: 20px;
+            --wp--preset--font-size--large: 36px;
+            --wp--preset--font-size--x-large: 42px;
+            --wp--preset--spacing--20: 0.44rem;
+            --wp--preset--spacing--30: 0.67rem;
+            --wp--preset--spacing--40: 1rem;
+            --wp--preset--spacing--50: 1.5rem;
+            --wp--preset--spacing--60: 2.25rem;
+            --wp--preset--spacing--70: 3.38rem;
+            --wp--preset--spacing--80: 5.06rem;
+            --wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);
+            --wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);
+            --wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);
+            --wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);
+            --wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);
+        }
+
+        :where(.is-layout-flex) {
+            gap: 0.5em;
+        }
+
+        :where(.is-layout-grid) {
+            gap: 0.5em;
+        }
+
+        body .is-layout-flex {
+            display: flex;
+        }
+
+        .is-layout-flex {
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .is-layout-flex> :is(*, div) {
+            margin: 0;
+        }
+
+        body .is-layout-grid {
+            display: grid;
+        }
+
+        .is-layout-grid> :is(*, div) {
+            margin: 0;
+        }
+
+        :where(.wp-block-columns.is-layout-flex) {
+            gap: 2em;
+        }
+
+        :where(.wp-block-columns.is-layout-grid) {
+            gap: 2em;
+        }
+
+        :where(.wp-block-post-template.is-layout-flex) {
+            gap: 1.25em;
+        }
+
+        :where(.wp-block-post-template.is-layout-grid) {
+            gap: 1.25em;
+        }
+
+        .has-black-color {
+            color: var(--wp--preset--color--black) !important;
+        }
+
+        .has-cyan-bluish-gray-color {
+            color: var(--wp--preset--color--cyan-bluish-gray) !important;
+        }
+
+        .has-white-color {
+            color: var(--wp--preset--color--white) !important;
+        }
+
+        .has-pale-pink-color {
+            color: var(--wp--preset--color--pale-pink) !important;
+        }
+
+        .has-vivid-red-color {
+            color: var(--wp--preset--color--vivid-red) !important;
+        }
+
+        .has-luminous-vivid-orange-color {
+            color: var(--wp--preset--color--luminous-vivid-orange) !important;
+        }
+
+        .has-luminous-vivid-amber-color {
+            color: var(--wp--preset--color--luminous-vivid-amber) !important;
+        }
+
+        .has-light-green-cyan-color {
+            color: var(--wp--preset--color--light-green-cyan) !important;
+        }
+
+        .has-vivid-green-cyan-color {
+            color: var(--wp--preset--color--vivid-green-cyan) !important;
+        }
+
+        .has-pale-cyan-blue-color {
+            color: var(--wp--preset--color--pale-cyan-blue) !important;
+        }
+
+        .has-vivid-cyan-blue-color {
+            color: var(--wp--preset--color--vivid-cyan-blue) !important;
+        }
+
+        .has-vivid-purple-color {
+            color: var(--wp--preset--color--vivid-purple) !important;
+        }
+
+        .has-black-background-color {
+            background-color: var(--wp--preset--color--black) !important;
+        }
+
+        .has-cyan-bluish-gray-background-color {
+            background-color: var(--wp--preset--color--cyan-bluish-gray) !important;
+        }
+
+        .has-white-background-color {
+            background-color: var(--wp--preset--color--white) !important;
+        }
+
+        .has-pale-pink-background-color {
+            background-color: var(--wp--preset--color--pale-pink) !important;
+        }
+
+        .has-vivid-red-background-color {
+            background-color: var(--wp--preset--color--vivid-red) !important;
+        }
+
+        .has-luminous-vivid-orange-background-color {
+            background-color: var(--wp--preset--color--luminous-vivid-orange) !important;
+        }
+
+        .has-luminous-vivid-amber-background-color {
+            background-color: var(--wp--preset--color--luminous-vivid-amber) !important;
+        }
+
+        .has-light-green-cyan-background-color {
+            background-color: var(--wp--preset--color--light-green-cyan) !important;
+        }
+
+        .has-vivid-green-cyan-background-color {
+            background-color: var(--wp--preset--color--vivid-green-cyan) !important;
+        }
+
+        .has-pale-cyan-blue-background-color {
+            background-color: var(--wp--preset--color--pale-cyan-blue) !important;
+        }
+
+        .has-vivid-cyan-blue-background-color {
+            background-color: var(--wp--preset--color--vivid-cyan-blue) !important;
+        }
+
+        .has-vivid-purple-background-color {
+            background-color: var(--wp--preset--color--vivid-purple) !important;
+        }
+
+        .has-black-border-color {
+            border-color: var(--wp--preset--color--black) !important;
+        }
+
+        .has-cyan-bluish-gray-border-color {
+            border-color: var(--wp--preset--color--cyan-bluish-gray) !important;
+        }
+
+        .has-white-border-color {
+            border-color: var(--wp--preset--color--white) !important;
+        }
+
+        .has-pale-pink-border-color {
+            border-color: var(--wp--preset--color--pale-pink) !important;
+        }
+
+        .has-vivid-red-border-color {
+            border-color: var(--wp--preset--color--vivid-red) !important;
+        }
+
+        .has-luminous-vivid-orange-border-color {
+            border-color: var(--wp--preset--color--luminous-vivid-orange) !important;
+        }
+
+        .has-luminous-vivid-amber-border-color {
+            border-color: var(--wp--preset--color--luminous-vivid-amber) !important;
+        }
+
+        .has-light-green-cyan-border-color {
+            border-color: var(--wp--preset--color--light-green-cyan) !important;
+        }
+
+        .has-vivid-green-cyan-border-color {
+            border-color: var(--wp--preset--color--vivid-green-cyan) !important;
+        }
+
+        .has-pale-cyan-blue-border-color {
+            border-color: var(--wp--preset--color--pale-cyan-blue) !important;
+        }
+
+        .has-vivid-cyan-blue-border-color {
+            border-color: var(--wp--preset--color--vivid-cyan-blue) !important;
+        }
+
+        .has-vivid-purple-border-color {
+            border-color: var(--wp--preset--color--vivid-purple) !important;
+        }
+
+        .has-vivid-cyan-blue-to-vivid-purple-gradient-background {
+            background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;
+        }
+
+        .has-light-green-cyan-to-vivid-green-cyan-gradient-background {
+            background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;
+        }
+
+        .has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background {
+            background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;
+        }
+
+        .has-luminous-vivid-orange-to-vivid-red-gradient-background {
+            background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;
+        }
+
+        .has-very-light-gray-to-cyan-bluish-gray-gradient-background {
+            background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;
+        }
+
+        .has-cool-to-warm-spectrum-gradient-background {
+            background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;
+        }
+
+        .has-blush-light-purple-gradient-background {
+            background: var(--wp--preset--gradient--blush-light-purple) !important;
+        }
+
+        .has-blush-bordeaux-gradient-background {
+            background: var(--wp--preset--gradient--blush-bordeaux) !important;
+        }
+
+        .has-luminous-dusk-gradient-background {
+            background: var(--wp--preset--gradient--luminous-dusk) !important;
+        }
+
+        .has-pale-ocean-gradient-background {
+            background: var(--wp--preset--gradient--pale-ocean) !important;
+        }
+
+        .has-electric-grass-gradient-background {
+            background: var(--wp--preset--gradient--electric-grass) !important;
+        }
+
+        .has-midnight-gradient-background {
+            background: var(--wp--preset--gradient--midnight) !important;
+        }
+
+        .has-small-font-size {
+            font-size: var(--wp--preset--font-size--small) !important;
+        }
+
+        .has-medium-font-size {
+            font-size: var(--wp--preset--font-size--medium) !important;
+        }
+
+        .has-large-font-size {
+            font-size: var(--wp--preset--font-size--large) !important;
+        }
+
+        .has-x-large-font-size {
+            font-size: var(--wp--preset--font-size--x-large) !important;
+        }
+
+        :where(.wp-block-post-template.is-layout-flex) {
+            gap: 1.25em;
+        }
+
+        :where(.wp-block-post-template.is-layout-grid) {
+            gap: 1.25em;
+        }
+
+        :where(.wp-block-columns.is-layout-flex) {
+            gap: 2em;
+        }
+
+        :where(.wp-block-columns.is-layout-grid) {
+            gap: 2em;
+        }
+
+        :root :where(.wp-block-pullquote) {
+            font-size: 1.5em;
+            line-height: 1.6;
+        }
+    </style>
+    <style id="egns-stylesheet-inline-css" type="text/css">
+        .breadcrumb-section,
+        .breadcrumb-section2 {
+            background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.28), rgba(0, 0, 0, 0.28)), url(https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/breadcrumb-bg.webp) !important;
+        }
+    </style>
+    <link rel="stylesheet" id="contact-form-7-css"
+        href="https://artmart-wp.egenstheme.com/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=6.0.6"
+        type="text/css" media="all">
+    <link rel="stylesheet" id="woocommerce-layout-css"
+        href="https://artmart-wp.egenstheme.com/wp-content/plugins/woocommerce/assets/css/woocommerce-layout.css?ver=9.8.1"
+        type="text/css" media="all">
+    <link rel="stylesheet" id="woocommerce-smallscreen-css"
+        href="https://artmart-wp.egenstheme.com/wp-content/plugins/woocommerce/assets/css/woocommerce-smallscreen.css?ver=9.8.1"
+        type="text/css" media="only screen and (max-width: 768px)">
+    <link rel="stylesheet" id="woocommerce-general-css"
+        href="https://artmart-wp.egenstheme.com/wp-content/plugins/woocommerce/assets/css/woocommerce.css?ver=9.8.1"
+        type="text/css" media="all">
+    <style id="woocommerce-inline-inline-css" type="text/css">
+        .woocommerce form .form-row .required {
+            visibility: visible;
+        }
+    </style>
+    <link rel="stylesheet" id="hfe-style-css"
+        href="https://artmart-wp.egenstheme.com/wp-content/plugins/header-footer-elementor/assets/css/header-footer-elementor.css?ver=2.2.4"
+        type="text/css" media="all">
+    <link rel="stylesheet" id="wp-blocks-library-css"
+        href="https://artmart-wp.egenstheme.com/wp-includes/css/dist/block-library/style.min.css?ver=6.7.2"
+        type="text/css" media="all">
+    <link rel="stylesheet" id="nexaq-widgets-css"
+        href="https://artmart-wp.egenstheme.com/wp-content/themes/artmart/assets/css/el-widgets.css?ver=1736520819"
+        type="text/css" media="all">
+    <link rel="stylesheet" id="elementor-frontend-css"
+        href="https://artmart-wp.egenstheme.com/wp-content/plugins/elementor/assets/css/frontend.min.css?ver=3.28.3"
+        type="text/css" media="all">
+    <link rel="stylesheet" id="elementor-post-10-css"
+        href="https://artmart-wp.egenstheme.com/wp-content/uploads/elementor/css/post-10.css?ver=1744365467"
+        type="text/css" media="all">
+    <link rel="stylesheet" id="brands-styles-css"
+        href="https://artmart-wp.egenstheme.com/wp-content/plugins/woocommerce/assets/css/brands.css?ver=9.8.1"
+        type="text/css" media="all">
+    <link rel="stylesheet" id="egns-fonts-css"
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;family=Work+Sans:ital,wght@0,100..900;1,100..900&amp;display=swap"
+        type="text/css" media="all">
+    <link rel="stylesheet" id="bootstrap-css"
+        href="https://artmart-wp.egenstheme.com/wp-content/themes/artmart/assets/css/bootstrap.min.css?ver=1736520820"
+        type="text/css" media="all">
+    <link rel="stylesheet" id="bootstrap-icons-css"
+        href="https://artmart-wp.egenstheme.com/wp-content/themes/artmart/assets/css/bootstrap-icons.css?ver=1736520820"
+        type="text/css" media="all">
+    <link rel="stylesheet" id="boxicons-css"
+        href="https://artmart-wp.egenstheme.com/wp-content/themes/artmart/assets/css/boxicons.min.css?ver=1736520818"
+        type="text/css" media="all">
+    <link rel="stylesheet" id="swiper-bundle-css"
+        href="https://artmart-wp.egenstheme.com/wp-content/themes/artmart/assets/css/swiper-bundle.min.css?ver=1736520818"
+        type="text/css" media="all">
+    <link rel="stylesheet" id="slick-bundle-css"
+        href="https://artmart-wp.egenstheme.com/wp-content/themes/artmart/assets/css/slick.css?ver=1736520819"
+        type="text/css" media="all">
+    <link rel="stylesheet" id="slick-theme-bundle-css"
+        href="https://artmart-wp.egenstheme.com/wp-content/themes/artmart/assets/css/slick-theme.css?ver=1736520818"
+        type="text/css" media="all">
+    <link rel="stylesheet" id="egns-nice-select-css"
+        href="https://artmart-wp.egenstheme.com/wp-content/themes/artmart/assets/css/nice-select.css?ver=1736520819"
+        type="text/css" media="all">
+    <link rel="stylesheet" id="animate-css"
+        href="https://artmart-wp.egenstheme.com/wp-content/themes/artmart/assets/css/animate.min.css?ver=1736520819"
+        type="text/css" media="all">
+    <link rel="stylesheet" id="fancybox-css"
+        href="https://artmart-wp.egenstheme.com/wp-content/themes/artmart/assets/css/jquery.fancybox.min.css?ver=1736520819"
+        type="text/css" media="all">
+    <link rel="stylesheet" id="blog-and-pages-css"
+        href="https://artmart-wp.egenstheme.com/wp-content/themes/artmart/assets/css/blog-and-pages.css?ver=1740473041"
+        type="text/css" media="all">
+    <link rel="stylesheet" id="egns-woocommerce-css"
+        href="https://artmart-wp.egenstheme.com/wp-content/themes/artmart/assets/css/woocommerce-custom.css?ver=1740474282"
+        type="text/css" media="all">
+    <link rel="stylesheet" id="egns-style-css"
+        href="https://artmart-wp.egenstheme.com/wp-content/themes/artmart/assets/css/style.css?ver=1740995859"
+        type="text/css" media="all">
+    <link rel="stylesheet" id="egns-theme-css"
+        href="https://artmart-wp.egenstheme.com/wp-content/themes/artmart/style.css?ver=59" type="text/css" media="all">
+    <link rel="stylesheet" id="fa5-css" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css?ver=5.13.0"
+        type="text/css" media="all">
+    <link rel="stylesheet" id="fa5-v4-shims-css"
+        href="https://use.fontawesome.com/releases/v5.13.0/css/v4-shims.css?ver=5.13.0" type="text/css" media="all">
+    <link rel="stylesheet" id="dashicons-css"
+        href="https://artmart-wp.egenstheme.com/wp-includes/css/dashicons.min.css?ver=6.7.2" type="text/css"
+        media="all">
+    <style id="dashicons-inline-css" type="text/css">
+        [data-font="Dashicons"]:before {
+            font-family: 'Dashicons' !important;
+            content: attr(data-icon) !important;
+            speak: none !important;
+            font-weight: normal !important;
+            font-variant: normal !important;
+            text-transform: none !important;
+            line-height: 1 !important;
+            font-style: normal !important;
+            -webkit-font-smoothing: antialiased !important;
+            -moz-osx-font-smoothing: grayscale !important;
+        }
+    </style>
+    <link rel="stylesheet" id="simple-auction-css"
+        href="https://artmart-wp.egenstheme.com/wp-content/plugins/woocommerce-simple-auctions/css/frontend.css?ver=6.7.2"
+        type="text/css" media="all">
+    <link rel="stylesheet" id="hfe-elementor-icons-css"
+        href="https://artmart-wp.egenstheme.com/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css?ver=5.34.0"
+        type="text/css" media="all">
+    <link rel="stylesheet" id="hfe-icons-list-css"
+        href="https://artmart-wp.egenstheme.com/wp-content/plugins/elementor/assets/css/widget-icon-list.min.css?ver=3.24.3"
+        type="text/css" media="all">
+    <link rel="stylesheet" id="hfe-social-icons-css"
+        href="https://artmart-wp.egenstheme.com/wp-content/plugins/elementor/assets/css/widget-social-icons.min.css?ver=3.24.0"
+        type="text/css" media="all">
+    <link rel="stylesheet" id="hfe-social-share-icons-brands-css"
+        href="https://artmart-wp.egenstheme.com/wp-content/plugins/elementor/assets/lib/font-awesome/css/brands.css?ver=5.15.3"
+        type="text/css" media="all">
+    <link rel="stylesheet" id="hfe-social-share-icons-fontawesome-css"
+        href="https://artmart-wp.egenstheme.com/wp-content/plugins/elementor/assets/lib/font-awesome/css/fontawesome.css?ver=5.15.3"
+        type="text/css" media="all">
+    <link rel="stylesheet" id="hfe-nav-menu-icons-css"
+        href="https://artmart-wp.egenstheme.com/wp-content/plugins/elementor/assets/lib/font-awesome/css/solid.css?ver=5.15.3"
+        type="text/css" media="all">
+    <link rel="stylesheet" id="elementor-gf-local-playfairdisplay-css"
+        href="https://artmart-wp.egenstheme.com/wp-content/uploads/elementor/google-fonts/css/playfairdisplay.css?ver=1744365468"
+        type="text/css" media="all">
+    <link rel="stylesheet" id="elementor-gf-local-worksans-css"
+        href="https://artmart-wp.egenstheme.com/wp-content/uploads/elementor/google-fonts/css/worksans.css?ver=1744365470"
+        type="text/css" media="all">
+    <link rel="stylesheet" id="elementor-gf-local-roboto-css"
+        href="https://artmart-wp.egenstheme.com/wp-content/uploads/elementor/google-fonts/css/roboto.css?ver=1744365473"
+        type="text/css" media="all">
+    <script type="text/javascript" src="https://artmart-wp.egenstheme.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1"
+        id="jquery-core-js"></script>
+    <script type="text/javascript"
+        src="https://artmart-wp.egenstheme.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1"
+        id="jquery-migrate-js"></script>
+    <script type="text/javascript" id="jquery-js-after">
+        /* <![CDATA[ */
+        !function ($) { "use strict"; $(document).ready(function () { $(this).scrollTop() > 100 && $(".hfe-scroll-to-top-wrap").removeClass("hfe-scroll-to-top-hide"), $(window).scroll(function () { $(this).scrollTop() < 100 ? $(".hfe-scroll-to-top-wrap").fadeOut(300) : $(".hfe-scroll-to-top-wrap").fadeIn(300) }), $(".hfe-scroll-to-top-wrap").on("click", function () { $("html, body").animate({ scrollTop: 0 }, 300); return !1 }) }) }(jQuery);
+        /* ]]> */
+    </script>
+    <script type="text/javascript"
+        src="https://artmart-wp.egenstheme.com/wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js?ver=2.7.0-wc.9.8.1"
+        id="jquery-blockui-js" defer="defer" data-wp-strategy="defer"></script>
+    <script type="text/javascript" id="wc-add-to-cart-js-extra">
+        /* <![CDATA[ */
+        var wc_add_to_cart_params = { "ajax_url": "\/wp-admin\/admin-ajax.php", "wc_ajax_url": "\/?wc-ajax=%%endpoint%%", "i18n_view_cart": "View cart", "cart_url": "https:\/\/artmart-wp.egenstheme.com\/cart\/", "is_cart": "", "cart_redirect_after_add": "no" };
+        /* ]]> */
+    </script>
+    <script type="text/javascript"
+        src="https://artmart-wp.egenstheme.com/wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart.min.js?ver=9.8.1"
+        id="wc-add-to-cart-js" defer="defer" data-wp-strategy="defer"></script>
+    <script type="text/javascript"
+        src="https://artmart-wp.egenstheme.com/wp-content/plugins/woocommerce/assets/js/js-cookie/js.cookie.min.js?ver=2.1.4-wc.9.8.1"
+        id="js-cookie-js" defer="defer" data-wp-strategy="defer"></script>
+    <script type="text/javascript" id="woocommerce-js-extra">
+        /* <![CDATA[ */
+        var woocommerce_params = { "ajax_url": "\/wp-admin\/admin-ajax.php", "wc_ajax_url": "\/?wc-ajax=%%endpoint%%", "i18n_password_show": "Show password", "i18n_password_hide": "Hide password" };
+        /* ]]> */
+    </script>
+    <script type="text/javascript"
+        src="https://artmart-wp.egenstheme.com/wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min.js?ver=9.8.1"
+        id="woocommerce-js" defer="defer" data-wp-strategy="defer"></script>
+    <script type="text/javascript"
+        src="https://artmart-wp.egenstheme.com/wp-content/plugins/woocommerce-simple-auctions/js/jquery.countdown.min.js?ver=3.0.4"
+        id="simple-auction-countdown-js"></script>
+    <script type="text/javascript" id="simple-auction-countdown-language-js-extra">
+        /* <![CDATA[ */
+        var countdown_language_data = { "labels": { "Years": "Years", "Months": "Months", "Weeks": "Weeks", "Days": "Days", "Hours": "Hours", "Minutes": "Minutes", "Seconds": "Seconds" }, "labels1": { "Year": "Year", "Month": "Month", "Week": "Week", "Day": "Day", "Hour": "Hour", "Minute": "Minute", "Second": "Second" }, "compactLabels": { "y": "y", "m": "m", "w": "w", "d": "d" } };
+        /* ]]> */
+    </script>
+    <script type="text/javascript"
+        src="https://artmart-wp.egenstheme.com/wp-content/plugins/woocommerce-simple-auctions/js/jquery.countdown.language.js?ver=3.0.4"
+        id="simple-auction-countdown-language-js"></script>
+    <script type="text/javascript" id="autoNumeric-js-extra">
+        /* <![CDATA[ */
+        var autoNumericdata = { "currencySymbolPlacement": "p", "digitGroupSeparator": ",", "decimalCharacter": ".", "currencySymbol": "$", "decimalPlacesOverride": "2" };
+        /* ]]> */
+    </script>
+    <script type="text/javascript"
+        src="https://artmart-wp.egenstheme.com/wp-content/plugins/woocommerce-simple-auctions/js/autoNumeric.min.js?ver=2.0.13"
+        id="autoNumeric-js"></script>
+    <script type="text/javascript" id="simple-auction-frontend-js-extra">
+        /* <![CDATA[ */
+        var data = { "finished": "Auction has finished!", "checking": "Patience please, we are checking if auction is finished!", "gtm_offset": "0", "started": "Auction has started! Please refresh your page.", "no_need": "No need to bid. Your bid is winning! ", "compact_counter": "no", "outbid_message": "\n<ul class=\"woocommerce-error\" role=\"alert\">\n\t\t\t<li>\n\t\t\tYou've been outbid!\t\t<\/li>\n\t<\/ul>\n", "interval": "1" };
+        var SA_Ajax = { "ajaxurl": "\/artists\/frida-kahlo\/?wsa-ajax", "najax": "1", "last_activity": "1742369265", "focus": "yes" };
+        /* ]]> */
+    </script>
+    <script type="text/javascript"
+        src="https://artmart-wp.egenstheme.com/wp-content/plugins/woocommerce-simple-auctions/js/simple-auction-frontend.js?ver=3.0.4"
+        id="simple-auction-frontend-js"></script>
+    <link rel="https://api.w.org/" href="https://artmart-wp.egenstheme.com/wp-json/">
+    <link rel="alternate" title="JSON" type="application/json"
+        href="https://artmart-wp.egenstheme.com/wp-json/wp/v2/artists/365">
+    <link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://artmart-wp.egenstheme.com/xmlrpc.php?rsd">
+    <meta name="generator" content="WordPress 6.7.2">
+    <meta name="generator" content="WooCommerce 9.8.1">
+    <link rel="canonical" href="https://artmart-wp.egenstheme.com/artists/frida-kahlo/">
+    <link rel="shortlink" href="https://artmart-wp.egenstheme.com/?p=365">
+    <link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed"
+        href="https://artmart-wp.egenstheme.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fartmart-wp.egenstheme.com%2Fartists%2Ffrida-kahlo%2F">
+    <link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed"
+        href="https://artmart-wp.egenstheme.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fartmart-wp.egenstheme.com%2Fartists%2Ffrida-kahlo%2F&amp;format=xml">
+    <noscript>
+        <style>
+            .woocommerce-product-gallery {
+                opacity: 1 !important;
+            }
+        </style>
+    </noscript>
+    <meta name="generator"
+        content="Elementor 3.28.3; features: e_font_icon_svg, additional_custom_breakpoints, e_local_google_fonts, e_element_cache; settings: css_print_method-external, google_font-enabled, font_display-swap">
+    <style>
+        .e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload),
+        .e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload) * {
+            background-image: none !important;
+        }
+
+        @media screen and (max-height: 1024px) {
+
+            .e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload),
+            .e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload) * {
+                background-image: none !important;
+            }
+        }
+
+        @media screen and (max-height: 640px) {
+
+            .e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload),
+            .e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload) * {
+                background-image: none !important;
+            }
+        }
+    </style>
+    <style type="text/css">
+        .topbar .topbar-wrap .header-logo a img,
+        header.style-1 .header-logo a img,
+        header.style-1 .mobile-logo-area .mobile-logo-wrap img,
+        header.style-2 .header-logo a img,
+        header.style-2 .mobile-logo-area .mobile-logo-wrap img {
+            width: 135px !important;
+        }
+    </style>
+    <link rel="icon" href="https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/fav-icon.svg" sizes="32x32">
+    <link rel="icon" href="https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/fav-icon.svg" sizes="192x192">
+    <link rel="apple-touch-icon" href="https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/fav-icon.svg">
+    <meta name="msapplication-TileImage"
+        content="https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/fav-icon.svg">
+    <style type="text/css" id="wp-custom-css">
+        @media only screen and (max-width: 575px) {
+
+            .woocommerce div.product {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .woocommerce div.product div.images.woocommerce-product-gallery {
+                width: 100%;
+            }
+
+            .woocommerce div.product div.summary {
+                width: 100%;
+
+            }
+
+            .woocommerce .auction-details-section .auction-ajax-change .hasCountdown {
+                max-width: 100%;
+            }
+
+
+
+        }
+    </style>
+    <style>
+        @font-face {
+            font-family: 'Open Sans Regular';
+            font-style: normal;
+            font-weight: 400;
+            src: url('moz-extension://c6a0d2f2-47e3-4bc0-a969-7af256406edb/fonts/open_sans/open-sans-v18-latin-regular.woff');
+        }
+    </style>
+    <style>
+        @font-face {
+            font-family: 'Open Sans Bold';
+            font-style: normal;
+            font-weight: 800;
+            src: url('moz-extension://c6a0d2f2-47e3-4bc0-a969-7af256406edb/fonts/open_sans/OpenSans-Bold.woff');
+        }
+    </style>
+    <style>
+        @font-face {
+            font-family: 'Open Sans ExtraBold';
+            font-style: normal;
+            font-weight: 800;
+            src: url('moz-extension://c6a0d2f2-47e3-4bc0-a969-7af256406edb/fonts/open_sans/open-sans-v18-latin-800.woff');
+        }
+    </style>
+</head>
+    <div class="container">
+        <div class="auction-details-section">
+
+            <div class="woocommerce-notices-wrapper"></div>
+            <div id="product-479"
+                class="product type-product post-479 status-publish first instock product_cat-poetry product_cat-street-art product_tag-natura product_tag-painting product_tag-poetry has-post-thumbnail shipping-taxable purchasable product-type-simple">
+
+                <div class="woocommerce-product-gallery woocommerce-product-gallery--with-images woocommerce-product-gallery--columns-4 images"
+                    data-columns="4" style="opacity: 1; transition: opacity 0.25s ease-in-out;"><a href="#"
+                        role="button" class="woocommerce-product-gallery__trigger" aria-haspopup="dialog"
+                        aria-label="View full-screen image gallery"><span aria-hidden="true">🔍</span></a>
+
+                    <div class="flex-viewport"
+                        style="overflow: hidden; position: relative; height: 673.917px; transition: none;">
+                        <div class="woocommerce-product-gallery__wrapper"
+                            style="width: 800%; transition-duration: 0s; transform: translate3d(0px, 0px, 0px);">
+                            <div data-thumb="https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-13-300x300.webp"
+                                data-thumb-alt="Ocean Waves: Textured Acrylic Art Panel"
+                                data-thumb-srcset="https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-13-300x300.webp 300w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-13-150x150.webp 150w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-13-768x768.webp 768w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-13-600x600.webp 600w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-13.webp 800w"
+                                data-thumb-sizes="(max-width: 300px) 100vw, 300px"
+                                class="woocommerce-product-gallery__image flex-active-slide"
+                                style="position: relative; overflow: hidden; width: 673.917px; margin-right: 0px; float: left; display: block;">
+                                <a href="https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-13.webp"><img
+                                        loading="lazy" width="600" height="600"
+                                        src="https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-13-600x600.webp"
+                                        class="wp-post-image" alt="Ocean Waves: Textured Acrylic Art Panel"
+                                        data-caption=""
+                                        data-src="https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-13.webp"
+                                        data-large_image="https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-13.webp"
+                                        data-large_image_width="800" data-large_image_height="800" decoding="async"
+                                        srcset="https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-13-600x600.webp 600w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-13-150x150.webp 150w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-13-300x300.webp 300w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-13-768x768.webp 768w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-13.webp 800w"
+                                        sizes="(max-width: 600px) 100vw, 600px" draggable="false"></a><img alt=""
+                                    src="https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-13.webp"
+                                    class="zoomImg"
+                                    style="position: absolute; top: -41.403px; left: -64.546px; opacity: 0; width: 800px; height: 800px; border: medium; max-width: none; max-height: none;"
+                                    aria-hidden="true"></div>
+                            <div data-thumb="https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-2-300x300.webp"
+                                data-thumb-alt="Ocean Waves: Textured Acrylic Art Panel - Image 2"
+                                data-thumb-srcset="https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-2-300x300.webp 300w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-2-150x150.webp 150w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-2-768x768.webp 768w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-2-600x600.webp 600w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-2.webp 800w"
+                                data-thumb-sizes="(max-width: 300px) 100vw, 300px"
+                                class="woocommerce-product-gallery__image"
+                                style="width: 673.917px; margin-right: 0px; float: left; display: block;"><a
+                                    href="https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-2.webp"><img
+                                        loading="lazy" width="600" height="600"
+                                        src="https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-2-600x600.webp"
+                                        class="" alt="Ocean Waves: Textured Acrylic Art Panel - Image 2" data-caption=""
+                                        data-src="https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-2.webp"
+                                        data-large_image="https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-2.webp"
+                                        data-large_image_width="800" data-large_image_height="800" decoding="async"
+                                        srcset="https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-2-600x600.webp 600w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-2-150x150.webp 150w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-2-300x300.webp 300w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-2-768x768.webp 768w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-2.webp 800w"
+                                        sizes="(max-width: 600px) 100vw, 600px" draggable="false"></a></div>
+                            <div data-thumb="https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-1-300x300.webp"
+                                data-thumb-alt="Ocean Waves: Textured Acrylic Art Panel - Image 3"
+                                data-thumb-srcset="https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-1-300x300.webp 300w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-1-150x150.webp 150w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-1-768x768.webp 768w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-1-600x600.webp 600w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-1.webp 800w"
+                                data-thumb-sizes="(max-width: 300px) 100vw, 300px"
+                                class="woocommerce-product-gallery__image"
+                                style="width: 673.917px; margin-right: 0px; float: left; display: block;"><a
+                                    href="https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-1.webp"><img
+                                        loading="lazy" width="600" height="600"
+                                        src="https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-1-600x600.webp"
+                                        class="" alt="Ocean Waves: Textured Acrylic Art Panel - Image 3" data-caption=""
+                                        data-src="https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-1.webp"
+                                        data-large_image="https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-1.webp"
+                                        data-large_image_width="800" data-large_image_height="800" decoding="async"
+                                        srcset="https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-1-600x600.webp 600w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-1-150x150.webp 150w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-1-300x300.webp 300w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-1-768x768.webp 768w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-1.webp 800w"
+                                        sizes="(max-width: 600px) 100vw, 600px" draggable="false"></a></div>
+                            <div data-thumb="https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-13-300x300.webp"
+                                data-thumb-alt="Ocean Waves: Textured Acrylic Art Panel - Image 4"
+                                data-thumb-srcset="https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-13-300x300.webp 300w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-13-150x150.webp 150w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-13-768x768.webp 768w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-13-600x600.webp 600w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-13.webp 800w"
+                                data-thumb-sizes="(max-width: 300px) 100vw, 300px"
+                                class="woocommerce-product-gallery__image"
+                                style="width: 673.917px; margin-right: 0px; float: left; display: block;"><a
+                                    href="https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-13.webp"><img
+                                        loading="lazy" width="600" height="600"
+                                        src="https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-13-600x600.webp"
+                                        class="" alt="Ocean Waves: Textured Acrylic Art Panel - Image 4" data-caption=""
+                                        data-src="https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-13.webp"
+                                        data-large_image="https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-13.webp"
+                                        data-large_image_width="800" data-large_image_height="800" decoding="async"
+                                        srcset="https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-13-600x600.webp 600w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-13-150x150.webp 150w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-13-300x300.webp 300w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-13-768x768.webp 768w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-13.webp 800w"
+                                        sizes="(max-width: 600px) 100vw, 600px" draggable="false"></a></div>
+                        </div>
+                    </div>
+                    <ol class="flex-control-nav flex-control-thumbs">
+                        <li><img onload="this.width = this.naturalWidth; this.height = this.naturalHeight"
+                                src="https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-13-300x300.webp"
+                                srcset="https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-13-300x300.webp 300w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-13-150x150.webp 150w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-13-768x768.webp 768w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-13-600x600.webp 600w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-13.webp 800w"
+                                sizes="(max-width: 300px) 100vw, 300px" alt="Ocean Waves: Textured Acrylic Art Panel"
+                                class="flex-active" draggable="false" width="300" height="300"></li>
+                        <li><img onload="this.width = this.naturalWidth; this.height = this.naturalHeight"
+                                src="https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-2-300x300.webp"
+                                srcset="https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-2-300x300.webp 300w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-2-150x150.webp 150w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-2-768x768.webp 768w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-2-600x600.webp 600w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-2.webp 800w"
+                                sizes="(max-width: 300px) 100vw, 300px"
+                                alt="Ocean Waves: Textured Acrylic Art Panel - Image 2" draggable="false" width="300"
+                                height="300"></li>
+                        <li><img onload="this.width = this.naturalWidth; this.height = this.naturalHeight"
+                                src="https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-1-300x300.webp"
+                                srcset="https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-1-300x300.webp 300w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-1-150x150.webp 150w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-1-768x768.webp 768w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-1-600x600.webp 600w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-1.webp 800w"
+                                sizes="(max-width: 300px) 100vw, 300px"
+                                alt="Ocean Waves: Textured Acrylic Art Panel - Image 3" draggable="false" width="300"
+                                height="300"></li>
+                        <li><img onload="this.width = this.naturalWidth; this.height = this.naturalHeight"
+                                src="https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-13-300x300.webp"
+                                srcset="https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-13-300x300.webp 300w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-13-150x150.webp 150w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-13-768x768.webp 768w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-13-600x600.webp 600w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-13.webp 800w"
+                                sizes="(max-width: 300px) 100vw, 300px"
+                                alt="Ocean Waves: Textured Acrylic Art Panel - Image 4" draggable="false" width="300"
+                                height="300"></li>
+                    </ol>
+                </div>
+
+                <div class="summary entry-summary">
+                    <h1 class="product_title entry-title">Ocean Waves: Textured Acrylic Art Panel</h1>
+                    <p class="price"><span class="woocommerce-Price-amount amount"><bdi><span
+                                    class="woocommerce-Price-currencySymbol">$</span>299.00</bdi></span></p>
+
+
+                    <form class="cart"
+                        action="https://artmart-wp.egenstheme.com/product/ocean-waves-textured-acrylic-art-panel/"
+                        method="post" enctype="multipart/form-data">
+
+                        <div class="quantity">
+                            <button type="button" class="minus"><i class="bi bi-dash-lg"></i></button> <label
+                                class="screen-reader-text" for="quantity_6805ba742e452">Ocean Waves: Textured Acrylic
+                                Art Panel quantity</label>
+                            <input type="number" id="quantity_6805ba742e452" class="input-text qty text" name="quantity"
+                                value="1" aria-label="Product quantity" min="1" max="" step="1" placeholder=""
+                                inputmode="numeric" autocomplete="off">
+                            <button type="button" class="plus"><i class="bi bi-plus-lg"></i></button>
+                        </div>
+
+                        <button type="submit" name="add-to-cart" value="479"
+                            class="single_add_to_cart_button button alt">Add to cart</button>
+
+                    </form>
+
+
+                    <div class="yith-add-to-wishlist-button-block yith-add-to-wishlist-button-block--single yith-add-to-wishlist-button-block--initialized"
+                        data-product-id="479"
+                        data-attributes="{&quot;is_single&quot;:true,&quot;kind&quot;:&quot;button&quot;,&quot;show_view&quot;:true}">
+                        <a
+                            class="yith-wcwl-add-to-wishlist-button yith-wcwl-add-to-wishlist-button--anchor yith-wcwl-add-to-wishlist-button--single"><svg
+                                class="yith-wcwl-icon yith-wcwl-icon-svg yith-wcwl-add-to-wishlist-button-icon"
+                                id="yith-wcwl-icon-heart-outline" fill="none" stroke-width="1.5" stroke="currentColor"
+                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z">
+                                </path>
+                            </svg><span class="yith-wcwl-add-to-wishlist-button__label">Add to wishlist</span></a></div>
+                    <div class="product_meta">
+
+
+
+                        <span class="posted_in">Categories: <a
+                                href="https://artmart-wp.egenstheme.com/product-category/poetry/" rel="tag">Poetry</a>,
+                            <a href="https://artmart-wp.egenstheme.com/product-category/street-art/" rel="tag">Street
+                                Art</a></span>
+                        <span class="tagged_as">Tags: <a href="https://artmart-wp.egenstheme.com/product-tag/natura/"
+                                rel="tag">Natura</a>, <a href="https://artmart-wp.egenstheme.com/product-tag/painting/"
+                                rel="tag">Painting</a>, <a href="https://artmart-wp.egenstheme.com/product-tag/poetry/"
+                                rel="tag">Poetry</a></span>
+
+                    </div>
+
+
+                    <div class="payment-method">
+                        <ul class="payment-list">
+                            <li>
+                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M3.375 9.5625L7.875 14.0625L14.625 3.9375" stroke="#1D972B"
+                                        stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                                Shipping : Less than one week
+                            </li>
+                            <li>
+                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M3.375 9.5625L7.875 14.0625L14.625 3.9375" stroke="#1D972B"
+                                        stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                                Secure delivery : United States + $162
+                            </li>
+                            <li>
+                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M3.375 9.5625L7.875 14.0625L14.625 3.9375" stroke="#1D972B"
+                                        stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                                Free returns within Two Weekes
+                            </li>
+                            <li>
+                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M3.375 9.5625L7.875 14.0625L14.625 3.9375" stroke="#1D972B"
+                                        stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                                Authenticity Certificate
+                            </li>
+                            <li>
+                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M3.375 9.5625L7.875 14.0625L14.625 3.9375" stroke="#1D972B"
+                                        stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                                Secured Payment Gateways
+                            </li>
+                        </ul>
+                        <ul class="payment-card">
+                            <li>
+                                <img loading="lazy" width="52" height="16"
+                                    src="https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/payment-image.svg"
+                                    class="attachment-full size-full" alt="" decoding="async">
+                            </li>
+                            <li>
+                                <img loading="lazy" width="29" height="16"
+                                    src="https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/payment-image2.svg"
+                                    class="attachment-full size-full" alt="" decoding="async">
+                            </li>
+                            <li>
+                                <img loading="lazy" width="27" height="16"
+                                    src="https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/payment-image3.svg"
+                                    class="attachment-full size-full" alt="" decoding="async">
+                            </li>
+                            <li>
+                                <img loading="lazy" width="28" height="16"
+                                    src="https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/payment-image4.svg"
+                                    class="attachment-full size-full" alt="" decoding="async">
+                            </li>
+                        </ul>
+                    </div>
+                    <span class="ask-question">Have any question? <a
+                            href="https://artmart-wp.egenstheme.com/refund_returns/">Ask Us</a></span>
+
+                    <br>
+                    <br>
+
+                    <script>
+                        jQuery(function ($) {
+                            var url = 'https://artmart-wp.egenstheme.com/checkout/?add-to-cart=479',
+                                qty = 'input.qty',
+                                button = 'a.custom-checkout-btn';
+
+                            // On input/change quantity event
+                            $(qty).on('input change', function () {
+                                $(button).attr('href', url + '&quantity=' + $(this).val());
+                            });
+                        });
+                    </script>
+                    <a href="https://artmart-wp.egenstheme.com/checkout/?add-to-cart=479"
+                        class="single_add_to_cart_button button alt custom-checkout-btn secondary-btn4 two">Buy now</a>
+                </div>
+
+
+                <div class="product-description artmart-custom">
+                    <div class="row gy-4">
+                        <div class="col-xxl-3 col-lg-6">
+                            <div class="artist-overview">
+                                <h5>Artist Overview</h5>
+                                <ul>
+                                    <li>
+                                        <h6>Date of Birth and death</h6>
+                                        <p>Born on July 6, 1907, and passed away on July 13, 1954</p>
+                                    </li>
+                                    <li>
+                                        <h6>Nationality</h6>
+                                        <p>Mexican</p>
+                                    </li>
+                                    <li>
+                                        <h6>Style</h6>
+                                        <p>She Known for her surrealist and symbolic style</p>
+                                    </li>
+                                    <li>
+                                        <h6>Notable work</h6>
+                                        <p>“The Two Fridas” (1939), “Self-Portrait with Thorn Necklace and Hummingbird”
+                                            (1940),<br>
+                                            and “The Broken Column” (1944)</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-xxl-5 col-lg-6">
+                            <div class="exploring-artwork">
+                                <h5>Exploring the Artwork</h5>
+                                <ul>
+                                    <li>
+                                        <h6>Category :</h6>
+                                        <p>Oil Painting</p>
+                                    </li>
+                                    <li>
+                                        <h6>Size :</h6>
+                                        <p>29.7 x 28 inch x 8 inch&nbsp;(Height x Width x Depth)</p>
+                                    </li>
+                                    <li>
+                                        <h6>Framing :</h6>
+                                        <p>Not Frame</p>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li>
+                                        <h6>Theme :</h6>
+                                        <p>Nature and Animals</p>
+                                    </li>
+                                    <li>
+                                        <h6>Signature :</h6>
+                                        <p>Signed by Artist</p>
+                                    </li>
+                                    <li>
+                                        <h6>Authenticity : </h6>
+                                        <p>Includes Certificate of Authenticity for auction.</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-xxl-4 col-lg-6">
+                            <div class="narrative-guidelines">
+                                &nbsp;
+                                <h5>Art Inner narrative &amp; guidelines</h5>
+                                <ul>
+                                    <li>
+                                        <h6>Inner Narrative Of This Artwork</h6>
+                                        <p>This Artworks often delve into personal and emotional experiences, so these
+                                            terms
+                                            capture the depth and complexity of the themes the artist explores.</p>
+                                    </li>
+                                </ul>
+                                <div class="guidelines">
+                                    <h6>Guidelines for The Art work :</h6>
+                                    <ul class="guidelines-list">
+                                        <li>Framing the artwork/painting</li>
+                                        <li>Keep the painting away from direct sunlight</li>
+                                        <li>Dust the surface gently with a soft dry brush or cloth</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="home1-auction-slider-section mt-100">
+                    <div class="row mb-50 align-items-center justify-content-between flex-wrap gap-3 wow animate fadeInDown"
+                        data-wow-delay="200ms" data-wow-duration="1500ms"
+                        style="visibility: hidden; animation-duration: 1500ms; animation-delay: 200ms; animation-name: none;">
+                        <div class="col-lg-12">
+                            <div class="section-title">
+                                <h3>Similar Products</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="auction-slider-wrap wow animate fadeInUp" data-wow-delay="200ms"
+                        data-wow-duration="1500ms"
+                        style="visibility: hidden; animation-duration: 1500ms; animation-delay: 200ms; animation-name: none;">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div
+                                    class="swiper home1-auction-slider swiper-initialized swiper-horizontal swiper-backface-hidden">
+                                    <div class="swiper-wrapper" id="swiper-wrapper-f91eea594e8e1de1" aria-live="off"
+                                        style="transition-duration: 1500ms; transform: translate3d(-1321px, 0px, 0px);">
+                                        <div class="swiper-slide" style="width: 305.25px; margin-right: 25px;"
+                                            role="group" aria-label="1 / 8">
+                                            <div class="auction-card  ">
+                                                <div class="auction-card-img-wrap">
+                                                    <a href="https://artmart-wp.egenstheme.com/product/colors-sing-songs-of-silent-emotions/"
+                                                        class="card-img">
+                                                        <img width="800" height="800"
+                                                            src="https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-19.webp"
+                                                            class="attachment-large size-large wp-post-image" alt=""
+                                                            decoding="async"
+                                                            srcset="https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-19.webp 800w, https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-19-150x150.webp 150w, https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-19-300x300.webp 300w, https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-19-768x768.webp 768w, https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-19-600x600.webp 600w"
+                                                            sizes="(max-width: 800px) 100vw, 800px"> </a>
+                                                    <div class="batch">
+                                                        <span class="live">
+                                                            Live </span>
+                                                    </div>
+
+                                                    <div class="yith-add-to-wishlist-button-block yith-add-to-wishlist-button-block--initialized"
+                                                        data-product-id="415"
+                                                        data-attributes="{&quot;kind&quot;:&quot;button&quot;}"><a
+                                                            class="yith-wcwl-add-to-wishlist-button yith-wcwl-add-to-wishlist-button--anchor"><svg
+                                                                class="yith-wcwl-icon yith-wcwl-icon-svg yith-wcwl-add-to-wishlist-button-icon"
+                                                                id="yith-wcwl-icon-heart-outline" fill="none"
+                                                                stroke-width="1.5" stroke="currentColor"
+                                                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                                    d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z">
+                                                                </path>
+                                                            </svg><span
+                                                                class="yith-wcwl-add-to-wishlist-button__label">Add to
+                                                                wishlist</span></a></div>
+                                                    <div class="countdown-timer">
+                                                        <div class="auction-time">
+                                                            <div class="main-auction auction-time-countdown hasCountdown"
+                                                                data-time="1772236800" data-auctionid="415"
+                                                                data-format="dHMS"><span
+                                                                    class="countdown_row countdown_show4"><span
+                                                                        class="countdown_section"><span
+                                                                            class="countdown_amount">312</span><br>Days</span><span
+                                                                        class="countdown_section"><span
+                                                                            class="countdown_amount">20</span><br>Hours</span><span
+                                                                        class="countdown_section"><span
+                                                                            class="countdown_amount">34</span><br>Minutes</span><span
+                                                                        class="countdown_section"><span
+                                                                            class="countdown_amount">49</span><br>Seconds</span></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="auction-card-content">
+                                                    <h6><a
+                                                            href="https://artmart-wp.egenstheme.com/product/colors-sing-songs-of-silent-emotions/">Colors
+                                                            Sing Songs of Silent Emotions</a></h6>
+                                                    <ul>
+                                                        <li><span>Artist : </span>Frida Kahlo</li>
+                                                        <li><span class="auction-price current-bid"
+                                                                data-auction-id="415" data-bid="420"
+                                                                data-status="running"><span
+                                                                    class="current auction">Current bid:</span> <span
+                                                                    class="woocommerce-Price-amount amount"><span
+                                                                        class="woocommerce-Price-currencySymbol">$</span>420.00</span></span>
+                                                        </li>
+                                                    </ul>
+                                                    <a href="https://artmart-wp.egenstheme.com/product/colors-sing-songs-of-silent-emotions/"
+                                                        class="add-cart-btn button bid-btn btn-hover auction add_to_cart_button"
+                                                        data-product_id="415" data-product_sku=""
+                                                        aria-label="Read more about “Colors Sing Songs of Silent Emotions”"
+                                                        rel="nofollow">
+                                                        <span>Bidding Start</span>
+                                                        <strong></strong>
+                                                    </a>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="auction-card-content">
-                                            <h6>{{ artwork.title }}</h6>
-                                            <ul>
-                                                <li><span>Artist: </span><a href="#">{{ artwork.artish.name }}</a></li>
-                                                <li><span>Style: </span>{{ artwork.get_style_display }}</li>
-                                                <li><span>Medium: </span>{{ artwork.get_medium_display }}</li>
-                                                <li><span>Price: </span>${{ artwork.price }}</li>
-                                                <li><span>Year Created: </span>{{ artwork.year_created }}</li>
-                                            </ul>
-                                            <p><strong>Description:</strong> {{ artwork.description }}</p>
+                                        <div class="swiper-slide" style="width: 305.25px; margin-right: 25px;"
+                                            role="group" aria-label="2 / 8">
+                                            <div class="auction-card   general-art">
+                                                <div class="auction-card-img-wrap">
+                                                    <a href="https://artmart-wp.egenstheme.com/product/whimsical-dreams-abstract-canvas-wall-art/"
+                                                        class="card-img">
+                                                        <img width="800" height="800"
+                                                            src="https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-9.webp"
+                                                            class="attachment-large size-large wp-post-image" alt=""
+                                                            decoding="async"
+                                                            srcset="https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-9.webp 800w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-9-150x150.webp 150w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-9-300x300.webp 300w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-9-768x768.webp 768w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-9-600x600.webp 600w"
+                                                            sizes="(max-width: 800px) 100vw, 800px"> </a>
+                                                    <div class="batch">
+                                                    </div>
+
+                                                    <div class="yith-add-to-wishlist-button-block yith-add-to-wishlist-button-block--initialized"
+                                                        data-product-id="475"
+                                                        data-attributes="{&quot;kind&quot;:&quot;button&quot;}"><a
+                                                            class="yith-wcwl-add-to-wishlist-button yith-wcwl-add-to-wishlist-button--anchor"><svg
+                                                                class="yith-wcwl-icon yith-wcwl-icon-svg yith-wcwl-add-to-wishlist-button-icon"
+                                                                id="yith-wcwl-icon-heart-outline" fill="none"
+                                                                stroke-width="1.5" stroke="currentColor"
+                                                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                                    d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z">
+                                                                </path>
+                                                            </svg><span
+                                                                class="yith-wcwl-add-to-wishlist-button__label">Add to
+                                                                wishlist</span></a></div>
+                                                </div>
+                                                <div class="auction-card-content">
+                                                    <h6><a
+                                                            href="https://artmart-wp.egenstheme.com/product/whimsical-dreams-abstract-canvas-wall-art/">Whimsical
+                                                            Dreams: Abstract Canvas Wall Art</a></h6>
+                                                    <ul>
+                                                        <li><span>Artist : </span>Frida Kahlo</li>
+                                                        <li><span>Price : </span><span
+                                                                class="woocommerce-Price-amount amount"><bdi><span
+                                                                        class="woocommerce-Price-currencySymbol">$</span>295.00</bdi></span>
+                                                        </li>
+                                                    </ul>
+                                                    <a href="?add-to-cart=475"
+                                                        class="add-cart-btn button bid-btn btn-hover simple add_to_cart_button"
+                                                        data-product_id="475" data-product_sku=""
+                                                        aria-label="Add to cart: “Whimsical Dreams: Abstract Canvas Wall Art”"
+                                                        rel="nofollow">
+                                                        <span>Add to Cart</span>
+                                                        <strong></strong>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide" style="width: 305.25px; margin-right: 25px;"
+                                            role="group" aria-label="3 / 8">
+                                            <div class="auction-card  ">
+                                                <div class="auction-card-img-wrap">
+                                                    <a href="https://artmart-wp.egenstheme.com/product/an-invitation-to-explore-the-unseen/"
+                                                        class="card-img">
+                                                        <img width="800" height="800"
+                                                            src="https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-8.webp"
+                                                            class="attachment-large size-large wp-post-image" alt=""
+                                                            decoding="async"
+                                                            srcset="https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-8.webp 800w, https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-8-150x150.webp 150w, https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-8-300x300.webp 300w, https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-8-768x768.webp 768w, https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-8-600x600.webp 600w"
+                                                            sizes="(max-width: 800px) 100vw, 800px"> </a>
+                                                    <div class="batch">
+                                                        <span class="live">
+                                                            Live </span>
+                                                    </div>
+
+                                                    <div class="yith-add-to-wishlist-button-block yith-add-to-wishlist-button-block--initialized"
+                                                        data-product-id="403"
+                                                        data-attributes="{&quot;kind&quot;:&quot;button&quot;}"><a
+                                                            class="yith-wcwl-add-to-wishlist-button yith-wcwl-add-to-wishlist-button--anchor"><svg
+                                                                class="yith-wcwl-icon yith-wcwl-icon-svg yith-wcwl-add-to-wishlist-button-icon"
+                                                                id="yith-wcwl-icon-heart-outline" fill="none"
+                                                                stroke-width="1.5" stroke="currentColor"
+                                                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                                    d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z">
+                                                                </path>
+                                                            </svg><span
+                                                                class="yith-wcwl-add-to-wishlist-button__label">Add to
+                                                                wishlist</span></a></div>
+                                                    <div class="countdown-timer">
+                                                        <div class="auction-time">
+                                                            <div class="main-auction auction-time-countdown hasCountdown"
+                                                                data-time="1772236800" data-auctionid="403"
+                                                                data-format="dHMS"><span
+                                                                    class="countdown_row countdown_show4"><span
+                                                                        class="countdown_section"><span
+                                                                            class="countdown_amount">312</span><br>Days</span><span
+                                                                        class="countdown_section"><span
+                                                                            class="countdown_amount">20</span><br>Hours</span><span
+                                                                        class="countdown_section"><span
+                                                                            class="countdown_amount">34</span><br>Minutes</span><span
+                                                                        class="countdown_section"><span
+                                                                            class="countdown_amount">49</span><br>Seconds</span></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="auction-card-content">
+                                                    <h6><a
+                                                            href="https://artmart-wp.egenstheme.com/product/an-invitation-to-explore-the-unseen/">An
+                                                            invitation to explore the unseen</a></h6>
+                                                    <ul>
+                                                        <li><span>Artist : </span>Frida Kahlo</li>
+                                                        <li><span class="auction-price current-bid"
+                                                                data-auction-id="403" data-bid="311"
+                                                                data-status="running"><span
+                                                                    class="current auction">Current bid:</span> <span
+                                                                    class="woocommerce-Price-amount amount"><span
+                                                                        class="woocommerce-Price-currencySymbol">$</span>311.00</span></span>
+                                                        </li>
+                                                    </ul>
+                                                    <a href="https://artmart-wp.egenstheme.com/product/an-invitation-to-explore-the-unseen/"
+                                                        class="add-cart-btn button bid-btn btn-hover auction add_to_cart_button"
+                                                        data-product_id="403" data-product_sku=""
+                                                        aria-label="Read more about “An invitation to explore the unseen”"
+                                                        rel="nofollow">
+                                                        <span>Bidding Start</span>
+                                                        <strong></strong>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide swiper-slide-prev"
+                                            style="width: 305.25px; margin-right: 25px;" role="group"
+                                            aria-label="4 / 8">
+                                            <div class="auction-card  ">
+                                                <div class="auction-card-img-wrap">
+                                                    <a href="https://artmart-wp.egenstheme.com/product/a-brushstroke-of-serenity-in-a-chaotic-world/"
+                                                        class="card-img">
+                                                        <img width="800" height="800"
+                                                            src="https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-6.webp"
+                                                            class="attachment-large size-large wp-post-image" alt=""
+                                                            decoding="async"
+                                                            srcset="https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-6.webp 800w, https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-6-150x150.webp 150w, https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-6-300x300.webp 300w, https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-6-768x768.webp 768w, https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-6-600x600.webp 600w"
+                                                            sizes="(max-width: 800px) 100vw, 800px"> </a>
+                                                    <div class="batch">
+                                                        <span class="live">
+                                                            Live </span>
+                                                    </div>
+
+                                                    <div class="yith-add-to-wishlist-button-block yith-add-to-wishlist-button-block--initialized"
+                                                        data-product-id="401"
+                                                        data-attributes="{&quot;kind&quot;:&quot;button&quot;}"><a
+                                                            class="yith-wcwl-add-to-wishlist-button yith-wcwl-add-to-wishlist-button--anchor"><svg
+                                                                class="yith-wcwl-icon yith-wcwl-icon-svg yith-wcwl-add-to-wishlist-button-icon"
+                                                                id="yith-wcwl-icon-heart-outline" fill="none"
+                                                                stroke-width="1.5" stroke="currentColor"
+                                                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                                    d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z">
+                                                                </path>
+                                                            </svg><span
+                                                                class="yith-wcwl-add-to-wishlist-button__label">Add to
+                                                                wishlist</span></a></div>
+                                                    <div class="countdown-timer">
+                                                        <div class="auction-time">
+                                                            <div class="main-auction auction-time-countdown hasCountdown"
+                                                                data-time="1769731200" data-auctionid="401"
+                                                                data-format="dHMS"><span
+                                                                    class="countdown_row countdown_show4"><span
+                                                                        class="countdown_section"><span
+                                                                            class="countdown_amount">283</span><br>Days</span><span
+                                                                        class="countdown_section"><span
+                                                                            class="countdown_amount">20</span><br>Hours</span><span
+                                                                        class="countdown_section"><span
+                                                                            class="countdown_amount">34</span><br>Minutes</span><span
+                                                                        class="countdown_section"><span
+                                                                            class="countdown_amount">49</span><br>Seconds</span></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="auction-card-content">
+                                                    <h6><a
+                                                            href="https://artmart-wp.egenstheme.com/product/a-brushstroke-of-serenity-in-a-chaotic-world/">A
+                                                            brushstroke of serenity in a chaotic world</a></h6>
+                                                    <ul>
+                                                        <li><span>Artist : </span>Frida Kahlo</li>
+                                                        <li><span class="auction-price current-bid"
+                                                                data-auction-id="401" data-bid="420"
+                                                                data-status="running"><span
+                                                                    class="current auction">Current bid:</span> <span
+                                                                    class="woocommerce-Price-amount amount"><span
+                                                                        class="woocommerce-Price-currencySymbol">$</span>420.00</span></span>
+                                                        </li>
+                                                    </ul>
+                                                    <a href="https://artmart-wp.egenstheme.com/product/a-brushstroke-of-serenity-in-a-chaotic-world/"
+                                                        class="add-cart-btn button bid-btn btn-hover auction add_to_cart_button"
+                                                        data-product_id="401" data-product_sku=""
+                                                        aria-label="Read more about “A brushstroke of serenity in a chaotic world”"
+                                                        rel="nofollow">
+                                                        <span>Bidding Start</span>
+                                                        <strong></strong>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide swiper-slide-active"
+                                            style="width: 305.25px; margin-right: 25px;" role="group"
+                                            aria-label="5 / 8">
+                                            <div class="auction-card  ">
+                                                <div class="auction-card-img-wrap">
+                                                    <a href="https://artmart-wp.egenstheme.com/product/serenity-found-minimalist-japanese-ink-painting/"
+                                                        class="card-img">
+                                                        <img width="800" height="800"
+                                                            src="https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-19.webp"
+                                                            class="attachment-large size-large wp-post-image" alt=""
+                                                            decoding="async"
+                                                            srcset="https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-19.webp 800w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-19-150x150.webp 150w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-19-300x300.webp 300w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-19-768x768.webp 768w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-19-600x600.webp 600w"
+                                                            sizes="(max-width: 800px) 100vw, 800px"> </a>
+                                                    <div class="batch">
+                                                        <span class="upcoming">
+                                                            Upcoming </span>
+                                                    </div>
+
+                                                    <div class="yith-add-to-wishlist-button-block yith-add-to-wishlist-button-block--initialized"
+                                                        data-product-id="484"
+                                                        data-attributes="{&quot;kind&quot;:&quot;button&quot;}"><a
+                                                            class="yith-wcwl-add-to-wishlist-button yith-wcwl-add-to-wishlist-button--anchor"><svg
+                                                                class="yith-wcwl-icon yith-wcwl-icon-svg yith-wcwl-add-to-wishlist-button-icon"
+                                                                id="yith-wcwl-icon-heart-outline" fill="none"
+                                                                stroke-width="1.5" stroke="currentColor"
+                                                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                                    d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z">
+                                                                </path>
+                                                            </svg><span
+                                                                class="yith-wcwl-add-to-wishlist-button__label">Add to
+                                                                wishlist</span></a></div>
+                                                    <div class="countdown-timer">
+                                                        <div class="auction-time future">
+                                                            <div class="auction-time-countdown future hasCountdown"
+                                                                data-time="1769904000" data-format="dHMS"><span
+                                                                    class="countdown_row countdown_show4"><span
+                                                                        class="countdown_section"><span
+                                                                            class="countdown_amount">285</span><br>Days</span><span
+                                                                        class="countdown_section"><span
+                                                                            class="countdown_amount">20</span><br>Hours</span><span
+                                                                        class="countdown_section"><span
+                                                                            class="countdown_amount">34</span><br>Minutes</span><span
+                                                                        class="countdown_section"><span
+                                                                            class="countdown_amount">49</span><br>Seconds</span></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="auction-card-content">
+                                                    <h6><a
+                                                            href="https://artmart-wp.egenstheme.com/product/serenity-found-minimalist-japanese-ink-painting/">Serenity
+                                                            Found: Minimalist Japanese Ink Painting</a></h6>
+                                                    <ul>
+                                                        <li><span>Artist : </span>Frida Kahlo</li>
+                                                        <li><span class="auction-price starting-bid"
+                                                                data-auction-id="484" data-bid=""
+                                                                data-status="future"><span
+                                                                    class="starting auction">Starting bid:</span> <span
+                                                                    class="woocommerce-Price-amount amount"><span
+                                                                        class="woocommerce-Price-currencySymbol">$</span>215.00</span></span>
+                                                        </li>
+                                                    </ul>
+                                                    <a href="https://artmart-wp.egenstheme.com/product/serenity-found-minimalist-japanese-ink-painting/"
+                                                        class="add-cart-btn button bid-btn btn-hover auction add_to_cart_button"
+                                                        data-product_id="484" data-product_sku=""
+                                                        aria-label="Read more about “Serenity Found: Minimalist Japanese Ink Painting”"
+                                                        rel="nofollow">
+                                                        <span>Bidding Start</span>
+                                                        <strong></strong>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide swiper-slide-next"
+                                            style="width: 305.25px; margin-right: 25px;" role="group"
+                                            aria-label="6 / 8">
+                                            <div class="auction-card  ">
+                                                <div class="auction-card-img-wrap">
+                                                    <a href="https://artmart-wp.egenstheme.com/product/dreams-awakened-on-an-empty-canvas/"
+                                                        class="card-img">
+                                                        <img width="800" height="800"
+                                                            src="https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-23.webp"
+                                                            class="attachment-large size-large wp-post-image" alt=""
+                                                            decoding="async"
+                                                            srcset="https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-23.webp 800w, https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-23-150x150.webp 150w, https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-23-300x300.webp 300w, https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-23-768x768.webp 768w, https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/auction-product-23-600x600.webp 600w"
+                                                            sizes="(max-width: 800px) 100vw, 800px"> </a>
+                                                    <div class="batch">
+                                                        <span class="live">
+                                                            Live </span>
+                                                    </div>
+
+                                                    <div class="yith-add-to-wishlist-button-block yith-add-to-wishlist-button-block--initialized"
+                                                        data-product-id="419"
+                                                        data-attributes="{&quot;kind&quot;:&quot;button&quot;}"><a
+                                                            class="yith-wcwl-add-to-wishlist-button yith-wcwl-add-to-wishlist-button--anchor"><svg
+                                                                class="yith-wcwl-icon yith-wcwl-icon-svg yith-wcwl-add-to-wishlist-button-icon"
+                                                                id="yith-wcwl-icon-heart-outline" fill="none"
+                                                                stroke-width="1.5" stroke="currentColor"
+                                                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                                    d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z">
+                                                                </path>
+                                                            </svg><span
+                                                                class="yith-wcwl-add-to-wishlist-button__label">Add to
+                                                                wishlist</span></a></div>
+                                                    <div class="countdown-timer">
+                                                        <div class="auction-time">
+                                                            <div class="main-auction auction-time-countdown hasCountdown"
+                                                                data-time="1770681600" data-auctionid="419"
+                                                                data-format="dHMS"><span
+                                                                    class="countdown_row countdown_show4"><span
+                                                                        class="countdown_section"><span
+                                                                            class="countdown_amount">294</span><br>Days</span><span
+                                                                        class="countdown_section"><span
+                                                                            class="countdown_amount">20</span><br>Hours</span><span
+                                                                        class="countdown_section"><span
+                                                                            class="countdown_amount">34</span><br>Minutes</span><span
+                                                                        class="countdown_section"><span
+                                                                            class="countdown_amount">49</span><br>Seconds</span></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="auction-card-content">
+                                                    <h6><a
+                                                            href="https://artmart-wp.egenstheme.com/product/dreams-awakened-on-an-empty-canvas/">Dreams
+                                                            Awakened on an Empty Canvas</a></h6>
+                                                    <ul>
+                                                        <li><span>Artist : </span>Frida Kahlo</li>
+                                                        <li><span class="auction-price starting-bid"
+                                                                data-auction-id="419" data-bid=""
+                                                                data-status="running"><span
+                                                                    class="current auction">Starting bid:</span> <span
+                                                                    class="woocommerce-Price-amount amount"><span
+                                                                        class="woocommerce-Price-currencySymbol">$</span>530.00</span></span>
+                                                        </li>
+                                                    </ul>
+                                                    <a href="https://artmart-wp.egenstheme.com/product/dreams-awakened-on-an-empty-canvas/"
+                                                        class="add-cart-btn button bid-btn btn-hover auction add_to_cart_button"
+                                                        data-product_id="419" data-product_sku=""
+                                                        aria-label="Read more about “Dreams Awakened on an Empty Canvas”"
+                                                        rel="nofollow">
+                                                        <span>Bidding Start</span>
+                                                        <strong></strong>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide" style="width: 305.25px; margin-right: 25px;"
+                                            role="group" aria-label="7 / 8">
+                                            <div class="auction-card   general-art">
+                                                <div class="auction-card-img-wrap">
+                                                    <a href="https://artmart-wp.egenstheme.com/product/handcrafted-sculptures-for-unique-home-decor/"
+                                                        class="card-img">
+                                                        <img width="800" height="800"
+                                                            src="https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-2.webp"
+                                                            class="attachment-large size-large wp-post-image" alt=""
+                                                            decoding="async"
+                                                            srcset="https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-2.webp 800w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-2-150x150.webp 150w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-2-300x300.webp 300w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-2-768x768.webp 768w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-2-600x600.webp 600w"
+                                                            sizes="(max-width: 800px) 100vw, 800px"> </a>
+                                                    <div class="batch">
+                                                    </div>
+
+                                                    <div class="yith-add-to-wishlist-button-block yith-add-to-wishlist-button-block--initialized"
+                                                        data-product-id="468"
+                                                        data-attributes="{&quot;kind&quot;:&quot;button&quot;}"><a
+                                                            class="yith-wcwl-add-to-wishlist-button yith-wcwl-add-to-wishlist-button--anchor"><svg
+                                                                class="yith-wcwl-icon yith-wcwl-icon-svg yith-wcwl-add-to-wishlist-button-icon"
+                                                                id="yith-wcwl-icon-heart-outline" fill="none"
+                                                                stroke-width="1.5" stroke="currentColor"
+                                                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                                    d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z">
+                                                                </path>
+                                                            </svg><span
+                                                                class="yith-wcwl-add-to-wishlist-button__label">Add to
+                                                                wishlist</span></a></div>
+                                                </div>
+                                                <div class="auction-card-content">
+                                                    <h6><a
+                                                            href="https://artmart-wp.egenstheme.com/product/handcrafted-sculptures-for-unique-home-decor/">Handcrafted
+                                                            Sculptures for Unique Home Decor</a></h6>
+                                                    <ul>
+                                                        <li><span>Artist : </span>Frida Kahlo</li>
+                                                        <li><span>Price : </span><span
+                                                                class="woocommerce-Price-amount amount"><bdi><span
+                                                                        class="woocommerce-Price-currencySymbol">$</span>185.00</bdi></span>
+                                                        </li>
+                                                    </ul>
+                                                    <a href="?add-to-cart=468"
+                                                        class="add-cart-btn button bid-btn btn-hover simple add_to_cart_button"
+                                                        data-product_id="468" data-product_sku=""
+                                                        aria-label="Add to cart: “Handcrafted Sculptures for Unique Home Decor”"
+                                                        rel="nofollow">
+                                                        <span>Add to Cart</span>
+                                                        <strong></strong>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide" style="width: 305.25px; margin-right: 25px;"
+                                            role="group" aria-label="8 / 8">
+                                            <div class="auction-card   general-art">
+                                                <div class="auction-card-img-wrap">
+                                                    <a href="https://artmart-wp.egenstheme.com/product/mystic-forest-hand-painted-nature-print/"
+                                                        class="card-img">
+                                                        <img width="800" height="800"
+                                                            src="https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-12.webp"
+                                                            class="attachment-large size-large wp-post-image" alt=""
+                                                            decoding="async"
+                                                            srcset="https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-12.webp 800w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-12-150x150.webp 150w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-12-300x300.webp 300w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-12-768x768.webp 768w, https://artmart-wp.egenstheme.com/wp-content/uploads/2025/01/product-12-600x600.webp 600w"
+                                                            sizes="(max-width: 800px) 100vw, 800px"> </a>
+                                                    <div class="batch">
+                                                    </div>
+
+                                                    <div class="yith-add-to-wishlist-button-block yith-add-to-wishlist-button-block--initialized"
+                                                        data-product-id="478"
+                                                        data-attributes="{&quot;kind&quot;:&quot;button&quot;}"><a
+                                                            class="yith-wcwl-add-to-wishlist-button yith-wcwl-add-to-wishlist-button--anchor"><svg
+                                                                class="yith-wcwl-icon yith-wcwl-icon-svg yith-wcwl-add-to-wishlist-button-icon"
+                                                                id="yith-wcwl-icon-heart-outline" fill="none"
+                                                                stroke-width="1.5" stroke="currentColor"
+                                                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                                    d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z">
+                                                                </path>
+                                                            </svg><span
+                                                                class="yith-wcwl-add-to-wishlist-button__label">Add to
+                                                                wishlist</span></a></div>
+                                                </div>
+                                                <div class="auction-card-content">
+                                                    <h6><a
+                                                            href="https://artmart-wp.egenstheme.com/product/mystic-forest-hand-painted-nature-print/">Mystic
+                                                            Forest: Hand-Painted Nature Print</a></h6>
+                                                    <ul>
+                                                        <li><span>Artist : </span>Frida Kahlo</li>
+                                                        <li><span>Price : </span><span
+                                                                class="woocommerce-Price-amount amount"><bdi><span
+                                                                        class="woocommerce-Price-currencySymbol">$</span>265.00</bdi></span>
+                                                        </li>
+                                                    </ul>
+                                                    <a href="?add-to-cart=478"
+                                                        class="add-cart-btn button bid-btn btn-hover simple add_to_cart_button"
+                                                        data-product_id="478" data-product_sku=""
+                                                        aria-label="Add to cart: “Mystic Forest: Hand-Painted Nature Print”"
+                                                        rel="nofollow">
+                                                        <span>Add to Cart</span>
+                                                        <strong></strong>
+                                                    </a>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
+                                    <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
                                 </div>
-                            {% empty %}
-                                <p>No artworks available.</p>
-                            {% endfor %}
+                            </div>
+                        </div>
+                        <div class="slider-btn-grp">
+                            <div class="slider-btn auction-slider-prev" tabindex="0" role="button"
+                                aria-label="Previous slide" aria-controls="swiper-wrapper-f91eea594e8e1de1"
+                                aria-disabled="false">
+                                <svg width="10" height="16" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0.735295 8.27932L10 16L4.10428 8.27932L10 0.558823L0.735295 8.27932Z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div class="slider-btn auction-slider-next swiper-button-disabled" tabindex="-1"
+                                role="button" aria-label="Next slide" aria-controls="swiper-wrapper-f91eea594e8e1de1"
+                                aria-disabled="true">
+                                <svg width="10" height="16" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9.26471 7.72068L0 0L5.89572 7.72068L0 15.4412L9.26471 7.72068Z"></path>
+                                </svg>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+
         </div>
     </div>
 </div>
-{% endblock %}
+
+
+</html>
