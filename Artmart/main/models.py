@@ -28,6 +28,9 @@ class Artish(models.Model):
     address = models.TextField(blank=True)
 
     created_at = models.DateTimeField(auto_now_add=True)
+    
+    def get_absolute_url(self):
+        return reverse('artist_profile', args=[str(self.id)])
 
     def __str__(self):
         return self.name

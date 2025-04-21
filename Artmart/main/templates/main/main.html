@@ -1244,7 +1244,7 @@
                                         </div>
                                     </div>
                                     <div class="col-lg-2 col-md-2 d-flex justify-content-md-end">
-                                        <a href="{%url 'shop'%}" target="_blank" rel="nofollow" class="view-all-btn">View
+                                        <a href="{% url 'artist'%}" target="_blank" rel="nofollow" class="view-all-btn">View
                                             All</a>
                                     </div>
                                 </div>
@@ -1255,14 +1255,14 @@
                                         data-wow-duration="1500ms"
                                         style="visibility: visible; animation-duration: 1500ms; animation-delay: 200ms;">
                                         <div class="artist-card">
-                                            <a href="https://artmart-wp.egenstheme.com/artists/frida-kahlo/">
+                                            <a href="{% url 'artist_profile' artist.id %}">
                                                 <img loading="lazy" decoding="async" width="267" height="300"
                                                     src="{{ artist.profile_image.url }}"
                                                     class="attachment-medium size-medium wp-post-image" alt=""
                                                     srcset="{{ artist.profile_image.url }}  "
                                                     sizes="(max-width: 267px) 100vw, 267px"> </a>
                                             <div class="artist-content">
-                                                <h6><a href="https://artmart-wp.egenstheme.com/artists/frida-kahlo/">{{artist.stage_name}}</a></h6>
+                                                <h6><a href="{% url 'artist_profile' artist.id %}">{{artist.stage_name}}</a></h6>
                                                 <span>{{artist.bio}}</span>
                                             </div>
                                         </div>
