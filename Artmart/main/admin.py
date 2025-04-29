@@ -2,48 +2,12 @@ from django.contrib import admin
 from django.utils.html import format_html
 from django.urls import reverse
 from django.contrib.auth.models import User
-from .models import Artish, Category, Artwork, ArtworkImage, Review,PendingUser
+from .models import Artish, Category, Artwork, ArtworkImage, Review
 from django.core.mail import send_mail
 from django.contrib.auth.hashers import make_password
 
-@admin.register(PendingUser)
-class PendingUserAdmin(admin.ModelAdmin):
-    list_display = ('username', 'email', 'is_approved', 'created_at')
-    actions = ['approve_users']
 
-    def approve_users(self, request, queryset):
-        for user in queryset:
-            if user.is_approved:
-                # Check if user already exists to avoid duplicates
-                if not User.objects.filter(username=user.username).exists():
-                    # Create a new user, hash the password before saving
-                    password = make_password(user.password)  # Hash the password
-                    new_user = User.objects.create_user(
-                        username=user.username,
-                        email=user.email,
-                        password=password
-                    )
-                    new_user.save()
 
-                    # Send email notification to the newly created user
-                    send_mail(
-                        'Your account has been approved!',
-                        f'Hello {user.username},\n\nYour account has been approved. You can now log in.',
-                        'admin@example.com',  # Sender email (update this)
-                        [user.email],  # Recipient email
-                        fail_silently=False,
-                    )
-
-                    # After creating the user, delete the pending user from PendingUser table
-                    user.delete()
-
-                    self.message_user(request, f'User {user.username} has been approved and created successfully.', level='success')
-                else:
-                    self.message_user(request, f'Username {user.username} already exists.', level='error')
-            else:
-                self.message_user(request, f'User {user.username} is not approved yet.', level='error')
-
-    approve_users.short_description = 'Approve selected users'
 # Inline for multiple images inside Artwork
 class ArtworkImageInline(admin.TabularInline):
     model = ArtworkImage

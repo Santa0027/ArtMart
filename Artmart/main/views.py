@@ -10,7 +10,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate
 from django.http import HttpResponse
 from django.contrib.auth.hashers import make_password
-from .models import PendingUser
+
 from django.urls import reverse
 from django.utils.html import format_html
 from django.contrib.auth.models import User
@@ -227,18 +227,11 @@ def artist_profile(request, id):
 
 
 
-
-
-
 # Artwork detail view
 def artwork_detail(request, id):
     artwork = get_object_or_404(Artwork, id=id)
     
     return render(request, 'main/artwork_detail.html', {'artwork': artwork})
-
-
-
-
 
 
 
