@@ -843,7 +843,8 @@
                 </path>
             </svg>
         </div>
-        {% include 'main/nav.html'%}
+        {% include "main/nav.html" with categories=categories artist=artist %}
+
      
         <header class="header-area style-1">
             <div class="container d-flex flex-nowrap align-items-center justify-content-between">

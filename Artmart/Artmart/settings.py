@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'main',
     
 ]
-
+CSRF_COOKIE_SECURE = False  # Set to True if using HTTPS
+CSRF_COOKIE_HTTPONLY = True
 JAZZMIN_SETTINGS = {
     "site_title": "ArtMart Admin",
     "site_header": "ArtMart Dashboard",
@@ -62,6 +63,7 @@ JAZZMIN_SETTINGS = {
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -150,3 +152,16 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+DEBUG = True
+
+# Email Settings
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'           # If using Gmail
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'vjsanthakumar01@gmail.com'   # Your Gmail
+EMAIL_HOST_PASSWORD = 'yryl lnar mhmi phkq '  # App Password (not your normal password!)
+
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+CONTACT_RECEIVER_EMAIL = 'vjsanthakumar01@gmail.com'  # Where you want to receive contact form emails

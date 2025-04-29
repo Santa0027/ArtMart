@@ -1,0 +1,462 @@
+<body
+    class="wp-singular page-template-default page page-id-15 wp-theme-artmart theme-artmart woocommerce-account woocommerce-page woocommerce-js ehf-template-artmart ehf-stylesheet-artmart elementor-default elementor-kit-10 e--ua-firefox"
+    itemtype="https://schema.org/WebPage" data-elementor-device-mode="desktop" cz-shortcut-listen="true">
+    <!-- app -->
+    <div id="app">
+        {%include 'main/nav.html'%}
+
+<div class="page-wrapper sec-mar">
+    <div class="page-content-wrapper">
+        <div class="container">
+            <div class="woocommerce">
+                <div class="woocommerce-notices-wrapper">
+                    {% if messages %}
+                    {% for message in messages %}
+                    <div class="woocommerce-message">{{ message }}</div>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+
+                <div class="u-columns col2-set" id="customer_login">
+
+                    <div class="u-column1 col-1">
+                        {% if not request.user.is_authenticated %}
+                        <form class="woocommerce-form woocommerce-form-login login" method="post"
+                            action="{% url 'login' %}">
+                            {% csrf_token %}
+                            <h2>Login</h2>
+
+                            {% if login_error %}
+                            <div class="woocommerce-error">{{ login_error }}</div>
+                            {% endif %}
+
+                            <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                                <label for="username">Username or email address&nbsp;<span class="required"
+                                        aria-hidden="true">*</span></label>
+                                <input type="text" class="woocommerce-Input woocommerce-Input--text input-text"
+                                    name="username" id="username" value="" required aria-required="true">
+                            </p>
+                            <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                                <label for="password">Password&nbsp;<span class="required"
+                                        aria-hidden="true">*</span></label>
+                                <input type="password" class="woocommerce-Input woocommerce-Input--text input-text"
+                                    name="password" id="password" required aria-required="true">
+                            </p>
+
+                            <p class="form-row">
+                                <input type="submit" class="woocommerce-button button woocommerce-form-login__submit"
+                                    value="Log in">
+                            </p>
+                            <p class="woocommerce-LostPassword lost_password">
+                             
+                            </p>
+                        </form>
+                        {% else %}
+                        <p>You are already logged in! Go to <a href="{% url 'my_account' %}">My Account</a>.</p>
+                        {% endif %}
+                    </div>
+
+
+                </div>
+                <div class="woocommerce-MyAccount-content">
+                
+                    <p class="woocommerce-MyAccount-login">
+                        <a href="{% url 'register' %}">Register</a>
+            </div>
+        </div> <!-- End Main Content Area  -->
+    </div>
+</div>
+
+
+        <footer class="footer-section">
+            <div class="container">
+
+
+
+                <div class="footer-menu-wrap">
+                    <div class="row gy-5">
+                        <div class="col-lg-4 col-md-6 col-sm-8">
+                            <div id="egns_logo_widget-2" class="footer-widget widget_egns_logo_widget">
+                                <div class="footer-content-area">
+                                    <a href="https://artmart-wp.egenstheme.com/" class="footer-logo">
+                                        <img src="https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/footer-logo.svg"
+                                            alt="logo">
+                                    </a>
+                                    <p>An Art Action Company typically operates in the space of live art, performance,
+                                        and social practice, often combining elements of activism and community
+                                        engagement.</p>
+                                    <ul class="social-list">
+                                        <li>
+                                            <a href="https://www.linkedin.com/">
+                                                <i class="bi bi-linkedin"></i>
+                                                <span>Linkedin</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.facebook.com/">
+                                                <i class="bi bi-facebook"></i>
+                                                <span>Facebook</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.x.com/">
+                                                <i class="bi bi-twitter-x"></i>
+                                                <span>Twitter</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.facebook.com/">
+                                                <i class="bi bi-instagram"></i>
+                                                <span>Instagram</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div
+                            class="col-lg-2 col-md-3 col-sm-4 d-flex justify-content-lg-end justify-content-md-center justify-content-sm-end">
+                            <div id="nav_menu-2" class="footer-widget widget_nav_menu">
+                                <div class="widget-title">
+                                    <h5>Menu</h5>
+                                </div>
+                                <div class="menu-footer-menu-1-container">
+                                    <ul id="menu-footer-menu-1" class="menu">
+                                        <li id="menu-item-127"
+                                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-127">
+                                            <a href="/artists">Artists Portfolio</a>
+                                        </li>
+                                        <li id="menu-item-128"
+                                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-128">
+                                            <a href="#">Art Catalog</a>
+                                        </li>
+                                        <li id="menu-item-129"
+                                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-129">
+                                            <a href="#">Departments</a>
+                                        </li>
+                                        <li id="menu-item-130"
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-130">
+                                            <a href="https://artmart-wp.egenstheme.com/contact/">Contact</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-3 col-sm-5 d-flex justify-content-md-end">
+                            <div id="nav_menu-3" class="footer-widget widget_nav_menu">
+                                <div class="widget-title">
+                                    <h5>Resources</h5>
+                                </div>
+                                <div class="menu-footer-menu-2-container">
+                                    <ul id="menu-footer-menu-2" class="menu">
+                                        <li id="menu-item-135"
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-135">
+                                            <a href="https://artmart-wp.egenstheme.com/blog-standard/">Blog</a>
+                                        </li>
+                                        <li id="menu-item-134"
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-134">
+                                            <a href="https://artmart-wp.egenstheme.com/about-us/">About Us</a>
+                                        </li>
+                                        <li id="menu-item-133"
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-133">
+                                            <a href="https://artmart-wp.egenstheme.com/how-to-bid/">How to Bid</a>
+                                        </li>
+                                        <li id="menu-item-132"
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-132">
+                                            <a href="https://artmart-wp.egenstheme.com/how-to-sell/">How to Sell</a>
+                                        </li>
+                                        <li id="menu-item-131"
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-131">
+                                            <a href="https://artmart-wp.egenstheme.com/faq/">F.A.Q</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="col-md-4 col-sm-7 d-flex justify-content-lg-end justify-content-md-center justify-content-sm-end">
+                            <div id="custom_footer_widget-2" class="footer-widget widget_custom_footer_widget">
+                                <div class="newsletter-and-payment-area">
+                                    <h4>For Exclusive Art Updates Join Our Newsletter!</h4>
+                                    <script>(function () {
+                                            window.mc4wp = window.mc4wp || {
+                                                listeners: [],
+                                                forms: {
+                                                    on: function (evt, cb) {
+                                                        window.mc4wp.listeners.push(
+                                                            {
+                                                                event: evt,
+                                                                callback: cb
+                                                            }
+                                                        );
+                                                    }
+                                                }
+                                            }
+                                        })();
+                                    </script>
+                                    <!-- Mailchimp for WordPress v4.10.2 - https://wordpress.org/plugins/mailchimp-for-wp/ -->
+                                    <form id="mc4wp-form-1" class="mc4wp-form mc4wp-form-139" method="post"
+                                        data-id="139" data-name="subscribe">
+                                        <div class="mc4wp-form-fields">
+                                            <div class="form-inner">
+                                                <input type="email" name="EMAIL" placeholder="Email Address"
+                                                    required="">
+                                                <button type="submit"><i class="bi bi-arrow-right"></i></button>
+                                            </div>
+                                        </div><label style="display: none !important;">Leave this field empty if you're
+                                            human: <input type="text" name="_mc4wp_honeypot" value="" tabindex="-1"
+                                                autocomplete="off"></label><input type="hidden" name="_mc4wp_timestamp"
+                                            value="1745238749"><input type="hidden" name="_mc4wp_form_id"
+                                            value="139"><input type="hidden" name="_mc4wp_form_element_id"
+                                            value="mc4wp-form-1">
+                                        <div class="mc4wp-response"></div>
+                                    </form><!-- / Mailchimp for WordPress Plugin -->
+                                    <div class="payment-area">
+                                        <h6>Secured Payment Gateways</h6>
+                                        <ul class="payment-options">
+                                            <li><img src="https://artmart-wp.egenstheme.com/wp-content/uploads/2024/12/payment-logo-group.svg"
+                                                    alt="payment-image"></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="footer-bottom  ">
+
+                    <div class="copyright-area">
+                        <p>©Copyright 2025 <a href="https://artmart-wp.egenstheme.com/">artmart</a> | Design By <a
+                                href="https://www.egenslab.com/">Egens Lab</a></p>
+                    </div>
+
+                    <div class="footer-bottom-right">
+                        <ul>
+                            <li>
+                                <a href="#">Support Center</a>
+                            </li>
+                            <li>
+                                <a href="https://artmart-wp.egenstheme.com/terms-conditions/">Terms &amp; Conditions</a>
+                            </li>
+                            <li>
+                                <a href="https://artmart-wp.egenstheme.com/privacy-policy/">Privacy Policy</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div><!-- close #app div from header.php -->
+
+   
+    <link rel="stylesheet" id="wc-blocks-style-css"
+        href="https://artmart-wp.egenstheme.com/wp-content/plugins/woocommerce/assets/client/blocks/wc-blocks.css?ver=wc-9.8.1"
+        type="text/css" media="all">
+    <link rel="stylesheet" id="elementor-post-120-css"
+        href="https://artmart-wp.egenstheme.com/wp-content/uploads/elementor/css/post-120.css?ver=1744817640"
+        type="text/css" media="all">
+    <link rel="stylesheet" id="widget-image-css"
+        href="https://artmart-wp.egenstheme.com/wp-content/plugins/elementor/assets/css/widget-image.min.css?ver=3.28.3"
+        type="text/css" media="all">
+    <link rel="stylesheet" id="widget-heading-css"
+        href="https://artmart-wp.egenstheme.com/wp-content/plugins/elementor/assets/css/widget-heading.min.css?ver=3.28.3"
+        type="text/css" media="all">
+    <link rel="stylesheet" id="elementor-post-122-css"
+        href="https://artmart-wp.egenstheme.com/wp-content/uploads/elementor/css/post-122.css?ver=1744817640"
+        type="text/css" media="all">
+    <link rel="stylesheet" id="elementor-post-124-css"
+        href="https://artmart-wp.egenstheme.com/wp-content/uploads/elementor/css/post-124.css?ver=1744817640"
+        type="text/css" media="all">
+    <link rel="stylesheet" id="widget-icon-box-css"
+        href="https://artmart-wp.egenstheme.com/wp-content/plugins/elementor/assets/css/widget-icon-box.min.css?ver=3.28.3"
+        type="text/css" media="all">
+    <script type="text/javascript"
+        src="https://artmart-wp.egenstheme.com/wp-includes/js/dist/vendor/lodash.min.js?ver=4.17.21"
+        id="lodash-js"></script>
+    <script type="text/javascript" id="lodash-js-after">
+        /* <![CDATA[ */
+        window.lodash = _.noConflict();
+        /* ]]> */
+    </script>
+    <script type="text/javascript"
+        src="https://artmart-wp.egenstheme.com/wp-includes/js/dist/vendor/wp-polyfill.min.js?ver=3.15.0"
+        id="wp-polyfill-js"></script>
+    <script type="text/javascript"
+        src="https://artmart-wp.egenstheme.com/wp-includes/js/dist/vendor/moment.min.js?ver=2.30.1"
+        id="moment-js"></script>
+    <script type="text/javascript" id="moment-js-after">
+        /* <![CDATA[ */
+        moment.updateLocale('en_US', { "months": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"], "monthsShort": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], "weekdays": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], "weekdaysShort": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"], "week": { "dow": 1 }, "longDateFormat": { "LT": "g:i a", "LTS": null, "L": null, "LL": "F j, Y", "LLL": "F j, Y g:i a", "LLLL": null } });
+        /* ]]> */
+    </script>
+    <script type="text/javascript"
+        src="https://artmart-wp.egenstheme.com/wp-includes/js/dist/deprecated.min.js?ver=e1f84915c5e8ae38964c"
+        id="wp-deprecated-js"></script>
+    <script type="text/javascript"
+        src="https://artmart-wp.egenstheme.com/wp-includes/js/dist/date.min.js?ver=85ff222add187a4e358f"
+        id="wp-date-js"></script>
+    <script type="text/javascript" id="wp-date-js-after">
+        /* <![CDATA[ */
+        wp.date.setSettings({ "l10n": { "locale": "en_US", "months": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"], "monthsShort": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], "weekdays": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], "weekdaysShort": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"], "meridiem": { "am": "am", "pm": "pm", "AM": "AM", "PM": "PM" }, "relative": { "future": "%s from now", "past": "%s ago", "s": "a second", "ss": "%d seconds", "m": "a minute", "mm": "%d minutes", "h": "an hour", "hh": "%d hours", "d": "a day", "dd": "%d days", "M": "a month", "MM": "%d months", "y": "a year", "yy": "%d years" }, "startOfWeek": 1 }, "formats": { "time": "g:i a", "date": "F j, Y", "datetime": "F j, Y g:i a", "datetimeAbbreviated": "M j, Y g:i a" }, "timezone": { "offset": 0, "offsetFormatted": "0", "string": "", "abbr": "" } });
+        /* ]]> */
+    </script>
+    <script type="text/javascript"
+        src="https://artmart-wp.egenstheme.com/wp-content/plugins/yith-woocommerce-wishlist/plugin-fw/dist/lapilli-ui/date/index.js?ver=a688abdf8f9c4a18e904"
+        id="lapilli-ui-date-js"></script>
+    <script type="text/javascript" id="lapilli-ui-date-js-after">
+        /* <![CDATA[ */
+        lapilliUI.date.setLocale({ "options": { "weekStartsOn": 1 } });
+        lapilliUI.date.setDateFormats({ "year": "Y", "month": "F", "dayOfMonth": "j", "monthShort": "M", "weekday": "l", "weekdayShort": "D", "fullDate": "F j, Y", "inputDate": "Y-m-d", "monthAndDate": "F j", "monthAndYear": "F Y" });
+        lapilliUI.date.setFormatDate(wp.date.format);
+        /* ]]> */
+    </script>
+    <script type="text/javascript"
+        src="https://artmart-wp.egenstheme.com/wp-includes/js/dist/vendor/react.min.js?ver=18.3.1.1"
+        id="react-js"></script>
+    <script type="text/javascript"
+        src="https://artmart-wp.egenstheme.com/wp-content/plugins/yith-woocommerce-wishlist/plugin-fw/dist/lapilli-ui/styles/index.js?ver=05a5b5e59191f74ac904"
+        id="lapilli-ui-styles-js"></script>
+    <script type="text/javascript"
+        src="https://artmart-wp.egenstheme.com/wp-includes/js/dist/vendor/react-dom.min.js?ver=18.3.1.1"
+        id="react-dom-js"></script>
+    <script type="text/javascript"
+        src="https://artmart-wp.egenstheme.com/wp-content/plugins/yith-woocommerce-wishlist/plugin-fw/dist/lapilli-ui/components/index.js?ver=fe5275fad0fd47db7c63"
+        id="lapilli-ui-components-js"></script>
+    <script type="text/javascript"
+        src="https://artmart-wp.egenstheme.com/wp-includes/js/dist/url.min.js?ver=6bf93e90403a1eec6501"
+        id="wp-url-js"></script>
+    <script type="text/javascript"
+        src="https://artmart-wp.egenstheme.com/wp-includes/js/dist/api-fetch.min.js?ver=3623a576c78df404ff20"
+        id="wp-api-fetch-js"></script>
+    <script type="text/javascript" id="wp-api-fetch-js-after">
+        /* <![CDATA[ */
+        wp.apiFetch.use(wp.apiFetch.createRootURLMiddleware("https://artmart-wp.egenstheme.com/wp-json/"));
+        wp.apiFetch.nonceMiddleware = wp.apiFetch.createNonceMiddleware("6b4bd7ec92");
+        wp.apiFetch.use(wp.apiFetch.nonceMiddleware);
+        wp.apiFetch.use(wp.apiFetch.mediaUploadMiddleware);
+        wp.apiFetch.nonceEndpoint = "https://artmart-wp.egenstheme.com/wp-admin/admin-ajax.php?action=rest-nonce";
+        /* ]]> */
+    </script>
+    <script type="text/javascript" id="yith-wcwl-add-to-wishlist-js-extra">
+        /* <![CDATA[ */
+        var yithWcwlAddToWishlist = { "isUserLoggedIn": "", "globalOptions": { "wishlist_disabled_for_unauthenticated_users": "no", "loop_position": "after_add_to_cart", "ajax_loading": "no", "icon_type": "default", "icon": "heart-outline", "custom_icon": "", "added_icon_type": "default", "added_icon": "heart", "custom_added_icon": "", "custom_icon_alt": "", "custom_icon_width": "25", "behaviour": "view", "style": "link", "popup_title": "Select a wishlist", "move_popup_title": "Move to another wishlist", "add_label": "Add to wishlist", "added_label": "Product added!", "remove_label": "Remove from list", "browse_label": "Browse wishlist", "already_in_label": "The product is already in your wishlist!", "default_wishlist_name": "My wishlist" }, "buttonClasses": "", "feedback_duration": "3000", "wishlist_url": "https:\/\/artmart-wp.egenstheme.com\/wishlist\/", "containerSelectors": { "productContainer": [".wc-block-grid__product", ".wp-block-post.product", ".wc-block-product", ".add-to-wishlist-before_image"], "thumbnailContainer": ["div[data-block-name=\"woocommerce\/product-image\"]", "div.wc-block-grid__product-image", ".woocommerce-loop-product__link [class*=\"image\"]", ".astra-shop-thumbnail-wrap", ".product-inner .image-wrap", "a.woocommerce-loop-product__link", "div.t-entry-visual", "div.box-image", "div.product-image", "a.product-image-link"] }, "login_wishlist_url": "https:\/\/artmart-wp.egenstheme.com\/my-account\/?wishlist_notice=true&add_to_wishlist=%product_id%", "i18n": { "feedbacks": { "added": "{{product_name}} has been added to your {{wishlist_name}} list!", "removed": "{{product_name}} has been removed from your {{wishlist_name}} list!" } } };
+        /* ]]> */
+    </script>
+    <script type="text/javascript"
+        src="https://artmart-wp.egenstheme.com/wp-content/plugins/yith-woocommerce-wishlist/assets/js/dist/components/add-to-wishlist/index.js?ver=74f63692d5dd73780ee4"
+        id="yith-wcwl-add-to-wishlist-js"></script>
+    <script type="text/javascript"
+        src="https://artmart-wp.egenstheme.com/wp-content/plugins/yith-woocommerce-wishlist/assets/js/add-to-wishlist-gutenberg.min.js?ver=4.4.0"
+        id="yith-wcwl-add-to-wishlist-gutenberg-js"></script>
+    <script type="text/javascript"
+        src="https://artmart-wp.egenstheme.com/wp-content/plugins/yith-woocommerce-wishlist/assets/js/jquery.selectBox.min.js?ver=1.2.0"
+        id="jquery-selectBox-js"></script>
+    <script type="text/javascript"
+        src="//artmart-wp.egenstheme.com/wp-content/plugins/woocommerce/assets/js/prettyPhoto/jquery.prettyPhoto.min.js?ver=3.1.6"
+        id="prettyPhoto-js" data-wp-strategy="defer"></script>
+    <script type="text/javascript" id="jquery-yith-wcwl-js-extra">
+        /* <![CDATA[ */
+        var yith_wcwl_l10n = { "ajax_url": "\/wp-admin\/admin-ajax.php", "redirect_to_cart": "no", "yith_wcwl_button_position": "add-to-cart", "multi_wishlist": "", "hide_add_button": "1", "enable_ajax_loading": "", "ajax_loader_url": "https:\/\/artmart-wp.egenstheme.com\/wp-content\/plugins\/yith-woocommerce-wishlist\/assets\/images\/ajax-loader-alt.svg", "remove_from_wishlist_after_add_to_cart": "1", "is_wishlist_responsive": "1", "time_to_close_prettyphoto": "3000", "fragments_index_glue": ".", "reload_on_found_variation": "1", "mobile_media_query": "768", "labels": { "cookie_disabled": "We are sorry, but this feature is available only if cookies on your browser are enabled.", "added_to_cart_message": "<div class=\"woocommerce-notices-wrapper\"><div class=\"woocommerce-message\" role=\"alert\">Product added to cart successfully<\/div><\/div>" }, "actions": { "add_to_wishlist_action": "add_to_wishlist", "remove_from_wishlist_action": "remove_from_wishlist", "reload_wishlist_and_adding_elem_action": "reload_wishlist_and_adding_elem", "load_mobile_action": "load_mobile", "delete_item_action": "delete_item", "save_title_action": "save_title", "save_privacy_action": "save_privacy", "load_fragments": "load_fragments" }, "nonce": { "add_to_wishlist_nonce": "a07749c6c3", "remove_from_wishlist_nonce": "b6a6f5e9de", "reload_wishlist_and_adding_elem_nonce": "97cf2f5701", "load_mobile_nonce": "c631b90954", "delete_item_nonce": "98967917d6", "save_title_nonce": "54c0eac413", "save_privacy_nonce": "f830c34028", "load_fragments_nonce": "9c68badde7" }, "redirect_after_ask_estimate": "", "ask_estimate_redirect_url": "https:\/\/artmart-wp.egenstheme.com" };
+        /* ]]> */
+    </script>
+    <script type="text/javascript"
+        src="https://artmart-wp.egenstheme.com/wp-content/plugins/yith-woocommerce-wishlist/assets/js/jquery.yith-wcwl.min.js?ver=4.4.0"
+        id="jquery-yith-wcwl-js"></script>
+    <script type="text/javascript"
+        src="https://artmart-wp.egenstheme.com/wp-content/plugins/contact-form-7/includes/swv/js/index.js?ver=6.0.6"
+        id="swv-js"></script>
+    <script type="text/javascript" id="contact-form-7-js-before">
+        /* <![CDATA[ */
+        var wpcf7 = {
+            "api": {
+                "root": "https:\/\/artmart-wp.egenstheme.com\/wp-json\/",
+                "namespace": "contact-form-7\/v1"
+            }
+        };
+        /* ]]> */
+    </script>
+    <script type="text/javascript"
+        src="https://artmart-wp.egenstheme.com/wp-content/plugins/contact-form-7/includes/js/index.js?ver=6.0.6"
+        id="contact-form-7-js"></script>
+    <script type="text/javascript"
+        src="https://artmart-wp.egenstheme.com/wp-content/themes/artmart/assets/js/popper.min.js?ver=1736520821"
+        id="popper-js"></script>
+    <script type="text/javascript"
+        src="https://artmart-wp.egenstheme.com/wp-content/themes/artmart/assets/js/bootstrap.min.js?ver=1736520821"
+        id="bootstrap-js"></script>
+    <script type="text/javascript"
+        src="https://artmart-wp.egenstheme.com/wp-content/themes/artmart/assets/js/swiper-bundle.min.js?ver=1736520820"
+        id="swiper-bundle-js"></script>
+    <script type="text/javascript"
+        src="https://artmart-wp.egenstheme.com/wp-content/themes/artmart/assets/js/slick.min.js?ver=1736520821"
+        id="slick-bundle-js"></script>
+    <script type="text/javascript"
+        src="https://artmart-wp.egenstheme.com/wp-content/themes/artmart/assets/js/waypoints.min.js?ver=1736520821"
+        id="waypoints-js"></script>
+    <script type="text/javascript"
+        src="https://artmart-wp.egenstheme.com/wp-content/themes/artmart/assets/js/jquery.counterup.min.js?ver=1736520821"
+        id="counterup-js"></script>
+    <script type="text/javascript"
+        src="https://artmart-wp.egenstheme.com/wp-content/themes/artmart/assets/js/jquery.nice-select.min.js?ver=1736520820"
+        id="egns-nice-select-js"></script>
+    <script type="text/javascript"
+        src="https://artmart-wp.egenstheme.com/wp-content/themes/artmart/assets/js/jquery.fancybox.min.js?ver=1736520821"
+        id="fancybox-js"></script>
+    <script type="text/javascript"
+        src="https://artmart-wp.egenstheme.com/wp-content/themes/artmart/assets/js/wow.min.js?ver=1736520820"
+        id="wow-js"></script>
+    <script type="text/javascript"
+        src="https://artmart-wp.egenstheme.com/wp-content/themes/artmart/assets/js/jquery.marquee.min.js?ver=1736520820"
+        id="marquee-js"></script>
+    <script type="text/javascript" id="custom-main-js-extra">
+        /* <![CDATA[ */
+        var ajax_data_params = { "ajaxurl": "https:\/\/artmart-wp.egenstheme.com\/wp-admin\/admin-ajax.php", "posts_per_page": "10", "author_id": "", "posts_nonce": "e003d53b9c" };
+        /* ]]> */
+    </script>
+    <script type="text/javascript"
+        src="https://artmart-wp.egenstheme.com/wp-content/themes/artmart/assets/js/main.js?ver=1740995875"
+        id="custom-main-js"></script>
+    <script type="text/javascript"
+        src="https://artmart-wp.egenstheme.com/wp-content/plugins/woocommerce/assets/js/sourcebuster/sourcebuster.min.js?ver=9.8.1"
+        id="sourcebuster-js-js"></script>
+    <script type="text/javascript" id="wc-order-attribution-js-extra">
+        /* <![CDATA[ */
+        var wc_order_attribution = { "params": { "lifetime": 1.0e-5, "session": 30, "base64": false, "ajaxurl": "https:\/\/artmart-wp.egenstheme.com\/wp-admin\/admin-ajax.php", "prefix": "wc_order_attribution_", "allowTracking": true }, "fields": { "source_type": "current.typ", "referrer": "current_add.rf", "utm_campaign": "current.cmp", "utm_source": "current.src", "utm_medium": "current.mdm", "utm_content": "current.cnt", "utm_id": "current.id", "utm_term": "current.trm", "utm_source_platform": "current.plt", "utm_creative_format": "current.fmt", "utm_marketing_tactic": "current.tct", "session_entry": "current_add.ep", "session_start_time": "current_add.fd", "session_pages": "session.pgs", "session_count": "udata.vst", "user_agent": "udata.uag" } };
+        /* ]]> */
+    </script>
+    <script type="text/javascript"
+        src="https://artmart-wp.egenstheme.com/wp-content/plugins/woocommerce/assets/js/frontend/order-attribution.min.js?ver=9.8.1"
+        id="wc-order-attribution-js"></script>
+    <script type="text/javascript" defer=""
+        src="https://artmart-wp.egenstheme.com/wp-content/plugins/mailchimp-for-wp/assets/js/forms.js?ver=4.10.2"
+        id="mc4wp-forms-api-js"></script>
+    <script type="text/javascript"
+        src="https://artmart-wp.egenstheme.com/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=3.28.3"
+        id="elementor-webpack-runtime-js"></script>
+    <script type="text/javascript"
+        src="https://artmart-wp.egenstheme.com/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.28.3"
+        id="elementor-frontend-modules-js"></script>
+    <script type="text/javascript"
+        src="https://artmart-wp.egenstheme.com/wp-includes/js/jquery/ui/core.min.js?ver=1.13.3"
+        id="jquery-ui-core-js"></script>
+    <script type="text/javascript" id="elementor-frontend-js-before">
+        /* <![CDATA[ */
+        var elementorFrontendConfig = { "environmentMode": { "edit": false, "wpPreview": false, "isScriptDebug": false }, "i18n": { "shareOnFacebook": "Share on Facebook", "shareOnTwitter": "Share on Twitter", "pinIt": "Pin it", "download": "Download", "downloadImage": "Download image", "fullscreen": "Fullscreen", "zoom": "Zoom", "share": "Share", "playVideo": "Play Video", "previous": "Previous", "next": "Next", "close": "Close", "a11yCarouselPrevSlideMessage": "Previous slide", "a11yCarouselNextSlideMessage": "Next slide", "a11yCarouselFirstSlideMessage": "This is the first slide", "a11yCarouselLastSlideMessage": "This is the last slide", "a11yCarouselPaginationBulletMessage": "Go to slide" }, "is_rtl": false, "breakpoints": { "xs": 0, "sm": 480, "md": 768, "lg": 1025, "xl": 1440, "xxl": 1600 }, "responsive": { "breakpoints": { "mobile": { "label": "Mobile Portrait", "value": 767, "default_value": 767, "direction": "max", "is_enabled": true }, "mobile_extra": { "label": "Mobile Landscape", "value": 880, "default_value": 880, "direction": "max", "is_enabled": false }, "tablet": { "label": "Tablet Portrait", "value": 1024, "default_value": 1024, "direction": "max", "is_enabled": true }, "tablet_extra": { "label": "Tablet Landscape", "value": 1200, "default_value": 1200, "direction": "max", "is_enabled": false }, "laptop": { "label": "Laptop", "value": 1366, "default_value": 1366, "direction": "max", "is_enabled": false }, "widescreen": { "label": "Widescreen", "value": 2400, "default_value": 2400, "direction": "min", "is_enabled": false } }, "hasCustomBreakpoints": false }, "version": "3.28.3", "is_static": false, "experimentalFeatures": { "e_font_icon_svg": true, "additional_custom_breakpoints": true, "container": true, "e_local_google_fonts": true, "nested-elements": true, "editor_v2": true, "e_element_cache": true, "home_screen": true, "launchpad-checklist": true }, "urls": { "assets": "https:\/\/artmart-wp.egenstheme.com\/wp-content\/plugins\/elementor\/assets\/", "ajaxurl": "https:\/\/artmart-wp.egenstheme.com\/wp-admin\/admin-ajax.php", "uploadUrl": "https:\/\/artmart-wp.egenstheme.com\/wp-content\/uploads" }, "nonces": { "floatingButtonsClickTracking": "c84e0c8ea6" }, "swiperClass": "swiper", "settings": { "page": [], "editorPreferences": [] }, "kit": { "active_breakpoints": ["viewport_mobile", "viewport_tablet"], "global_image_lightbox": "yes", "lightbox_enable_counter": "yes", "lightbox_enable_fullscreen": "yes", "lightbox_enable_zoom": "yes", "lightbox_enable_share": "yes", "lightbox_title_src": "title", "lightbox_description_src": "description" }, "post": { "id": 15, "title": "My%20account%20%E2%80%93%20Artmart%20%E2%80%93%20Art%20%26%20Auction%20WordPress%20Theme", "excerpt": "", "featuredImage": false } };
+        /* ]]> */
+    </script>
+    <script type="text/javascript"
+        src="https://artmart-wp.egenstheme.com/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.28.3"
+        id="elementor-frontend-js"></script><span id="elementor-device-mode" class="elementor-screen-only"></span>
+
+
+
+    <div class="widget_shopping_cart_live_region screen-reader-text" role="status"></div>
+</body>
+
+</html>

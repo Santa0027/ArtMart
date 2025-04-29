@@ -2,6 +2,20 @@ from django.db import models
 from django.contrib.auth.models import User  # for review system
 from django.urls import reverse
 
+class PendingUser(models.Model):
+    email = models.EmailField(unique=True)
+    username = models.CharField(max_length=255, unique=True)
+    password = models.CharField(max_length=255)  # Store raw password temporarily
+    is_approved = models.BooleanField(default=False)  # Pending approval
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.username
+
+
+
+
+
 # -----------------------
 # Artist Model
 # -----------------------

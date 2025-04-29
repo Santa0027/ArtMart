@@ -4,6 +4,21 @@ from .models import Artish, Artwork, Category
 from django.db.models import Q
 from .forms import ContactForm
 from django.shortcuts import render, redirect
+from django.core.mail import send_mail
+from django.conf import settings
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import login, authenticate
+from django.http import HttpResponse
+from django.contrib.auth.hashers import make_password
+from .models import PendingUser
+from django.urls import reverse
+from django.utils.html import format_html
+from django.contrib.auth.models import User
+from django.contrib import messages
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.decorators import login_required
+
+
 
 def get_filtered_artworks(request, artist=None):
     selected_categories = request.GET.getlist('category')
@@ -29,7 +44,63 @@ def get_filtered_artworks(request, artist=None):
     return artworks, selected_categories
 
 
+def login_view(request):
+    if request.method == 'POST':
+        username = request.POST.get('username', '').strip()
+        password = request.POST.get('password', '').strip()
 
+        if not username or not password:
+            return render(request, 'main/login.html', {
+                'login_error': 'Username and password are required.'
+            })
+
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            if user.is_active:  # Ensure the user account is active
+                login(request, user)
+                return redirect('my_account')  # or wherever you want to send after login
+            else:
+                return render(request, 'main/login.html', {
+                    'login_error': 'Your account is inactive. Please contact support.'
+                })
+        else:
+            return render(request, 'main/login.html', {
+                'login_error': 'Invalid username or password.'
+            })
+    else:
+        return render(request, 'main/login.html')
+
+
+# Registration View
+def register_view(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+
+        if User.objects.filter(username=username).exists():
+            return render(request, 'main/register.html', {
+                'register_error': 'Username already exists.'
+            })
+        if User.objects.filter(email=email).exists():
+            return render(request, 'main/register.html', {
+                'register_error': 'Email already registered.'
+            })
+
+        # Create user with is_active=False
+        user = User.objects.create_user(username=username, email=email, password=password)
+        user.is_active = False  # Mark user as inactive until approved
+        user.save()
+
+        return render(request, 'main/register.html', {
+            'register_success': 'Registration submitted. Wait for admin approval.'
+        })
+    else:
+        return render(request, 'main/register.html')
+# User's Account Page
+def my_account(request):
+    return render(request, 'main/account.html')
 # Home page view
 def main(request):
     artists = Artish.objects.all()
@@ -83,9 +154,25 @@ def contact_view(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
-            # handle form data (send email or save to DB)
-            print(form.cleaned_data)
-            return redirect('contact')  # after submit
+            # Extract data
+            first_name = form.cleaned_data['first_name']
+            email = form.cleaned_data['email']
+            message = form.cleaned_data['message']
+
+            # Create email content
+            subject = f"New Contact Form Submission from {first_name}"
+            message_body = f"Name: {first_name}\nEmail: {email}\n\nMessage:\n{message}"
+
+            # Send email
+            send_mail(
+                subject,
+                message_body,
+                settings.DEFAULT_FROM_EMAIL,  # From email
+                [settings.CONTACT_RECEIVER_EMAIL],  # To email (you)
+                fail_silently=False,
+            )
+
+            return redirect('contact')  # After submit
     else:
         form = ContactForm()
     
